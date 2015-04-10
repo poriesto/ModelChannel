@@ -64,10 +64,8 @@ public:
 		
 		std::cout << "Analyze packets:" << std::endl;
 		UINT Succeful = 0, UnSucceful = 0;
-		for(auto value : pl)
-		{
-			checkPacket(value) ? Succeful += 1 : UnSucceful += 1;
-		}
+		checkPacketStream(pl, Succeful, UnSucceful);
+		
 		double Pb = 0.807, Pt;
 		double l = (Succeful * PacketSize) * BlockSize;
 		double L = SessionSize;
@@ -113,10 +111,7 @@ public:
 
 		std::cout << "Analyze packets:" << std::endl;
 		UINT Succeful = 0, UnSucceful = 0;
-		for(auto value : pl)
-		{
-			checkPacket(value) ? Succeful += 1 : UnSucceful += 1;
-		}
+		checkPacketStream(pl, Succeful, UnSucceful);
 		double R = ((Succeful*PacketSize) * BlockSize)/SessionSize;
 
 		std::cout << "Packets in session: " << pl.capacity() << std::endl;
@@ -187,10 +182,7 @@ public:
 
 		std::cout << "Analyze packets:" << std::endl;
 		UINT Succeful = 0, UnSucceful = 0;
-		for(auto value : pl)
-		{
-			checkPacket(value) ? Succeful += 1 : UnSucceful += 1;
-		}
+		checkPacketStream(pl, Succeful, UnSucceful);
 		double R = ((Succeful*PacketSize) * BlockSize)/SessionSize;
 
 		std::cout << "Packets in session: " << pl.capacity() << std::endl;

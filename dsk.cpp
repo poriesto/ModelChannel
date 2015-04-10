@@ -2,8 +2,11 @@
 
 int main()
 {
-	unsigned int SessionLenght = 0, PacketSize = 0, BlockSize = 0;
+	unsigned int SessionLenght = 0, PacketSize = 0, BlockSize = 0, model;
 	double p = 0.0, a = 0.0;
+	std::cout << "Chose channel model" << std::endl;
+	std::cout << "Enter 1 for DSK model, 2 - for PA model, 3 - for OPP model" << std::endl;
+	std::cin >> model;
 	std::cout << "Enter SessionLenght" << std::endl;
 	std::cin >> SessionLenght;
 	std::cout << "Enter BlockSize" << std::endl;
@@ -20,16 +23,26 @@ int main()
 	std::cout << "Enter PacketSize" << PacketSize << std::endl;
 
 	dsk* dk = new dsk(SessionLenght, BlockSize, PacketSize);
-	dk->setP(p);
-	dk->work();
-
 	pa* pk = new pa(SessionLenght, BlockSize, PacketSize);
-	pk->setP(p);
-	pk->setA(a);
-	pk->work();
-	
 	opp* op = new opp(SessionLenght, BlockSize, PacketSize);
-	op->work();
+									
+	switch(model)
+	{
+		case 1:
+			dk->setP(p);
+			dk->work();
+			break;
+		case 2:
+			pk->setP(p);
+			pk->setA(a);
+			pk->work();
+			break;
+		case 3:
+			op->work();
+			break;
+		default:
+			break;
+	}
 
 	return 0;
 }

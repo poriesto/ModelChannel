@@ -78,3 +78,17 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 	std::cout << "Packets created: " << ve.capacity() << std::endl;
 	return ve;
 }
+
+/*std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
+		for(auto value : pl)
+		{
+			checkPacket(value) ? Succeful += 1 : UnSucceful += 1;
+		}
+*/
+void checkPacketStream(std::vector<Packet> ps, UINT& Succeful, UINT& Unsucceful)
+{
+	for(auto value : ps)
+	{
+		checkPacket(value) ? Succeful += 1 : Unsucceful += 1;
+	}
+}
