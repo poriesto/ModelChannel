@@ -3,7 +3,7 @@
 int main()
 {
 	unsigned int SessionLenght = 0, PacketSize = 0, BlockSize = 0;
-	double p = 0.0;
+	double p = 0.0, a = 0.0;
 	std::cout << "Enter SessionLenght" << std::endl;
 	std::cin >> SessionLenght;
 	std::cout << "Enter BlockSize" << std::endl;
@@ -26,7 +26,10 @@ int main()
 	pa* pk = new pa(SessionLenght, BlockSize, PacketSize);
 	pk->setP(p);
 	pk->setA(a);
-	pa->work();
+	pk->work();
 	
+	opp* op = new opp(SessionLenght, BlockSize, PacketSize);
+	op->work();
+
 	return 0;
 }

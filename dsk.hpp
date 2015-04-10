@@ -34,6 +34,7 @@ public:
 	}
 	void work()
 	{
+		std::cout << "======Begin dsk model======" << std::endl;
 		std::vector<UINT>bytes = makeSession(SessionSize);
 		/*
 			Apply erors to bytes stream
@@ -76,6 +77,7 @@ public:
 		std::cout << "Succeful transmited packets: " << Succeful << std::endl;
 		std::cout << "Unsucceful transmited packets: " << UnSucceful << std::endl;
 		std::cout << "Result speed: " << R << std::endl;
+		std::cout << "======End dsk model======" << std::endl;
 	}
 private:
 	UINT BlockSize, PacketSize, SessionSize;
@@ -100,6 +102,7 @@ public:
 	~pa();
 	void work()
 	{
+		std::cout << "======Begin pa model======" << std::endl;
 		std::vector<UINT>bytes = makeSession(SessionSize);
 		/*
 			Apply erors to bytes stream
@@ -120,6 +123,7 @@ public:
 		std::cout << "Succeful transmited packets: " << Succeful << std::endl;
 		std::cout << "Unsucceful transmited packets: " << UnSucceful << std::endl;
 		std::cout << "Result speed: " << R << std::endl;
+		std::cout << "End pa model" << std::endl;
 	}
 	void setP(double p)
 	{
@@ -172,6 +176,7 @@ public:
 	~opp();
 	void work()
 	{
+		std::cout << "======Begin OPP model======" << std::endl;
 		std::vector<UINT>bytes = makeSession(SessionSize);
 		/*
 			Apply erors to bytes stream
@@ -192,6 +197,7 @@ public:
 		std::cout << "Succeful transmited packets: " << Succeful << std::endl;
 		std::cout << "Unsucceful transmited packets: " << UnSucceful << std::endl;
 		std::cout << "Result speed: " << R << std::endl;
+		std::cout << "======End OPP model======" << std::endl;
 	}
 private:
 	UINT BlockSize, PacketSize, SessionSize;
