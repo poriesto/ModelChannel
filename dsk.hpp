@@ -167,6 +167,7 @@ public:
 		this->PacketSize = PacketSize;
 		this->Blocks = this->SessionSize / this->BlockSize;
 		this->Packets = this->Blocks / this->PacketSize;
+		this->Count = 0;
 	}
 	~opp();
 	void work()
@@ -177,6 +178,20 @@ public:
 			Apply erors to bytes stream
 			Encode and decode bytes stream
 		*/
+		for(int i = 0; i < bytes.capacity(); i++)
+		{
+			gen:
+			int Pos = GenOppPos(this->A, this->V);
+			std::cout << Pos << std::endl;
+			Count == Pos ? bytes[Pos] = 1 : bytes[Pos] = 0;
+			Pos = SessionSize + 1 + GenOppPos(this->A, this->V);
+			Count ++;
+			if(Count >= SessionSize)
+			{
+				goto gen;
+			}
+		}
+
 		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
 		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
 
@@ -191,7 +206,25 @@ public:
 		std::cout << "Result speed: " << R << std::endl;
 		std::cout << "======End OPP model======" << std::endl;
 	}
+	void setParams(double A, double V)
+	{
+		this->A = A; this->V = V;
+	}
 private:
 	UINT BlockSize, PacketSize, SessionSize;
-	UINT Blocks, Packets;
+	UINT Blocks, Packets, Count;
+	double A,V, a, v;
+	UINT GenOppPos(double A, double V)
+	{
+		/*double R = generator(0,1);
+		double y = generator(0,1);*/
+		double R,y, a = 0, b = 1;
+		generator(a,b,R);
+		generator(a,b,y);
+		std::cout << "R = " << R << " y = " << y << std::endl;
+		double X = (A/pow(y,(1/V))) - a;
+		std::cout << "X = "<< X << std::endl; 
+		return static_cast<int>(X);
+	}
+
 };

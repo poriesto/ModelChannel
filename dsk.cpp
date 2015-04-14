@@ -38,6 +38,7 @@ int main()
 			pk->work();
 			break;
 		case 3:
+			op->setParams(12, 1.08);
 			op->work();
 			break;
 		default:

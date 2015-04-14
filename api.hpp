@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
+#include <string>
+#include <random>
 
 typedef unsigned int UINT;
 typedef std::vector<UINT> Block;
@@ -79,16 +81,18 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 	return ve;
 }
 
-/*std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
-		for(auto value : pl)
-		{
-			checkPacket(value) ? Succeful += 1 : UnSucceful += 1;
-		}
-*/
 void checkPacketStream(std::vector<Packet> ps, UINT& Succeful, UINT& Unsucceful)
 {
 	for(auto value : ps)
 	{
 		checkPacket(value) ? Succeful += 1 : Unsucceful += 1;
 	}
+}
+template<typename T>
+void generator(T a, T b, T& num)
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dis(a, b);
+	num = dis(gen);
 }
