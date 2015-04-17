@@ -54,25 +54,6 @@ public:
 		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
 		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
 		
-		/*std::cout << "Bytes start" << std::endl;
-		print(bytes);
-		std::cout << "Bytes end" << std::endl;
-		std::cout << "Blocks start" << std::endl;
-		for(auto value : bl)
-		{
-			print(value);
-		}
-		std::cout << "Blocks end" << std::endl;
-		std::cout << "Packets start" << std::endl;
-		for(auto value : pl)
-		{
-			for(auto valBK : value)
-			{
-				print(valBK);
-			}
-		}*/
-		//Bernuli
-		
 		std::cout << "Analyze packets:" << std::endl;
 		UINT Succeful = 0, UnSucceful = 0;
 		checkPacketStream(pl, Succeful, UnSucceful);
@@ -194,12 +175,16 @@ public:
 			std::cout << "i - " << i << std::endl;
 			int Pos = GenOppPos();
 			std::cout << Pos << std::endl;
-			Count == Pos ? bytes[Pos] = 1 : bytes[Pos] = 0;
-			Pos = SessionSize + 1 + GenOppPos();
-			Count ++;
+			if(Pos < SessionSize)
+			{
+				Count == Pos ? bytes[Pos] = 0 : bytes[Pos] = 1;
+				Pos = SessionSize + 1 + GenOppPos();
+				Count ++;
+			}
+			std::cout << "Count = " << Count << std::endl;
 			if(Count >= SessionSize)
 			{
-				Count = 0;
+				break;
 			}
 		}
 		print(bytes);
