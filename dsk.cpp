@@ -15,9 +15,9 @@ int main()
 	std::cin >> PacketSize;
 	std::cout << "Enter P" << std::endl;
 	std::cin >> p;
-	std::cout << "Enter a" << std::endl;
+	/*std::cout << "Enter a" << std::endl;
 	std::cin >> a;
-
+*/
 	std::cout << "Enter SessionLenght: " << SessionLenght << std::endl;
 	std::cout << "Enter BlockSize" << BlockSize << std::endl;
 	std::cout << "Enter PacketSize" << PacketSize << std::endl;
@@ -25,7 +25,7 @@ int main()
 	dsk* dk = new dsk(SessionLenght, BlockSize, PacketSize);
 	pa* pk = new pa(SessionLenght, BlockSize, PacketSize);
 	opp* op = new opp(SessionLenght, BlockSize, PacketSize);
-									
+
 	switch(model)
 	{
 		case 1:

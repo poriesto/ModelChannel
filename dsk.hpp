@@ -36,10 +36,21 @@ public:
 	{
 		std::cout << "======Begin dsk model======" << std::endl;
 		std::vector<UINT>bytes = makeSession(SessionSize);
-		/*
-			Apply erors to bytes stream
-			Encode and decode bytes stream
-		*/
+		UINT Count = 0;
+		double a = 0, b = 1;
+		double r;
+		for(auto i = 0; i < this->SessionSize; i++)
+		{
+			generator(a,b, r);
+			r < this->p ? bytes.at(i) = 1 : bytes.at(i) = 0;
+			Count++;
+
+			if(Count >= this->SessionSize)
+			{
+				break;
+			}
+		}
+		print(bytes);
 		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
 		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
 		
@@ -178,20 +189,20 @@ public:
 			Apply erors to bytes stream
 			Encode and decode bytes stream
 		*/
-		for(int i = 0; i < bytes.capacity(); i++)
+		for(int i = 0; i < bytes.capacity()-1; i++)
 		{
-			gen:
-			int Pos = GenOppPos(this->A, this->V);
+			std::cout << "i - " << i << std::endl;
+			int Pos = GenOppPos();
 			std::cout << Pos << std::endl;
 			Count == Pos ? bytes[Pos] = 1 : bytes[Pos] = 0;
-			Pos = SessionSize + 1 + GenOppPos(this->A, this->V);
+			Pos = SessionSize + 1 + GenOppPos();
 			Count ++;
 			if(Count >= SessionSize)
 			{
-				goto gen;
+				Count = 0;
 			}
 		}
-
+		print(bytes);
 		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
 		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
 
@@ -214,15 +225,13 @@ private:
 	UINT BlockSize, PacketSize, SessionSize;
 	UINT Blocks, Packets, Count;
 	double A,V, a, v;
-	UINT GenOppPos(double A, double V)
+	UINT GenOppPos()
 	{
-		/*double R = generator(0,1);
-		double y = generator(0,1);*/
 		double R,y, a = 0, b = 1;
 		generator(a,b,R);
 		generator(a,b,y);
 		std::cout << "R = " << R << " y = " << y << std::endl;
-		double X = (A/pow(y,(1/V))) - a;
+		double X = (A/pow(y,(1/V))) - A;
 		std::cout << "X = "<< X << std::endl; 
 		return static_cast<int>(X);
 	}
