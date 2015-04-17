@@ -166,10 +166,7 @@ public:
 	{
 		std::cout << "======Begin OPP model======" << std::endl;
 		std::vector<UINT>bytes = makeSession(SessionSize);
-		/*
-			Apply erors to bytes stream
-			Encode and decode bytes stream
-		*/
+		
 		for(int i = 0; i < bytes.capacity()-1; i++)
 		{
 			std::cout << "i - " << i << std::endl;
