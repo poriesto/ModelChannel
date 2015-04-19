@@ -3,6 +3,7 @@
 int main()
 {
 	unsigned int SessionLenght = 0, PacketSize = 0, BlockSize = 0, model;
+	double A = 0, V = 0;
 	double p = 0.0, a = 0.0;
 
 	std::cout << "Chose channel model" << std::endl;
@@ -37,7 +38,6 @@ int main()
 			pk->work();
 			break;
 		case 3:
-			double A = 0, V = 0;
 			std::cout << "Enter A" << std::endl;
 			std::cin >> A;
 			std::cout << "Enter V" << std::endl;

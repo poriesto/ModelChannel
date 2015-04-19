@@ -96,3 +96,48 @@ void generator(T a, T b, T& num)
 	std::uniform_real_distribution<> dis(a, b);
 	num = dis(gen);
 }
+std::vector<UINT> decodeBMA(std::vector<UINT>bytes)
+{
+	std::vector<UINT> b,c,t,s;
+	int N, L, m, d;
+
+	b.resize(bytes.capacity());	
+	t.resize(bytes.capacity());	
+	c.resize(bytes.capacity());	
+	s.resize(bytes.capacity());	
+	
+	std::fill(b.begin(), b.end(), 0);
+	std::fill(t.begin(), t.end(), 0);
+	std::fill(c.begin(), c.end(), 0);
+	std::fill(s.begin(), s.end(), 0);
+	
+	b[0] = c[0] = 1;
+	N = L = 0;
+	m = -1;
+	
+	while(N < s.capacity())
+	{
+		d = 0;
+		for(int i = 0; i <= L; i++)
+		{
+			d += s[N-i] * c[i];
+		}
+		d = d % 2;
+		if (d != 0)
+		{
+			t = c;
+			for(int i = 0; i <= s.capacity() + m - 1 - N; i++)
+			{
+				c[N - m + i] = c[N - m + i] ^ b[i];
+			}
+			if( L <= (N/2))
+			{
+				L = N + 1 - L;
+				m = N;
+				b = t;
+			}
+		}
+		N++;
+	}
+	return c;
+}

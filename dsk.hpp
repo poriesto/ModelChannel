@@ -184,10 +184,18 @@ public:
 				break;
 			}
 		}
+		std::cout << "\nWith errorrs:\n";
 		print(bytes);
+		//encode
+
+		//decode
+		bytes = decodeBMA(bytes);
+		std::cout << "\nAfter decode\n";
+		print(bytes);
+
 		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
 		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
-
+		
 		std::cout << "Analyze packets:" << std::endl;
 		UINT Succeful = 0, UnSucceful = 0;
 		checkPacketStream(pl, Succeful, UnSucceful);
@@ -217,5 +225,4 @@ private:
 		std::cout << "X = "<< X << std::endl; 
 		return static_cast<int>(X);
 	}
-
 };
