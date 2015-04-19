@@ -167,23 +167,20 @@ public:
 		std::cout << "======Begin OPP model======" << std::endl;
 		std::vector<UINT>bytes = makeSession(SessionSize);
 		
+		int Pos = GenOppPos();	
 		for(int i = 0; i < bytes.capacity()-1; i++)
 		{
-			std::cout << "i - " << i << std::endl;
-			int Pos = GenOppPos();
-			std::cout << Pos << std::endl;
-			if(Pos < SessionSize)
+			if(Pos == i)
 			{
-				Count == Pos ? bytes[Pos] = 0 : bytes[Pos] = 1;
-				Pos = SessionSize + 1 + GenOppPos();
-				Count ++;
+				bytes[i] = 1;
+				Pos = i + 1 + GenOppPos();
 			}
-			std::cout << "Count = " << Count << std::endl;
-			if(Count >= SessionSize)
+			else if( Pos != i)
 			{
-				break;
+				bytes[i] = 0;
 			}
 		}
+
 		std::cout << "\nWith errorrs:\n";
 		print(bytes);
 		//encode
@@ -217,12 +214,9 @@ private:
 	double A,V, a, v;
 	UINT GenOppPos()
 	{
-		double R,y, a = 0, b = 1;
+		double R, a = 0, b = 1;
 		generator(a,b,R);
-		generator(a,b,y);
-		std::cout << "R = " << R << " y = " << y << std::endl;
-		double X = (A/pow(y,(1/V))) - A;
-		std::cout << "X = "<< X << std::endl; 
+		double X = (A/pow(R,(1/V))) - A;
 		return static_cast<int>(X);
 	}
 };
