@@ -166,14 +166,16 @@ public:
 	{
 		std::cout << "======Begin OPP model======" << std::endl;
 		std::vector<UINT>bytes = makeSession(SessionSize);
-		
+		std::vector<int>errPOS;
 		int Pos = GenOppPos();	
 		for(int i = 0; i < bytes.capacity()-1; i++)
 		{
 			if(Pos == i)
 			{
 				bytes[i] = 1;
+				errPOS.emplace_back(Pos);
 				Pos = i + 1 + GenOppPos();
+				//errPOS.emplace_back(Pos);
 			}
 			else if( Pos != i)
 			{
@@ -183,14 +185,16 @@ public:
 
 		std::cout << "\nWith errorrs:\n";
 		print(bytes);
+		std::cout << "\nErrors" << errPOS.capacity() << std::endl;
+		print(errPOS);
 		//encode
 
-		//decode
+		/*//decode
 		bytes = decodeBMA(bytes);
 		std::cout << "\nAfter decode\n";
 		print(bytes);
-
-		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
+		*/
+		/*std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
 		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
 		
 		std::cout << "Analyze packets:" << std::endl;
@@ -201,7 +205,7 @@ public:
 		std::cout << "Packets in session: " << pl.capacity() << std::endl;
 		std::cout << "Succeful transmited packets: " << Succeful << std::endl;
 		std::cout << "Unsucceful transmited packets: " << UnSucceful << std::endl;
-		std::cout << "Result speed: " << R << std::endl;
+		std::cout << "Result speed: " << R << std::endl;*/
 		std::cout << "======End OPP model======" << std::endl;
 	}
 	void setParams(double A, double V)
@@ -217,6 +221,7 @@ private:
 		double R, a = 0, b = 1;
 		generator(a,b,R);
 		double X = (A/pow(R,(1/V))) - A;
+		std::cout << "X = " << X << " R = " << R << std::endl	;
 		return static_cast<int>(X);
 	}
 };
