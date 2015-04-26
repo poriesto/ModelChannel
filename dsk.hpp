@@ -175,7 +175,6 @@ public:
 				bytes[i] = 1;
 				errPOS.emplace_back(Pos);
 				Pos = i + 1 + GenOppPos();
-				//errPOS.emplace_back(Pos);
 			}
 			else if( Pos != i)
 			{
@@ -187,15 +186,30 @@ public:
 		print(bytes);
 		std::cout << "\nErrors" << errPOS.capacity() << std::endl;
 		print(errPOS);
-		//encode
+		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
 
-		/*//decode
-		bytes = decodeBMA(bytes);
-		std::cout << "\nAfter decode\n";
-		print(bytes);
-		*/
-		/*std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
-		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
+		UINT errCounter = 0;
+		UINT Unsucceful = 0, Succeful = 0;
+
+		for(auto value : bl)
+		{
+			for(auto val : value)
+			{
+				if(val != 0)
+				{
+					errCounter+=1;
+				}
+			}
+			errCounter > errCor ? Unsucceful++ : Succeful++;
+			errCounter = 0;
+		}
+		double speed = (Succeful*BlockSize)/SessionSize;
+		std::cout << "Blocks in session: " << bl.capacity() << std::endl;
+		std::cout << "Succeful blocks: " << Succeful << std::endl;
+		std::cout << "Unsuccefl blocks: " << Unsucceful << std::endl;
+		std::cout << "Percent succeful: " << (Succeful*100)/bl.capacity() << std::endl;
+		std::cout << "Result speed: " << speed << std::endl;
+		/*std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
 		
 		std::cout << "Analyze packets:" << std::endl;
 		UINT Succeful = 0, UnSucceful = 0;
@@ -212,9 +226,23 @@ public:
 	{
 		this->A = A; this->V = V;
 	}
+	void setCode(UINT errCor, UINT codeLenght)
+	{
+		this->errCor = errCor;
+		this->errCor = codeLenght;
+	}
+	UINT getErrCor()
+	{
+		return this->errCor;
+	}
+	UINT getCodeLenght()
+	{
+		return this->codeLenght;
+	}
 private:
 	UINT BlockSize, PacketSize, SessionSize;
 	UINT Blocks, Packets, Count;
+	UINT errCor = 2, codeLenght;
 	double A,V, a, v;
 	UINT GenOppPos()
 	{
