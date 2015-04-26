@@ -5,16 +5,23 @@
 #include <ctime>
 #include <string>
 #include <random>
-
 typedef unsigned int UINT;
+const UINT STRING_LENGHT = 40;
 typedef std::vector<UINT> Block;
 typedef std::vector<Block> Packet;
 template<typename T>
 void print(T cont)
 {
+	UINT counter = 0;
 	for(auto value : cont)
 	{
+		if (counter == STRING_LENGHT)
+		{
+			std::cout << std::endl;
+			counter = 0;
+		}
 		std::cout << value << " ";
+		counter++;
 	}
 	std::cout << std::endl;
 }

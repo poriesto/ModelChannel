@@ -1,11 +1,24 @@
 #include "dsk.hpp"
 
+void setCode(UINT& codeLenght, UINT& errorsCorrection)
+{
+	std::cout << std::endl << "Enter code params:" << std::endl;
+	std::cout << "Enter code length:" << std::endl;
+	std::cin >> codeLenght;
+	std::cout << "Enter errors correction" << std::endl;
+	std::cin >> errorsCorrection;
+}
+
 int main()
 {
-	unsigned int SessionLenght = 0, PacketSize = 0, BlockSize = 0, model;
+	unsigned int SessionLenght = 0, PacketSize = 0, BlockSize = 0, model, protocol;
+	unsigned int codeLenght, errorsCorrection;
 	double A = 0, V = 0;
 	double p = 0.0, a = 0.0;
 
+	std::cout << "Chose protocol type:" << std::endl;
+	std::cout << "Enter 1 - datagram, 2 for with latency, 3 - back on n steps" << std::endl;
+	std::cin >> protocol;
 	std::cout << "Chose channel model" << std::endl;
 	std::cout << "Enter 1 for DSK model, 2 - for PA model, 3 - for OPP model" << std::endl;
 	std::cin >> model;
@@ -35,6 +48,9 @@ int main()
 			std::cin >> a;
 			pk->setP(p);
 			pk->setA(a);
+			setCode(codeLenght, errorsCorrection);
+			pk->setCode(codeLenght, errorsCorrection);
+			pk->setProtocol(protocol);
 			pk->work();
 			break;
 		case 3:
@@ -42,13 +58,14 @@ int main()
 			std::cin >> A;
 			std::cout << "Enter V" << std::endl;
 			std::cin >> V;
+			setCode(codeLenght, errorsCorrection);
+			op->setProtocolType(protocol);
+			op->setCode(errorsCorrection, codeLenght);
 			op->setParams(A, V);
-			//op->setParams(12, 1.08);
 			op->work();
 			break;
 		default:
 			break;
 	}
-
 	return 0;
 }
