@@ -54,7 +54,7 @@ std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>byte
 	std::vector<Block> ve;
 	UINT IPOS = 0, EPOS = BlockSize;
 	ve.reserve(Blocks);
-	for(auto i = 0; i < Blocks; i++)
+	for(UINT i = 0; i < Blocks; i++)
 	{
 		Block bk;
 		for(auto i = IPOS; i < EPOS; i++)
@@ -73,7 +73,7 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 	std::vector<Packet>ve;
 	UINT IPOS = 0, EPOS = PacketSize;
 	ve.reserve(Packets);
-	for(auto i = 0; i < Packets; i++)
+	for(UINT i = 0; i < Packets; i++)
 	{
 		Packet pk;
 		for(auto i = IPOS; i < EPOS; i++)
@@ -122,7 +122,7 @@ std::vector<UINT> decodeBMA(std::vector<UINT>bytes)
 	N = L = 0;
 	m = -1;
 	
-	while(N < s.capacity())
+	while(N < (int)s.capacity())
 	{
 		d = 0;
 		for(int i = 0; i <= L; i++)

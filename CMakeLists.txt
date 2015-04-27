@@ -10,4 +10,4 @@ set(HEADERS_FILES
 set(SOURCE_FILES
     ${SOURCE_DIR}dsk.cpp)
 	
-add_executable(${PROJECT} ${HEADERS_FILES} ${SOURCE_FILES})
+add_executable(Diplom ${HEADERS_FILES} ${SOURCE_FILES})

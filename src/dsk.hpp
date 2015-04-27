@@ -185,6 +185,8 @@ private:
 		Succeful = Unsucceful = errCounter = 0;
 		std::vector<Block> ble;
 		std::cout << "!******Datagramm protocol begin******!" << std::endl;
+
+		//TODO Need deep check for correction work
 		for(auto value : bl)
 		{
 			for(auto val : value)
@@ -192,6 +194,7 @@ private:
 				if (val == 1) {
 					errCounter++;
 				}
+				std::cout << errCounter << std::endl;
 			}
 			if(errCounter > errCor)
 			{
@@ -203,6 +206,12 @@ private:
 				Succeful++;
 			}
 			errCounter = 0;
+		}
+
+		std::cout << "Blocks with errors:" << std::endl;
+		for(auto value : ble)
+		{
+			print(value);
 		}
 
 		double speed = (Succeful*BlockSize)/SessionSize;
