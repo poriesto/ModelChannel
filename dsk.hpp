@@ -1,5 +1,6 @@
 #include "api.hpp"
-
+//TODO implement Protocol models for all channel models
+//TODO reimplement or delete dsk model
 class dsk
 {
 public:
@@ -11,7 +12,8 @@ public:
 		this->Blocks = this->SessionSize / this->BlockSize;
 		this->Packets = this->Blocks / this->PacketSize;
 	}
-	~dsk();
+
+	virtual ~dsk() = 0;
 	void setP(double p)
 	{
 		this->p = p;
@@ -74,7 +76,8 @@ public:
 		this->Blocks = this->SessionSize / this->BlockSize;
 		this->Packets = this->Blocks / this->PacketSize;
 	}
-	~pa();
+
+	virtual ~pa() = 0;
 	void work()
 	{
 		std::cout << "======Begin pa model======" << std::endl;
@@ -160,7 +163,8 @@ public:
 		this->Packets = this->Blocks / this->PacketSize;
 		this->Count = 0;
 	}
-	~opp();
+
+	virtual ~opp() = 0;
 	void work()
 	{
 		std::cout << "======Begin OPP model======" << std::endl;
@@ -284,7 +288,7 @@ private:
 	}
 	void backNsteps(UINT steps)
 	{
-		UINT Succeful, Unsucceful, errCounter;
+		UINT Succeful = 0, Unsucceful = 0, errCounter = 0;
 		std::vector<Block>ble;
 		std::cout << "!******backNsteps Protocol begin******!" << std::endl;
 		for(auto value : bl)
