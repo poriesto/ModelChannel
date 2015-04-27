@@ -14,11 +14,7 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386cb040-bf9c-4f96-9a32-023bbefe5cab" name="Default" comment="added TODO and cleanup code">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Diplom.iml" afterPath="$PROJECT_DIR$/.idea/Diplom.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dsk.hpp" afterPath="$PROJECT_DIR$/dsk.hpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="386cb040-bf9c-4f96-9a32-023bbefe5cab" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diplom.iws" />
@@ -209,6 +205,13 @@
       <option name="number" value="Default" />
       <updated>1430072092340</updated>
     </task>
+    <task id="LOCAL-00001" summary="added TODO and cleanup code">
+      <created>1430134974523</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1430134974523</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
