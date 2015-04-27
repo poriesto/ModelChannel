@@ -29,17 +29,17 @@ int main()
 	std::cout << "Enter PacketSize" << std::endl;
 	std::cin >> PacketSize;
 
-	dsk* dk = new dsk(SessionLenght, BlockSize, PacketSize);
+	//dsk* dk = new dsk(SessionLenght, BlockSize, PacketSize);
 	pa* pk = new pa(SessionLenght, BlockSize, PacketSize);
 	opp* op = new opp(SessionLenght, BlockSize, PacketSize);
 
 	switch(model)
 	{
 		case 1:
-			std::cout << "Enter P" << std::endl;
+			/*std::cout << "Enter P" << std::endl;
 			std::cin >> p;
 			dk->setP(p);
-			dk->work();
+			dk->work();*/
 			break;
 		case 2:
 			std::cout << "Enter P" << std::endl;
@@ -67,5 +67,5 @@ int main()
 		default:
 			break;
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }

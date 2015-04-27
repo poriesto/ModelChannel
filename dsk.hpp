@@ -1,67 +1,5 @@
 #include "api.hpp"
 //TODO implement Protocol models for all channel models
-//TODO reimplement or delete dsk model
-class dsk
-{
-public:
-	dsk(UINT SessionSize, UINT BlockSize, UINT PacketSize)
-	{
-		this->SessionSize = SessionSize;
-		this->BlockSize = BlockSize;
-		this->PacketSize = PacketSize;
-		this->Blocks = this->SessionSize / this->BlockSize;
-		this->Packets = this->Blocks / this->PacketSize;
-	}
-
-	virtual ~dsk() = 0;
-	void setP(double p)
-	{
-		this->p = p;
-	}
-
-	void work()
-	{
-		std::cout << "======Begin dsk model======" << std::endl;
-		std::vector<UINT>bytes = makeSession(SessionSize);
-		UINT Count = 0;
-		double a = 0, b = 1;
-		double r;
-		for(auto i = 0; i < this->SessionSize; i++)
-		{
-			generator(a,b, r);
-			r < this->p ? bytes.at(i) = 1 : bytes.at(i) = 0;
-			Count++;
-
-			if(Count >= this->SessionSize)
-			{
-				break;
-			}
-		}
-		print(bytes);
-		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
-		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
-		
-		std::cout << "Analyze packets:" << std::endl;
-		UINT Succeful = 0, UnSucceful = 0;
-		checkPacketStream(pl, Succeful, UnSucceful);
-		
-		double Pb = 0.807, Pt;
-		double l = (Succeful * PacketSize) * BlockSize;
-		double L = SessionSize;
-		double R = l * Pb/L;
-
-		std::cout << "Packets in session: " << pl.capacity() << std::endl;
-		std::cout << "Succeful transmited packets: " << Succeful << std::endl;
-		std::cout << "Unsucceful transmited packets: " << UnSucceful << std::endl;
-		std::cout << "Result speed: " << R << std::endl;
-		std::cout << "======End dsk model======" << std::endl;
-	}
-private:
-	UINT BlockSize, PacketSize, SessionSize;
-	UINT Blocks, Packets;
-	double p;
-};
-
 /*
 pa model
 */
@@ -77,7 +15,10 @@ public:
 		this->Packets = this->Blocks / this->PacketSize;
 	}
 
-	virtual ~pa() = 0;
+	~pa()
+	{
+
+	}
 	void work()
 	{
 		std::cout << "======Begin pa model======" << std::endl;
@@ -164,7 +105,8 @@ public:
 		this->Count = 0;
 	}
 
-	virtual ~opp() = 0;
+	~opp()
+	{}
 	void work()
 	{
 		std::cout << "======Begin OPP model======" << std::endl;
@@ -184,9 +126,7 @@ public:
 			}
 		}
 
-		/*std::cout << "\nWith errorrs:\n";
-		print(bytes);*/
-		std::cout << "\nErrors" << errPOS.capacity() << std::endl;
+		std::cout << std::endl << "Errors" << std::endl;
 		print(errPOS);
 		bl = makeBlocks(Blocks, BlockSize, bytes);
 
@@ -227,7 +167,7 @@ public:
 private:
 	UINT BlockSize, PacketSize, SessionSize;
 	UINT Blocks, Packets, Count, ProtocolType;
-	UINT errCor = 2, codeLenght, steps;
+	UINT errCor, codeLenght, steps;
 	std::vector<UINT>bytes, errPOS;
 	std::vector<Block> bl;
 	double A,V;
@@ -241,14 +181,17 @@ private:
 	}
 	void datagrammProtocol()
 	{
-		UINT Succeful, Unsucceful, errCounter = 0;
+		UINT Succeful, Unsucceful, errCounter;
+		Succeful = Unsucceful = errCounter = 0;
 		std::vector<Block> ble;
 		std::cout << "!******Datagramm protocol begin******!" << std::endl;
 		for(auto value : bl)
 		{
 			for(auto val : value)
 			{
-				val == 1 ? errCounter++ : errCounter = errCounter;
+				if (val == 1) {
+					errCounter++;
+				}
 			}
 			if(errCounter > errCor)
 			{
@@ -273,6 +216,7 @@ private:
 	void latencyProtocol()
 	{
 		UINT Succeful, Unsucceful;
+		Succeful = Unsucceful = 0;
 		std::cout << "!******Latency protocol begin******!" << std::endl;
 		for(auto value : bl)
 		{}
@@ -295,7 +239,9 @@ private:
 		{
 			for(auto val : value)
 			{
-				val > 0 ? errCounter++ : errCounter = errCounter;
+				if (val > 0) {
+					errCounter++;
+				}
 			}
 			if (errCounter > errCor) {
 				Unsucceful++;
