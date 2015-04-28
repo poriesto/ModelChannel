@@ -1,7 +1,12 @@
-class dsk
+#include "api.hpp"
+//TODO implement Protocol models for all channel models
+/*
+pa model
+*/
+class pa
 {
 public:
-	dsk(UINT SessionSize, UINT BlockSize, UINT PacketSize)
+	pa(UINT SessionSize, UINT BlockSize, UINT PacketSize)
 	{
 		this->SessionSize = SessionSize;
 		this->BlockSize = BlockSize;
@@ -10,55 +15,80 @@ public:
 		this->Packets = this->Blocks / this->PacketSize;
 	}
 
-	~dsk()
-	{}
-	void setP(double p)
+	~pa()
 	{
-		this->p = p;
-	}
 
+	}
 	void work()
 	{
-		std::cout << "======Begin dsk model======" << std::endl;
-		std::vector<UINT>bytes = makeSession(SessionSize);
-		UINT Count = 0;
-		double a = 0, b = 1;
-		double r;
-		for(auto i = 0; i < this->SessionSize; i++)
-		{
-			generator(a,b, r);
-			r < this->p ? bytes.at(i) = 1 : bytes.at(i) = 0;
-			Count++;
-
-			if(Count >= this->SessionSize)
-			{
-				break;
-			}
-		}
-		print(bytes);
-		std::vector<Block> bl = makeBlocks(Blocks, BlockSize, bytes);
-		std::vector<Packet> pl = makePackets(PacketSize, Packets, bl);
+		std::cout << "======Begin pa model======" << std::endl;
+		bytes = makeSession(SessionSize);
+		bl = makeBlocks(Blocks, BlockSize, bytes);
+		pl = makePackets(PacketSize, Packets, bl);
 
 		std::cout << "Analyze packets:" << std::endl;
 		UINT Succeful = 0, UnSucceful = 0;
 		checkPacketStream(pl, Succeful, UnSucceful);
-
-		double Pb = 0.807, Pt;
-		double l = (Succeful * PacketSize) * BlockSize;
-		double L = SessionSize;
-		double R = l * Pb/L;
+		double R = ((Succeful*PacketSize) * BlockSize)/SessionSize;
 
 		std::cout << "Packets in session: " << pl.capacity() << std::endl;
 		std::cout << "Succeful transmited packets: " << Succeful << std::endl;
 		std::cout << "Unsucceful transmited packets: " << UnSucceful << std::endl;
 		std::cout << "Result speed: " << R << std::endl;
-		std::cout << "======End dsk model======" << std::endl;
+		std::cout << "End pa model" << std::endl;
+	}
+	void setP(double p)
+	{
+		this->p = p;
+	}
+	void setA(double a)
+	{
+		this->a = a;
+	}
+	void setCode(UINT codelenght, UINT correction)
+	{
+		this->codelenght = codelenght;
+		this->correction = correction;
+	}
+	void setProtocol(UINT protocol)
+	{
+		this->protocol = protocol;
 	}
 private:
 	UINT BlockSize, PacketSize, SessionSize;
 	UINT Blocks, Packets;
-	double p;
+	UINT codelenght, correction, protocol;
+	std::vector<UINT> bytes;
+	std::vector<Block> bl;
+	std::vector<Packet> pl;
+	double p, a;
+
+	void datagrammProtocol()
+	{
+		std::cout << "!******Datagramm protocol begin******!" << std::endl;
+		for(auto value : bl)
+		{}
+		std::cout << "!******Datagramm protocol end******!" << std::endl;
+	}
+	void latencyProtocol()
+	{
+		std::cout << "!******Latency protocol begin******!" << std::endl;
+		for(auto value : bl)
+		{}
+		std::cout << "!******Latency protocol end******!" << std::endl;
+
+	}
+	void backNsteps(UINT steps)
+	{
+		std::cout << "!******backNsteps Protocol begin******!" << std::endl;
+		for(auto value : bl)
+		{}
+		std::cout << "!******backNsteps Protocol end******!" << std::endl;
+
+	}
+
 };
+
 /*
 OPP model
 */
@@ -236,75 +266,3 @@ private:
 
 	}
 };
-
-//
-#include "opp.h"
-/*
-void setCode(UINT& codeLenght, UINT& errorsCorrection)
-{
-	std::cout << std::endl << "Enter code params:" << std::endl;
-	std::cout << "Enter code length:" << std::endl;
-	std::cin >> codeLenght;
-	std::cout << "Enter errors correction" << std::endl;
-	std::cin >> errorsCorrection;
-}
-int main()
-{
-	unsigned int SessionLenght = 0, PacketSize = 0, BlockSize = 0, model, protocol;
-	unsigned int codeLenght, errorsCorrection;
-	double A = 0, V = 0;
-	double p = 0.0, a = 0.0;
-
-	std::cout << "Chose protocol type:" << std::endl;
-	std::cout << "Enter 1 - datagram, 2 for with latency, 3 - back on n steps" << std::endl;
-	std::cin >> protocol;
-	std::cout << "Chose channel model" << std::endl;
-	std::cout << "Enter 1 for DSK model, 2 - for PA model, 3 - for OPP model" << std::endl;
-	std::cin >> model;
-	std::cout << "Enter SessionLenght" << std::endl;
-	std::cin >> SessionLenght;
-	std::cout << "Enter BlockSize" << std::endl;
-	std::cin >> BlockSize;
-	std::cout << "Enter PacketSize" << std::endl;
-	std::cin >> PacketSize;
-
-	//dsk* dk = new dsk(SessionLenght, BlockSize, PacketSize);
-	pa* pk = new pa(SessionLenght, BlockSize, PacketSize);
-	opp* op = new opp(SessionLenght, BlockSize);
-
-	switch(model)
-	{
-		case 1:
-			/*std::cout << "Enter P" << std::endl;
-			std::cin >> p;
-			dk->setP(p);
-			dk->work();
-			break;
-		case 2:
-			std::cout << "Enter P" << std::endl;
-			std::cin >> p;
-			std::cout << "Enter a" << std::endl;
-			std::cin >> a;
-			pk->setP(p);
-			pk->setA(a);
-			setCode(codeLenght, errorsCorrection);
-			pk->setCode(codeLenght, errorsCorrection);
-			pk->setProtocol(protocol);
-			pk->work();
-			break;
-		case 3:
-			std::cout << "Enter A" << std::endl;
-			std::cin >> A;
-			std::cout << "Enter V" << std::endl;
-			std::cin >> V;
-			setCode(codeLenght, errorsCorrection);
-			op->setProtocolType(protocol);
-			op->setCode(errorsCorrection, codeLenght);
-			op->setParams(A, V);
-			op->work();
-			break;
-		default:
-			break;
-	}
-	return EXIT_SUCCESS;
-}*/
