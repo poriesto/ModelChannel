@@ -36,81 +36,22 @@ void opp::work()
 	printDb(bl);
 	switch (ProtocolType){
 		case 1:
-			datagrammPr();
+			datagrammProtocol(bl, code);
 			break;
 		case 2:
-			lantecyPr();
+			UINT latency;
+			std::cout << "Enter latency" << std::endl;
+			std::cin >> latency;
+			latencyProtocol(bl, code, latency);
 			break;
 		case 3:
 			UINT steps;
 			std::cout << "Enter steps for protocol" << std::endl;
 			std::cin >> steps;
-			backNsteps(steps);
+			backNsteps(bl, code, steps);
 			break;
 	}
 	std::cout << "======End OPP model======" << std::endl;
 }
 
-void opp::backNsteps(UINT steps) {
-	UINT Succeful = 0, Unsucceful = 0, errCounter = 0;
-	std::vector<Block>ble;
-	std::cout << "!******backNsteps Protocol begin******!" << std::endl;
-	for(auto value : bl){
-	}
 
-	std::cout << "Blocks in session: " << bl.capacity() << std::endl;
-	std::cout << "Succeful blocks: " << Succeful << std::endl;
-	std::cout << "Unsuccefl blocks: " << Unsucceful << std::endl;
-	std::cout << "Percent succeful: " << (Succeful*100)/bl.capacity() << std::endl;
-	std::cout << "!******backNsteps Protocol end******!" << std::endl;
-}
-
-void opp::lantecyPr() {
-	UINT Succeful, Unsucceful;
-	Succeful = Unsucceful = 0;
-	std::cout << "!******Latency protocol begin******!" << std::endl;
-	for(auto value : bl){
-
-	}
-
-	std::cout << "Blocks in session: " << bl.capacity() << std::endl;
-	std::cout << "Succeful blocks: " << Succeful << std::endl;
-	std::cout << "Unsuccefl blocks: " << Unsucceful << std::endl;
-	std::cout << "Percent succeful: " << (Succeful*100)/bl.capacity() << std::endl;
-	std::cout << "!******Latency protocol end******!" << std::endl;
-}
-
-void opp::datagrammPr() {
-	UINT Succeful, Unsucceful, errCounter;
-	Succeful = Unsucceful = errCounter = 0;
-	std::vector<Block> ble;
-	std::cout << "!******Datagramm protocol begin******!" << std::endl;
-
-	//TODO Need deep check for correction work
-	for(auto value : bl){
-		for(auto val : value){
-			if (val == 1) {
-				errCounter++;
-			}
-		}
-		if(errCounter > errosCor){
-			Unsucceful ++;
-			ble.emplace_back(value);
-		}
-		else{
-			Succeful++;
-		}
-		errCounter = 0;
-	}
-
-		std::cout << "Blocks with errors:" << std::endl;
-		printDb(ble);
-
-		double speed = (Succeful*BlockSize)/SessionSize;
-		std::cout << "Blocks in session: " << bl.capacity() << std::endl;
-		std::cout << "Succeful blocks: " << Succeful << std::endl;
-		std::cout << "Unsuccefl blocks: " << Unsucceful << std::endl;
-		std::cout << "Percent succeful: " << (Succeful*100)/bl.capacity() << std::endl;
-		std::cout << "Result speed: " << speed << std::endl;
-		std::cout << "!******Datagramm protocol end******!" << std::endl;
-}

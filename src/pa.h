@@ -46,11 +46,6 @@ private:
 	std::vector<Block> bl;
 	std::vector<Packet> pl;
 	double p, a;
-
-	void datagrammProtocol();
-	void latencyProtocol();
-	void backNsteps(UINT steps);
-
 };
 
 #endif //DIPLOM_PA_H

@@ -21,33 +21,3 @@ void pa::work(){
 	std::cout << "Result speed: " << R << std::endl;
 	std::cout << "End pa model" << std::endl;
 }
-
-void pa::datagrammProtocol(){
-	std::cout << "!******Datagramm protocol begin******!" << std::endl;
-
-	for(auto value : bl){
-
-	}
-
-	std::cout << "!******Datagramm protocol end******!" << std::endl;
-}
-
-void pa::latencyProtocol(){
-	std::cout << "!******Latency protocol begin******!" << std::endl;
-
-	for(auto value : bl){
-
-	}
-
-	std::cout << "!******Latency protocol end******!" << std::endl;
-}
-
-void pa::backNsteps(UINT steps){
-	std::cout << "!******backNsteps Protocol begin******!" << std::endl;
-
-	for(auto value : bl){
-
-	}
-
-	std::cout << "!******backNsteps Protocol end******!" << std::endl;
-}

@@ -16,8 +16,8 @@ public:
 
 
     void setCode(UINT codeLength, UINT errosCor) {
-        opp::codeLength = codeLength;
-        opp::errosCor = errosCor;
+        opp::code.errorsCorrection = errosCor;
+        opp::code.codeLegth = codeLength;
     }
 
     void setParams(double A, double V) {
@@ -34,15 +34,12 @@ public:
 private:
     UINT BlockSize, SessionSize;
     UINT Blocks, ProtocolType;
-    UINT errosCor, codeLength;
+    Code code;
     std::vector<UINT> bytes, errorsPos;
     std::vector<Block> bl;
     double A,V;
 
     UINT GenOppPos();
-    void datagrammPr();
-    void lantecyPr();
-    void backNsteps(UINT steps);
 };
 
 

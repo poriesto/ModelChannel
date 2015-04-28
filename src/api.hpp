@@ -13,6 +13,10 @@ typedef unsigned int UINT;
 const UINT STRING_LENGHT = 40;
 typedef std::vector<UINT> Block;
 typedef std::vector<Block> Packet;
+struct Code{
+	UINT errorsCorrection;
+	UINT codeLegth;
+};
 
 void print(std::vector<UINT> cont);
 void printDb(std::vector<std::vector<UINT>> cont);
@@ -23,5 +27,7 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 void checkPacketStream(std::vector<Packet> ps, UINT& Succeful, UINT& Unsucceful);
 void generator(double a, double b, double& num);
 std::vector<UINT> decodeBMA(std::vector<UINT>bytes);
-
+void datagrammProtocol(std::vector<Block>bl, Code code);
+void backNsteps(std::vector<Block>bl, Code code, UINT steps);
+void latencyProtocol(std::vector<Block>bl, Code code, UINT latency);
 #endif //DIPLOM_API_HPP

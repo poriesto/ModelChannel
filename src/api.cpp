@@ -67,7 +67,6 @@ std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>byte
 		IPOS += BlockSize;
 		EPOS += BlockSize;
 	}
-	std::cout << "Blocks created: " << ve.capacity() << std::endl;
 	return ve;
 }
 
@@ -151,4 +150,42 @@ std::vector<UINT> decodeBMA(std::vector<UINT>bytes)
 		N++;
 	}
 	return c;
+}
+
+void datagrammProtocol(std::vector<Block>bl, Code code){
+	UINT Succeful = 0, Unsucceful = 0, errsCounter = 0;
+	UINT BlockSize = bl.at(0).capacity();
+	std::vector<Block>ble;
+	
+	std::cout << "!******Datagramm protocol begin******!" << std::endl;
+	for(auto value : bl){
+		for(auto val : value){
+			if(val == 1){
+				errsCounter++;
+			}
+		}
+		if(errsCounter > code.errorsCorrection)	{
+			Unsucceful++;
+			ble.emplace_back(value);
+		}
+		else{
+			Succeful++;
+		}
+		errsCounter = 0;
+	}
+	std::cout << "Blocks with errors" << std::endl;
+	printDb(ble);
+
+	double speed = (Succeful*BlockSize)/bl.capacity();
+	std::cout << "Blocks in session: " << bl.capacity() << std::endl <<
+			"Succeful blocks: " << Succeful << std::endl <<
+			"Unsucceful blocks: " << Unsucceful << std::endl <<
+			"Percent succeful: " << (Succeful*100)/bl.capacity() << std::endl <<
+			"Result speed: " << speed << std::endl;
+	std::cout << "!******Datagramm protocol end******!" << std::endl;
+}
+void backNsteps(std::vector<Block>bl, Code code, UINT steps){
+
+}
+void latencyProtocol(std::vector<Block>bl, Code code, UINT latency){
 }
