@@ -156,7 +156,7 @@ void datagrammProtocol(std::vector<Block>bl, Code code){
 	UINT Succeful = 0, Unsucceful = 0, errsCounter = 0;
 	UINT BlockSize = bl.at(0).capacity();
 	std::vector<Block>ble;
-	
+	//TODO implement datagramm protocol
 	std::cout << "!******Datagramm protocol begin******!" << std::endl;
 	for(auto value : bl){
 		for(auto val : value){
@@ -185,7 +185,8 @@ void datagrammProtocol(std::vector<Block>bl, Code code){
 	std::cout << "!******Datagramm protocol end******!" << std::endl;
 }
 void backNsteps(std::vector<Block>bl, Code code, UINT steps){
-
+	//TODO implement back n steps protocol
 }
 void latencyProtocol(std::vector<Block>bl, Code code, UINT latency){
+	//TODO implement protocol with latency
 }
