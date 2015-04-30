@@ -10,25 +10,20 @@ class opp {
 public:
     opp(UINT BlockSize, UINT SessionSize):BlockSize(BlockSize), SessionSize(SessionSize) {
         opp::Blocks = opp::SessionSize / opp::BlockSize;
+		opp::bytes = makeSession(opp::SessionSize);
     }
-
     virtual ~opp() { }
-
-
     void setCode(UINT codeLength, UINT errosCor) {
         opp::code.errorsCorrection = errosCor;
         opp::code.codeLegth = codeLength;
     }
-
     void setParams(double A, double V) {
         opp::A = A;
         opp::V = V;
     }
-
     void setProtocolType(UINT ProtocolType) {
         opp::ProtocolType = ProtocolType;
     }
-
     void work();
 
 private:

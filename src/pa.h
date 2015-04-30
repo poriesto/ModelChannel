@@ -10,38 +10,33 @@
 class pa
 {
 public:
-	pa(UINT SessionSize, UINT BlockSize, UINT PacketSize)
-	{
-		this->SessionSize = SessionSize;
-		this->BlockSize = BlockSize;
-		this->PacketSize = PacketSize;
-		this->Blocks = this->SessionSize / this->BlockSize;
-		this->Packets = this->Blocks / this->PacketSize;
+	pa(UINT SessionSize, UINT BlockSize, UINT PacketSize) : SessionSize(SessionSize), BlockSize(BlockSize),
+															PacketSize(PacketSize) {
+		pa::Blocks = pa::SessionSize / pa::BlockSize;
+		pa::Packets = pa::Blocks / pa::PacketSize;
+		pa::bytes = makeSession(pa::SessionSize);
 	}
-
-	~pa()
-	{
-
-	}
-	void work();
-	void setParams(double a, double p)
-	{
+	virtual ~pa(){}
+	void setParams(double a, double p){
 		pa::a = a;
 		pa::p = p;
 	}
-	void setCode(UINT codelenght, UINT correction)
-	{
-		pa::codelenght = codelenght;
-		pa::correction = correction;
+	void setCode(UINT codelenght, UINT correction){
+		pa::code.codeLegth = codelenght;
+		pa::code.errorsCorrection = correction;
 	}
-	void setProtocol(UINT protocol)
-	{
-		this->protocol = protocol;
+	void setCode(Code code){
+		pa::code = code;
 	}
+	void setProtocol(UINT protocol)	{
+		pa::protocol = protocol;
+	}
+	void work();
 private:
-	UINT BlockSize, PacketSize, SessionSize;
+	UINT SessionSize, BlockSize, PacketSize;
 	UINT Blocks, Packets;
-	UINT codelenght, correction, protocol;
+	UINT protocol;
+	Code code;
 	std::vector<UINT> bytes;
 	std::vector<Block> bl;
 	std::vector<Packet> pl;

@@ -6,18 +6,24 @@
 
 void pa::work(){
     std::cout << "======Begin pa model======" << std::endl;
-	bytes = makeSession(SessionSize);
 	bl = makeBlocks(Blocks, BlockSize, bytes);
 	pl = makePackets(PacketSize, Packets, bl);
 
-	std::cout << "Analyze packets:" << std::endl;
-	UINT Succeful = 0, UnSucceful = 0;
-	checkPacketStream(pl, Succeful, UnSucceful);
-	double R = ((Succeful*PacketSize) * BlockSize)/SessionSize;
+	switch(pa::protocol){
+		case 1:
+			datagrammProtocol(bl, code);
+			break;
+		case 2:
+			UINT latency;
+			setLatency(latency);
+			latencyProtocol(bl, code , latency);
+			break;
+		case 3:
+			UINT steps;
+			setNsteps(steps);
+			backNsteps(bl, code, steps);
+			break;
+	}
 
-	std::cout << "Packets in session: " << pl.capacity() << std::endl;
-	std::cout << "Succeful transmited packets: " << Succeful << std::endl;
-	std::cout << "Unsucceful transmited packets: " << UnSucceful << std::endl;
-	std::cout << "Result speed: " << R << std::endl;
 	std::cout << "End pa model" << std::endl;
 }
