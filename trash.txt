@@ -373,3 +373,11 @@ void opp::datagrammPr() {
 		std::cout << "Result speed: " << speed << std::endl;
 		std::cout << "!******Datagramm protocol end******!" << std::endl;
 }
+
+		/*if(errsCounter > code.errorsCorrection)	{
+			Unsucceful++;
+			ble.emplace_back(value);
+		}
+		else{
+			Succeful++;
+		}*/

@@ -96,23 +96,12 @@ void setLatency(UINT& latency){
 void datagrammProtocol(std::vector<Block>bl, Code code){
 	UINT Succeful = 0, Unsucceful = 0, errsCounter = 0;
 	UINT BlockSize = bl.at(0).capacity();
-	std::vector<Block>ble;
-	
+
 	//TODO implement datagramm protocol
 	std::cout << "!******Datagramm protocol begin******!" << std::endl;
 	for(auto value : bl){
-		for(auto val : value){
-			if(val == 1){
-				errsCounter++;
-			}
-		}
-		if(errsCounter > code.errorsCorrection)	{
-			Unsucceful++;
-			ble.emplace_back(value);
-		}
-		else{
-			Succeful++;
-		}
+		checkBlockErrs(value);
+		errsCounter > code.errorsCorrection ? Unsucceful++ : Succeful++;
 		errsCounter = 0;
 	}
 
@@ -126,7 +115,20 @@ void datagrammProtocol(std::vector<Block>bl, Code code){
 }
 void backNsteps(std::vector<Block>bl, Code code, UINT steps){
 	//TODO implement back n steps protocol
+	std::cout << "!******BackNstep protocol begin******!" << std::endl;
+	std::cout << "!******BackNstep protocol end******!" << std::endl;
 }
 void latencyProtocol(std::vector<Block>bl, Code code, UINT latency){
 	//TODO implement protocol with latency
+	std::cout << "!******Latency protocol begin******!" << std::endl;
+	std::cout << "!******Latency protocol end******!" << std::endl;
+}
+UINT checkBlockErrs(Block bl){
+	UINT errors = 0;
+	for(auto value : bl){
+		if(value == 1){
+			errors+=1;
+		}
+	}
+	return errors;
 }

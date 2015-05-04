@@ -43,4 +43,5 @@ void setparam(T& param, std::string message){
 	std::cout << message << std::endl;
 	std::cin >> param;
 }
+UINT checkBlockErrs(Block bl);
 #endif //DIPLOM_API_HPP
