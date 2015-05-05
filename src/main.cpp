@@ -12,10 +12,7 @@ int main(){
 			"Enter 1 - datagramm, 2 - with latency, 3 - backNstep");
 	setparam(model, "Chose channel model\n"
 			"Enter 1 - dsk, 2 - PA, 3 - OPP");
-	std::cout << "Enter SessionLenght" << std::endl;
-	std::cin >> SessionLenght;
-	std::cout << "Enter BlockSize" << std::endl;
-	std::cin >> BlockSize;
+	set2params(SessionLenght, BlockSize, "Set SessionLenght and BlockSize");
 	std::cout << "Enter PacketSize" << std::endl;
 	std::cin >> PacketSize;
 
