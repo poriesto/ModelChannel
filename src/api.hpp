@@ -17,8 +17,19 @@ struct Code{
 	UINT errorsCorrection;
 	UINT codeLegth;
 };
-
-void print(std::vector<UINT> cont);
+template<typename T>
+void print(T cont){
+	UINT conter = 0;
+	for(auto value : cont){
+		if(conter == STRING_LENGHT){
+			std::cout << std::endl;
+			conter = 0;
+		}
+		std::cout << value << " ";
+		conter++;
+	}
+	std::cout << std::endl;
+}
 void printDb(std::vector<std::vector<UINT>> cont);
 bool checkPacket(Packet pk);
 std::vector<UINT> makeSession(UINT SessionLenght);

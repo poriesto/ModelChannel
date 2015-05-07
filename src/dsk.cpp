@@ -9,7 +9,6 @@ void dsk::work() {
 		generator(a,b, r);
 		r < this->p ? bytes.at(i) = 1 : bytes.at(i) = 0;
 		Count++;
-
 		if(Count >= SessionSize){
 			break;
 		}

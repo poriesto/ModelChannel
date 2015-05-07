@@ -1,5 +1,5 @@
 #include "api.hpp"
-
+//TODO need work now
 class dsk
 {
 private:

@@ -6,7 +6,7 @@
 #define DIPLOM_PA_H
 
 #include "api.hpp"
-
+//TODO work later
 class pa
 {
 public:
