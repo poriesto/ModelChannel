@@ -68,6 +68,12 @@ void generator(double a, double b, double& num){
 	std::uniform_real_distribution<> dis(a, b);
 	num = dis(gen);
 }
+void generator(UINT a, UINT b, UINT& num){
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dis(a,b);
+	num = dis(gen);
+}
 void setNsteps(UINT& steps){
 	std::cout << "Enter steps:" << std::endl;
 	std::cin >> steps;
@@ -80,6 +86,7 @@ void setLatency(UINT& latency){
 /*
  * Protocols
 */
+/*
 void datagrammProtocol(std::vector<Block>bl, Code code){
 	UINT BlockSize = bl.at(0).capacity();
 	std::vector<Block>bls, blu;
@@ -95,6 +102,43 @@ void datagrammProtocol(std::vector<Block>bl, Code code){
 			"Percent succeful: " << ((bls.size())*100)/bl.capacity() << std::endl <<
 			"Result speed: " << speed << std::endl;
 	std::cout << "!******Datagramm protocol end******!" << std::endl;
+}*/
+void datagrammProtocol(std::vector<Block>bl, Code code){
+	UINT BlockSize = bl.at(0).size(), Blocks = bl.size();
+	UINT r = 0, attems = 0, transm = 0;
+	std::vector<UINT> bls, ble;
+	std::cout << "Data start" << std::endl;
+	while(true)	{
+		generator(0, Blocks, r);
+		std::cout << r << " ";
+		if( checkBlockErrs(bl[r]) >  0){
+			if( checkBlockErrs(bl[r]) > code.errorsCorrection ){
+				attems += 1;
+				ble.emplace_back(r);
+			}
+			else{
+				bls.emplace_back(r);
+			}
+		}
+		else{
+			bls.emplace_back(r);
+		}
+		if(transm > Blocks){
+			break;
+		}
+		transm++;
+	}
+	double PolBits = bls.size() * BlockSize;
+	double OverallBits = (bls.size() + attems + ble.size()) * BlockSize;
+	double speed = PolBits / OverallBits;
+	std::cout << "PolBits = " << PolBits << std::endl << "OverallBits = " << OverallBits << std::endl;
+	std::cout << "Blocks in session: " << bl.capacity() << std::endl <<
+			"Succeful blocks: " << bls.size() << std::endl <<
+			"Unsucceful blocks: " << ble.size() << std::endl <<
+			"Atems: " << attems << std::endl << 
+			"Percent succeful: " << ((bls.size())*100)/bl.capacity() << std::endl <<
+			"Result speed: " << speed << std::endl;
+	std::cout << "Data end" << std::endl;
 }
 void backNsteps(std::vector<Block>bl, Code code, UINT steps){
 	//TODO implement back n steps protocol

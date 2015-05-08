@@ -381,3 +381,13 @@ void opp::datagrammPr() {
 		else{
 			Succeful++;
 		}*/
+// old dsk work()
+/*for(UINT i = 0; i < SessionSize; i++){
+		generator(a,b, r);
+		//r < this->p ? bytes.at(i) = 0 : bytes.at(i) = 1;
+		r < dsk::p ? dsk::saveCorVars(i) : dsk::saveErrors(i);
+        Count++;
+		/*if(Count >= SessionSize){
+			break;
+		}*/
+	//}

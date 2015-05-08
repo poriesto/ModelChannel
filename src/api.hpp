@@ -37,6 +37,7 @@ std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>byte
 std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block> v);
 void checkPacketStream(std::vector<Packet> ps, UINT& Succeful, UINT& Unsucceful);
 void generator(double a, double b, double& num);
+void generator(UINT a, UINT b, UINT& num);
 std::vector<UINT> decodeBMA(std::vector<UINT>bytes);
 void datagrammProtocol(std::vector<Block>bl, Code code);
 void backNsteps(std::vector<Block>bl, Code code, UINT steps);

@@ -10,10 +10,8 @@
 class pa
 {
 public:
-	pa(UINT SessionSize, UINT BlockSize, UINT PacketSize) : SessionSize(SessionSize), BlockSize(BlockSize),
-															PacketSize(PacketSize) {
+	pa(UINT SessionSize, UINT BlockSize) : SessionSize(SessionSize), BlockSize(BlockSize){
 		pa::Blocks = pa::SessionSize / pa::BlockSize;
-		pa::Packets = pa::Blocks / pa::PacketSize;
 		pa::bytes = makeSession(pa::SessionSize);
 	}
 	virtual ~pa(){}
@@ -33,13 +31,12 @@ public:
 	}
 	void work();
 private:
-	UINT SessionSize, BlockSize, PacketSize;
-	UINT Blocks, Packets;
+	UINT SessionSize, BlockSize;
+	UINT Blocks;
 	UINT protocol;
 	Code code;
 	std::vector<UINT> bytes;
 	std::vector<Block> bl;
-	std::vector<Packet> pl;
 	double p, a;
 };
 

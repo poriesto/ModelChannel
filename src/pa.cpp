@@ -7,7 +7,6 @@
 void pa::work(){
     std::cout << "======Begin pa model======" << std::endl;
 	bl = makeBlocks(Blocks, BlockSize, bytes);
-	pl = makePackets(PacketSize, Packets, bl);
 
 	switch(pa::protocol){
 		case 1:

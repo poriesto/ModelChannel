@@ -3,20 +3,18 @@
 void dsk::work() {
 	std::cout << "======Begin dsk model======" << std::endl;
 	UINT Count = 0;
-	double a = 0, b = 1;
-	double r;
-	for(UINT i = 0; i < SessionSize; i++){
-		generator(a,b, r);
-		r < this->p ? bytes.at(i) = 1 : bytes.at(i) = 0;
-		Count++;
-		if(Count >= SessionSize){
-			break;
-		}
-	}
-	print(bytes);
-	bl = makeBlocks(Blocks, BlockSize, bytes);
-	pl = makePackets(PacketSize, Packets, bl);
+	double a = 0, b = 1, r;
 
+    for(auto& value : bytes){
+        generator(a,b, r);
+        r < dsk::p ? value = 0 : value = 1;
+    }
+    for(auto i = 0; i < bytes.size(); i++){
+        bytes.at(i) == 1 ? dsk::errors.emplace_back(i) : dsk::corElems.emplace_back(i);
+    }
+
+	bl = makeBlocks(Blocks, BlockSize, bytes);
+	printDb(bl);
 	switch (dsk::protocol){
 		case 1:
 			datagrammProtocol(bl, code);

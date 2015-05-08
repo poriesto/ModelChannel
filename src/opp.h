@@ -17,6 +17,9 @@ public:
         opp::code.errorsCorrection = errosCor;
         opp::code.codeLegth = codeLength;
     }
+    void setCode(Code code){
+        opp::code = code;
+    }
     void setParams(double A, double V) {
         opp::A = A;
         opp::V = V;
@@ -27,12 +30,11 @@ public:
     void work();
 
 private:
-    UINT BlockSize, SessionSize;
-    UINT Blocks, ProtocolType;
+    UINT BlockSize, SessionSize, Blocks, ProtocolType;
+    double A,V;
     Code code;
     std::vector<UINT> bytes, errorsPos;
     std::vector<Block> bl;
-    double A,V;
 
     UINT GenOppPos();
 };

@@ -4,10 +4,8 @@ class dsk
 {
 private:
 public:
-    dsk(UINT BlockSize, UINT PacketSize, UINT SessionSize) : BlockSize(BlockSize), PacketSize(PacketSize),
-                                                             SessionSize(SessionSize) {
+    dsk(UINT BlockSize, UINT SessionSize) : BlockSize(BlockSize), SessionSize(SessionSize) {
         dsk::Blocks = dsk::SessionSize / dsk::BlockSize;
-        dsk::Packets = dsk::Blocks / dsk::PacketSize;
         dsk::bytes = makeSession(dsk::SessionSize);
     }
     virtual ~dsk() { }
@@ -27,11 +25,9 @@ public:
 
     void work();
 private:
-    UINT BlockSize, PacketSize, SessionSize;
-    UINT Blocks, Packets, protocol;
-    Code code;
-    std::vector<UINT>bytes;
-    std::vector<Block>bl;
-    std::vector<Packet>pl;
+    UINT BlockSize, SessionSize, Blocks, protocol;
     double p;
+    Code code;
+    std::vector<UINT>bytes, errors, corElems;
+    std::vector<Block>bl;
 };

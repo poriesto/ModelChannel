@@ -4,7 +4,7 @@
 #include "main.h"
 
 int main(){
-    unsigned int SessionLenght = 0, PacketSize = 0, BlockSize = 0, model = 0, protocol = 0;
+    unsigned int SessionLenght = 0, BlockSize = 0, model = 0, protocol = 0;
 	unsigned int codeLenght = 0, errorsCorrection = 0;
 	double A = 0, V = 0, p = 0.0, a = 0.0;
 
@@ -13,11 +13,9 @@ int main(){
 	setparam(model, "Chose channel model\n"
 			"Enter 1 - dsk, 2 - PA, 3 - OPP");
 	set2params(SessionLenght, BlockSize, "Set SessionLenght and BlockSize");
-	std::cout << "Enter PacketSize" << std::endl;
-	std::cin >> PacketSize;
 
-	dsk* dk = new dsk(SessionLenght, BlockSize, PacketSize);
-	pa* pk = new pa(SessionLenght, BlockSize, PacketSize);
+	dsk* dk = new dsk(BlockSize, SessionLenght);
+	pa* pk = new pa(SessionLenght, BlockSize);
 	opp* op = new opp(BlockSize, SessionLenght);
 
 	switch(model)
