@@ -55,5 +55,6 @@ void setparam(T& param, std::string message){
 	std::cout << message << std::endl;
 	std::cin >> param;
 }
+bool checkR(UINT r, UINT a);
 UINT checkBlockErrs(Block bl);
 #endif //DIPLOM_API_HPP

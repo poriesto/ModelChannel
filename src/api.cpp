@@ -82,7 +82,11 @@ void setLatency(UINT& latency){
 	std::cout << "Enter latency" << std::endl;
 	std::cin >> latency;
 }
-
+bool checkR(UINT r, UINT a){
+	bool result = false;
+	r == a ? result = false : result = true;
+	return result;
+}
 /*
  * Protocols
 */
@@ -105,12 +109,11 @@ void datagrammProtocol(std::vector<Block>bl, Code code){
 }*/
 void datagrammProtocol(std::vector<Block>bl, Code code){
 	UINT BlockSize = bl.at(0).size(), Blocks = bl.size();
-	UINT r = 0, attems = 0, transm = 0;
-	std::vector<UINT> bls, ble;
+	UINT r = 0, attems = 0;
+	std::vector<UINT> bls, ble, trams;
 	std::cout << "Data start" << std::endl;
 	while(true)	{
 		generator(0, Blocks, r);
-		std::cout << r << " ";
 		if( checkBlockErrs(bl[r]) >  0){
 			if( checkBlockErrs(bl[r]) > code.errorsCorrection ){
 				attems += 1;
@@ -123,13 +126,18 @@ void datagrammProtocol(std::vector<Block>bl, Code code){
 		else{
 			bls.emplace_back(r);
 		}
-		if(transm > Blocks){
+		if(trams.size() > Blocks){
 			break;
 		}
-		transm++;
+		trams.emplace_back(r);
 	}
+    std::cout << "Transmitted" << std::endl;
+	for(auto value : trams){
+			std::cout << value << " ";
+		}
 	double PolBits = bls.size() * BlockSize;
-	double OverallBits = (bls.size() + attems + ble.size()) * BlockSize;
+	//double OverallBits = (bls.size() + attems + ble.size()) * BlockSize;
+	double OverallBits = (Blocks + attems)*BlockSize; // or OverallBits = transm * BlockSize;
 	double speed = PolBits / OverallBits;
 	std::cout << "PolBits = " << PolBits << std::endl << "OverallBits = " << OverallBits << std::endl;
 	std::cout << "Blocks in session: " << bl.capacity() << std::endl <<
