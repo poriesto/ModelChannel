@@ -11,6 +11,7 @@
 
 typedef unsigned int UINT;
 const UINT STRING_LENGHT = 40;
+const UINT ATTEMS = 3;
 typedef std::vector<UINT> Block;
 typedef std::vector<Block> Packet;
 struct Code{

@@ -109,43 +109,35 @@ void datagrammProtocol(std::vector<Block>bl, Code code){
 }*/
 void datagrammProtocol(std::vector<Block>bl, Code code){
 	UINT BlockSize = bl.at(0).size(), Blocks = bl.size();
-	UINT r = 0, attems = 0;
-	std::vector<UINT> bls, ble, trams;
+	UINT attems = 0;
+	std::vector<UINT> bls, ble;
 	std::cout << "Data start" << std::endl;
-	while(true)	{
-		generator(0, Blocks, r);
-		if( checkBlockErrs(bl[r]) >  0){
-			if( checkBlockErrs(bl[r]) > code.errorsCorrection ){
-				attems += 1;
-				ble.emplace_back(r);
+
+	for(auto i = 0; i < bl.size()-1; i++){
+		if (checkBlockErrs(bl[i]) > 0) {
+			if( checkBlockErrs(bl[i]) > code.errorsCorrection  ){
+				ble.emplace_back(i);
+                attems += ATTEMS;
 			}
-			else{
-				bls.emplace_back(r);
-			}
+            else{
+                bls.emplace_back(i);
+            }
 		}
-		else{
-			bls.emplace_back(r);
+		else {
+			bls.emplace_back(i);
 		}
-		if(trams.size() > Blocks){
-			break;
-		}
-		trams.emplace_back(r);
 	}
-    std::cout << "Transmitted" << std::endl;
-	for(auto value : trams){
-			std::cout << value << " ";
-		}
+
 	double PolBits = bls.size() * BlockSize;
-	//double OverallBits = (bls.size() + attems + ble.size()) * BlockSize;
-	double OverallBits = (Blocks + attems)*BlockSize; // or OverallBits = transm * BlockSize;
+	double OverallBits = (Blocks + attems)*BlockSize;
 	double speed = PolBits / OverallBits;
 	std::cout << "PolBits = " << PolBits << std::endl << "OverallBits = " << OverallBits << std::endl;
 	std::cout << "Blocks in session: " << bl.capacity() << std::endl <<
-			"Succeful blocks: " << bls.size() << std::endl <<
-			"Unsucceful blocks: " << ble.size() << std::endl <<
-			"Atems: " << attems << std::endl << 
-			"Percent succeful: " << ((bls.size())*100)/bl.capacity() << std::endl <<
-			"Result speed: " << speed << std::endl;
+				 "Succeful blocks: "   << bls.size() << std::endl <<
+				 "Unsucceful blocks: " << ble.size() << std::endl <<
+				 "Atems: " 			   << attems << std::endl <<
+				 "Percent succeful: "  << ((bls.size())*100)/bl.capacity() << "%" << std::endl <<
+				 "Result speed: "      << speed << std::endl;
 	std::cout << "Data end" << std::endl;
 }
 void backNsteps(std::vector<Block>bl, Code code, UINT steps){
