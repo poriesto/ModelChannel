@@ -20,11 +20,19 @@ private:
     std::vector<Block>bl;
     Code code;
     double speed, PolBits, OverallBits, percent;
-    UINT blSize, blocks, attems, suc, unsuc;
+    UINT blSize, blocks, pkSize, suc, unsuc, attems;
+
     void datagramm();
     void latency(UINT latency);
     void Nstep(UINT step);
-    void results();
+
+    bool isCorectable(Packet packet);
+    bool checkPacket(Packet packet);
+    UINT checkBlockErrors(Block bl);
+
+    Packet mkSinglePacket();
+    Block mlSingleBlock();
+
 };
 
 

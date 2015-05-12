@@ -15,9 +15,6 @@ public:
     void setP(double p) {
         dsk::p = p;
     }
-    void setCode(Code const &code) {
-        dsk::code = code;
-    }
     void setCode(UINT codeleght, UINT correction){
         dsk::code.codeLegth = codeleght;
         dsk::code.errorsCorrection = correction;

@@ -7,7 +7,7 @@ UINT opp::GenOppPos(){
 		double R, a = 0, b = 1;
 		generator(a,b,R);
 		double X = (A/pow(R,(1/V))) - A;
-		return static_cast<int>(X);
+		return static_cast<UINT>(X);
 }
 void opp::work()
 {

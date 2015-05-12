@@ -2,23 +2,7 @@
 // Created by Alexander on 28.04.2015.
 //
 #include "api.hpp"
-void printDb(std::vector<std::vector<UINT>> cont){
-	for(auto value : cont){
-		print(value);
-	}
-	std::cout << std::endl;
-}
-bool checkPacket(Packet pk){
-	bool result = false;
-	UINT Succeful = 0, Unsucceful = 0;
-	for(auto value : pk){
-		for(auto val : value){
-			val == 0 ? Succeful += 1 : Unsucceful += 1;
-		}
-	}
-	result = Unsucceful == 0 ? true : false;
-	return result;
-}
+
 std::vector<UINT> makeSession(UINT SessionLenght){
 	std::vector<UINT> ve;
 	ve.resize(SessionLenght);
@@ -32,8 +16,8 @@ std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>byte
 	ve.reserve(Blocks);
 	for(UINT i = 0; i < Blocks; i++){
 		Block bk;
-		for(auto i = IPOS; i < EPOS; i++){
-			bk.emplace_back(bytes.at(i));
+		for(auto j = IPOS; i < EPOS; j++){
+			bk.emplace_back(bytes.at(j));
 		}
 		ve.emplace_back(bk);
 		IPOS += BlockSize;
@@ -47,7 +31,7 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 	ve.reserve(Packets);
 	for(UINT i = 0; i < Packets; i++){
 		Packet pk;
-		for(auto i = IPOS; i < EPOS; i++){
+		for(auto j = IPOS; j < EPOS; j++){
 			pk.emplace_back(v.at(i));
 		}
 		ve.emplace_back(pk);
@@ -57,23 +41,9 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 	std::cout << "Packets created: " << ve.capacity() << std::endl;
 	return ve;
 }
-void checkPacketStream(std::vector<Packet> ps, UINT& Succeful, UINT& Unsucceful){
-	for(auto value : ps){
-		checkPacket(value) ? Succeful += 1 : Unsucceful += 1;
-	}
-}
 void generator(double a, double b, double& num){
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_real_distribution<> dis(a, b);
 	num = dis(gen);
-}
-UINT checkBlockErrs(Block bl){
-	UINT errors = 0;
-	for(auto value : bl){
-		if(value == 1){
-			errors+=1;
-		}
-	}
-	return errors;
 }

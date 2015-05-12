@@ -31,12 +31,9 @@ void print(T cont){
 	}
 	std::cout << std::endl;
 }
-void printDb(std::vector<std::vector<UINT>> cont);
-bool checkPacket(Packet pk);
 std::vector<UINT> makeSession(UINT SessionLenght);
 std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>bytes);
 std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block> v);
-void checkPacketStream(std::vector<Packet> ps, UINT& Succeful, UINT& Unsucceful);
 void generator(double a, double b, double& num);
 template <typename T>
 void set2params(T& param1, T& param2, std::string message){
@@ -49,5 +46,4 @@ void setparam(T& param, std::string message){
 	std::cout << message << std::endl;
 	std::cin >> param;
 }
-UINT checkBlockErrs(Block bl);
 #endif //DIPLOM_API_HPP
