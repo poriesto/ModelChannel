@@ -12,7 +12,9 @@ UINT opp::GenOppPos(){
 void opp::work()
 {
 	std::cout << "======Begin OPP model======" << std::endl;
-	int Pos = GenOppPos();for(auto i = 0; i < bytes.capacity(); i++)	{
+	int Pos = GenOppPos();
+
+	for(auto i = 0; i < bytes.capacity(); i++)	{
 		if(Pos == i){
 			bytes[i] = 1;
 			errorsPos.emplace_back(Pos);

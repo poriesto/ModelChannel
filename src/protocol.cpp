@@ -32,12 +32,25 @@ void protocol::datagramm() {
     results();
     std::cout << "!******Datagramm protocol end******!" << std::endl;
 }
-void protocol::latency(UINT latency) { }
-void protocol::Nstep(UINT step) { }
+void protocol::latency(UINT latency) { 
+	auto expr1 = [this](){ unsuc+=1; attems+=ATTEMS; };
+    auto expr2 = [this](){ suc+=1; };
+	for(auto i = 0; i < bl.size(); i++){
+	}
+	results();
+}
+void protocol::Nstep(UINT step) { 
+	auto expr1 = [this](){ unsuc+=1; attems+=ATTEMS; };
+    auto expr2 = [this](){ suc+=1; };
+    for(auto i = 0; i < bl.size(); i++){
+    }
+    results();
+}
 void protocol::results() {
     PolBits = suc*blSize;
     OverallBits = (suc+unsuc+attems)*blSize;
     percent = (suc*100)/blocks;
+    speed = PolBits / OverallBits;
     std::cout << "Blocks transmited = " << blocks << std::endl <<
                  "Blocks succeful = " << suc << std::endl <<
                  "Blocks unsucceful = " << unsuc << std::endl <<
