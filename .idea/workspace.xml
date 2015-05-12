@@ -14,22 +14,7 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386cb040-bf9c-4f96-9a32-023bbefe5cab" name="Default" comment="refactor">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api.cpp" afterPath="$PROJECT_DIR$/src/api.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api.hpp" afterPath="$PROJECT_DIR$/src/api.hpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Theory/dsk — копия.cpp" afterPath="$PROJECT_DIR$/Theory/dsk — копия.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Theory/dsk — копия.hpp" afterPath="$PROJECT_DIR$/Theory/dsk — копия.hpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dsk.cpp" afterPath="$PROJECT_DIR$/src/dsk.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dsk.hpp" afterPath="$PROJECT_DIR$/src/dsk.hpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.h" afterPath="$PROJECT_DIR$/src/main.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/opp.cpp" afterPath="$PROJECT_DIR$/src/opp.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/opp.h" afterPath="$PROJECT_DIR$/src/opp.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pa.cpp" afterPath="$PROJECT_DIR$/src/pa.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pa.h" afterPath="$PROJECT_DIR$/src/pa.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/protocol.cpp" afterPath="$PROJECT_DIR$/src/protocol.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/protocol.h" afterPath="$PROJECT_DIR$/src/protocol.h" />
+    <list default="true" id="386cb040-bf9c-4f96-9a32-023bbefe5cab" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diplom.iws" />
@@ -98,7 +83,7 @@
           <file leaf-file-name="api.hpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/api.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.58">
+                <state vertical-scroll-proportion="0.6424051">
                   <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
                   <folding>
                     <element signature="e#457#469#0" expanded="true" />
@@ -191,7 +176,7 @@
           <file leaf-file-name="dsk — копия.hpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Theory/dsk — копия.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.78">
+                <state vertical-scroll-proportion="0.7563291">
                   <caret line="218" column="6" selection-start-line="218" selection-start-column="6" selection-end-line="218" selection-end-column="6" />
                   <folding />
                 </state>
@@ -373,7 +358,13 @@
       <option name="project" value="LOCAL" />
       <updated>1430136685540</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactor">
+      <created>1431471964265</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1431471964265</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -387,16 +378,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.081751056" sideWeight="0.6928675" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32790446" sideWeight="0.49583334" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31921825" sideWeight="0.48420447" order="7" side_tool="true" content_ui="tabs" x="185" y="384" width="1550" height="271" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2844734" sideWeight="0.50430787" order="7" side_tool="true" content_ui="tabs" x="185" y="384" width="1550" height="271" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27291885" sideWeight="0.46666667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2942454" sideWeight="0.5748387" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28451002" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31921825" sideWeight="0.5157955" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2844734" sideWeight="0.49569213" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31921825" sideWeight="0.5157955" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12289029" sideWeight="0.8128931" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10759494" sideWeight="0.30713245" order="1" side_tool="true" content_ui="tabs" />
@@ -873,7 +864,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58">
+        <state vertical-scroll-proportion="0.6424051">
           <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
           <folding>
             <element signature="e#457#469#0" expanded="true" />
@@ -913,7 +904,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Theory/dsk — копия.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78">
+        <state vertical-scroll-proportion="0.7563291">
           <caret line="218" column="6" selection-start-line="218" selection-start-column="6" selection-end-line="218" selection-end-column="6" />
           <folding />
         </state>
