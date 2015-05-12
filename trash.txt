@@ -391,3 +391,85 @@ void opp::datagrammPr() {
 			break;
 		}*/
 	//}
+	/*
+void datagrammProtocol(std::vector<Block>bl, Code code){
+	UINT BlockSize = bl.at(0).capacity();
+	std::vector<Block>bls, blu;
+	//TODO implement datagramm protocol
+	std::cout << "!******Datagramm protocol begin******!" << std::endl;
+    for(auto value : bl){
+		checkBlockErrs(value) == 0 ? bls.emplace_back(value) : blu.emplace_back(value);
+	}
+	double speed = ((blu.size())*BlockSize)/bl.capacity();
+	std::cout << "Blocks in session: " << bl.capacity() << std::endl <<
+			"Succeful blocks: " << bls.size() << std::endl <<
+			"Unsucceful blocks: " << blu.size() << std::endl <<
+			"Percent succeful: " << ((bls.size())*100)/bl.capacity() << std::endl <<
+			"Result speed: " << speed << std::endl;
+	std::cout << "!******Datagramm protocol end******!" << std::endl;
+}*/
+void datagrammProtocol(std::vector<Block>bl, Code code){
+	UINT BlockSize = bl.at(0).size(), Blocks = bl.size();
+	UINT attems = 0;
+	std::vector<UINT> bls, ble;
+	std::cout << "Data start" << std::endl;
+
+	for(auto i = 0; i < bl.size()-1; i++){
+		if (checkBlockErrs(bl[i]) > 0) {
+			if( checkBlockErrs(bl[i]) > code.errorsCorrection  ){
+				ble.emplace_back(i);
+                attems += ATTEMS;
+			}
+            else{
+                bls.emplace_back(i);
+            }
+		}
+		else {
+			bls.emplace_back(i);
+		}
+	}
+
+	double PolBits = bls.size() * BlockSize;
+	double OverallBits = (Blocks + attems)*BlockSize;
+	double speed = PolBits / OverallBits;
+	std::cout << "PolBits = " << PolBits << std::endl << "OverallBits = " << OverallBits << std::endl;
+	std::cout << "Blocks in session: " << bl.capacity() << std::endl <<
+				 "Succeful blocks: "   << bls.size() << std::endl <<
+				 "Unsucceful blocks: " << ble.size() << std::endl <<
+				 "Atems: " 			   << attems << std::endl <<
+				 "Percent succeful: "  << ((bls.size())*100)/bl.capacity() << "%" << std::endl <<
+				 "Result speed: "      << speed << std::endl;
+	std::cout << "Data end" << std::endl;
+}
+void backNsteps(std::vector<Block>bl, Code code, UINT steps){
+	//TODO implement back n steps protocol
+    UINT BlockSize = bl.at(0).capacity();
+    std::vector<Block>bls, blu;
+    std::cout << "!******BackNstep protocol begin******!" << std::endl;
+	for(auto value : bl){
+		checkBlockErrs(value) == 0 ? bls.emplace_back(value) : blu.emplace_back(value);
+	}
+    double speed = ((blu.size())*BlockSize)/bl.capacity();
+	std::cout << "Blocks in session: " << bl.capacity() << std::endl <<
+			"Succeful blocks: " << bls.size() << std::endl <<
+			"Unsucceful blocks: " << blu.size() << std::endl <<
+			"Percent succeful: " << ((bls.size())*100)/bl.capacity() << std::endl <<
+			"Result speed: " << speed << std::endl;
+    std::cout << "!******BackNstep protocol end******!" << std::endl;
+}
+void latencyProtocol(std::vector<Block>bl, Code code, UINT latency){
+	//TODO implement protocol with latency
+    std::vector<Block>bls, blu;
+    UINT BlockSize = bl.at(0).capacity();
+    std::cout << "!******Latency protocol begin******!" << std::endl;
+	for(auto value : bl){
+		checkBlockErrs(value) == 0 ? bls.emplace_back(value) : blu.emplace_back(value);
+	}
+    double speed = ((blu.size())*BlockSize)/bl.capacity();
+	std::cout << "Blocks in session: " << bl.capacity() << std::endl <<
+			"Succeful blocks: " << bls.size() << std::endl <<
+			"Unsucceful blocks: " << blu.size() << std::endl <<
+			"Percent succeful: " << ((bls.size())*100)/bl.capacity() << std::endl <<
+			"Result speed: " << speed << std::endl;
+    std::cout << "!******Latency protocol end******!" << std::endl;
+}

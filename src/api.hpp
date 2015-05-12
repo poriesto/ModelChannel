@@ -39,12 +39,6 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 void checkPacketStream(std::vector<Packet> ps, UINT& Succeful, UINT& Unsucceful);
 void generator(double a, double b, double& num);
 void generator(UINT a, UINT b, UINT& num);
-std::vector<UINT> decodeBMA(std::vector<UINT>bytes);
-void datagrammProtocol(std::vector<Block>bl, Code code);
-void backNsteps(std::vector<Block>bl, Code code, UINT steps);
-void latencyProtocol(std::vector<Block>bl, Code code, UINT latency);
-void setNsteps(UINT& steps);
-void setLatency(UINT& latency);
 template <typename T>
 void set2params(T& param1, T& param2, std::string message){
 	std::cout << message << std::endl;
@@ -56,6 +50,5 @@ void setparam(T& param, std::string message){
 	std::cout << message << std::endl;
 	std::cin >> param;
 }
-bool checkR(UINT r, UINT a);
 UINT checkBlockErrs(Block bl);
 #endif //DIPLOM_API_HPP

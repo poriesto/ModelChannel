@@ -8,21 +8,7 @@ void pa::work(){
     std::cout << "======Begin pa model======" << std::endl;
 	bl = makeBlocks(Blocks, BlockSize, bytes);
 
-	switch(pa::protocol){
-		case 1:
-			datagrammProtocol(bl, code);
-			break;
-		case 2:
-			UINT latency;
-			setLatency(latency);
-			latencyProtocol(bl, code , latency);
-			break;
-		case 3:
-			UINT steps;
-			setNsteps(steps);
-			backNsteps(bl, code, steps);
-			break;
-	}
-
+	pr = new protocol(bl,code);
+	pr->work(pa::ProtocolType);
 	std::cout << "End pa model" << std::endl;
 }

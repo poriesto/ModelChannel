@@ -2,6 +2,7 @@
 // Created by Alexander on 28.04.2015.
 //
 #include "api.hpp"
+#include "protocol.h"
 #ifndef DIPLOM_OPP_H
 #define DIPLOM_OPP_H
 
@@ -35,6 +36,7 @@ private:
     Code code;
     std::vector<UINT> bytes, errorsPos;
     std::vector<Block> bl;
+    protocol* pr;
 
     UINT GenOppPos();
 };

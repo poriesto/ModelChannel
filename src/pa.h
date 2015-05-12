@@ -1,11 +1,10 @@
 //
 // Created by Alexander on 28.04.2015.
 //
-
 #ifndef DIPLOM_PA_H
 #define DIPLOM_PA_H
-
 #include "api.hpp"
+#include "protocol.h"
 //TODO work later
 class pa
 {
@@ -27,15 +26,14 @@ public:
 		pa::code = code;
 	}
 	void setProtocol(UINT protocol)	{
-		pa::protocol = protocol;
+		pa::ProtocolType = protocol;
 	}
 	void work();
 private:
-	UINT SessionSize, BlockSize;
-	UINT Blocks;
-	UINT protocol;
+	UINT SessionSize, BlockSize, Blocks, ProtocolType;
 	Code code;
-	std::vector<UINT> bytes;
+	protocol* pr;
+    std::vector<UINT> bytes;
 	std::vector<Block> bl;
 	double p, a;
 };

@@ -1,4 +1,7 @@
 #include "api.hpp"
+#include "protocol.h"
+#ifndef DIPLOM_DSK_H
+#define DIPLOM_DSK_H
 //TODO need work now
 class dsk
 {
@@ -20,14 +23,17 @@ public:
         dsk::code.errorsCorrection = correction;
     }
     void setProtocol(UINT protocol) {
-        dsk::protocol = protocol;
+        dsk::ProtocolType = protocol;
     }
 
     void work();
 private:
-    UINT BlockSize, SessionSize, Blocks, protocol;
+    UINT BlockSize, SessionSize, Blocks, ProtocolType;
     double p;
     Code code;
+    protocol* pr;
     std::vector<UINT>bytes, errors, corElems;
     std::vector<Block>bl;
 };
+
+#endif //DIPLOM_DSK_H

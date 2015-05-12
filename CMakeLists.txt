@@ -10,12 +10,14 @@ set(HEADERS_FILES
     ${SOURCE_DIR}dsk.hpp
     ${SOURCE_DIR}opp.h
     ${SOURCE_DIR}pa.h
+    ${SOURCE_DIR}protocol.h
     ${SOURCE_DIR}main.h)
 set(SOURCE_FILES
     ${SOURCE_DIR}api.cpp
     ${SOURCE_DIR}opp.cpp
     ${SOURCE_DIR}dsk.cpp
     ${SOURCE_DIR}pa.cpp
+    ${SOURCE_DIR}protocol.cpp
     ${SOURCE_DIR}main.cpp)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIR})
 add_executable(${PROJECT} ${HEADERS_FILES} ${SOURCE_FILES})
