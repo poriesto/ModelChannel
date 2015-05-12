@@ -33,11 +33,28 @@ void protocol::datagramm() {
     std::cout << "!******Datagramm protocol end******!" << std::endl;
 }
 void protocol::latency(UINT latency) { 
-	auto expr1 = [this](){ unsuc+=1; attems+=ATTEMS; };
-    auto expr2 = [this](){ suc+=1; };
-	for(auto i = 0; i < bl.size(); i++){
+//TODO need hard fix
+    for(auto i = 0; i < bl.size(); i++){
+        auto errors = checkBlockErrs(bl.at(i));
+        if( errors > 0 ){
+            if( errors > code.errorsCorrection ){
+                unsuc+=1;
+                OverallBits += (unsuc)*blSize*(code.errorsCorrection*code.codeLegth);
+            }
+            else{
+                suc+=1;
+                PolBits += suc*blSize;
+            }
+        }
+        else{
+            suc+=1;
+            PolBits += suc*blSize;
+        }
 	}
-	results();
+    OverallBits = unsuc*ATTEMS*blSize*code.codeLegth;
+    PolBits = suc*blSize;
+    speed = 1200;
+    std::cout << "Single time = " << OverallBits/speed << std::endl;
 }
 void protocol::Nstep(UINT step) { 
 	auto expr1 = [this](){ unsuc+=1; attems+=ATTEMS; };

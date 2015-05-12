@@ -8,7 +8,7 @@
 #include <ctime>
 #include <string>
 #include <random>
-
+//TODO may be remove some functions like printDb or checkPacket;
 typedef unsigned int UINT;
 const UINT STRING_LENGHT = 40;
 const UINT ATTEMS = 3;
@@ -38,7 +38,6 @@ std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>byte
 std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block> v);
 void checkPacketStream(std::vector<Packet> ps, UINT& Succeful, UINT& Unsucceful);
 void generator(double a, double b, double& num);
-void generator(UINT a, UINT b, UINT& num);
 template <typename T>
 void set2params(T& param1, T& param2, std::string message){
 	std::cout << message << std::endl;

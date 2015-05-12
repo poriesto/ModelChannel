@@ -21,8 +21,7 @@ int main(){
 	switch(model)
 	{
 		case 1:
-			std::cout << "Enter P" << std::endl;
-			std::cin >> p;
+			setparam(p, "Enter p for single bit:");
 			set2params(codeLenght, errorsCorrection, "Set code parametrs:\nEnter length and"
 					" errors correction");
 			dk->setP(p);

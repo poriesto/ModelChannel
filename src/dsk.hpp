@@ -2,7 +2,7 @@
 #include "protocol.h"
 #ifndef DIPLOM_DSK_H
 #define DIPLOM_DSK_H
-//TODO need work now
+
 class dsk
 {
 private:
@@ -32,7 +32,7 @@ private:
     double p;
     Code code;
     protocol* pr;
-    std::vector<UINT>bytes, errors, corElems;
+    std::vector<UINT>bytes, errors;
     std::vector<Block>bl;
 };
 

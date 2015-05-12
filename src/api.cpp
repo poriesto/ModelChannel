@@ -68,12 +68,6 @@ void generator(double a, double b, double& num){
 	std::uniform_real_distribution<> dis(a, b);
 	num = dis(gen);
 }
-void generator(UINT a, UINT b, UINT& num){
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> dis(a,b);
-	num = dis(gen);
-}
 UINT checkBlockErrs(Block bl){
 	UINT errors = 0;
 	for(auto value : bl){
