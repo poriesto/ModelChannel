@@ -16,7 +16,7 @@ std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>byte
 	ve.reserve(Blocks);
 	for(UINT i = 0; i < Blocks; i++){
 		Block bk;
-		for(auto j = IPOS; i < EPOS; j++){
+		for(auto j = IPOS; j < EPOS; j++){
 			bk.emplace_back(bytes.at(j));
 		}
 		ve.emplace_back(bk);

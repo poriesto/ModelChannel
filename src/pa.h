@@ -9,7 +9,7 @@
 class pa
 {
 public:
-	pa(UINT SessionSize, UINT BlockSize) : SessionSize(SessionSize), BlockSize(BlockSize){
+	pa(UINT SessionSize, UINT BlockSize) : SessionSize(SessionSize), BlockSize(BlockSize), PacketSize(PacketSize){
 		pa::Blocks = pa::SessionSize / pa::BlockSize;
 		pa::bytes = makeSession(pa::SessionSize);
 	}
@@ -25,12 +25,13 @@ public:
 	void setCode(Code code){
 		pa::code = code;
 	}
-	void setProtocol(UINT protocol)	{
+	void setProtocol(UINT protocol, UINT PacketSize)	{
 		pa::ProtocolType = protocol;
+		pa::PacketSize = PacketSize;
 	}
 	void work();
 private:
-	UINT SessionSize, BlockSize, Blocks, ProtocolType;
+	UINT SessionSize, BlockSize, Blocks, ProtocolType, PacketSize;
 	Code code;
 	protocol* pr;
     std::vector<UINT> bytes;

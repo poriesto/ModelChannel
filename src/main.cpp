@@ -5,7 +5,7 @@
 
 int main(){
     unsigned int SessionLenght = 0, BlockSize = 0, model = 0, protocol = 0;
-	unsigned int codeLenght = 0, errorsCorrection = 0;
+	unsigned int codeLenght = 0, errorsCorrection = 0, PacketSize;
 	double A = 0, V = 0, p = 0.0, a = 0.0;
 
 	setparam(protocol, "Chose protocol type\n"
@@ -13,6 +13,7 @@ int main(){
 	setparam(model, "Chose channel model\n"
 			"Enter 1 - dsk, 2 - PA, 3 - OPP");
 	set2params(SessionLenght, BlockSize, "Set SessionLenght and BlockSize");
+	setparam(PacketSize, "Set packet size in blocks:");
 
 	dsk* dk = new dsk(BlockSize, SessionLenght);
 	pa* pk = new pa(SessionLenght, BlockSize);
@@ -26,7 +27,7 @@ int main(){
 					" errors correction");
 			dk->setP(p);
 			dk->setCode(codeLenght, errorsCorrection);
-			dk->setProtocol(protocol);
+			dk->setProtocol(protocol, PacketSize);
 			dk->work();
 			break;
 		case 2:
@@ -34,7 +35,7 @@ int main(){
 			set2params(codeLenght, errorsCorrection, "Set code parametrs\nEnter length and"
 					" errors correction");
 			pk->setCode(codeLenght, errorsCorrection);
-			pk->setProtocol(protocol);
+			pk->setProtocol(protocol, PacketSize);
 			pk->setParams(a,p);
 			pk->work();
 			break;
@@ -42,7 +43,7 @@ int main(){
 			set2params(A, V, "Set A and V:");
 			set2params(codeLenght, errorsCorrection, "Set code parametrs\nEnter length and"
 					" errors correction");
-			op->setProtocolType(protocol);
+			op->setProtocolType(protocol, PacketSize);
 			op->setCode(errorsCorrection, codeLenght);
 			op->setParams(A, V);
 			op->work();

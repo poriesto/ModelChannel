@@ -9,6 +9,6 @@ void pa::work(){
 	bl = makeBlocks(Blocks, BlockSize, bytes);
 
 	pr = new protocol(bl,code);
-	pr->work(pa::ProtocolType);
+	pr->work(pa::ProtocolType, PacketSize);
 	std::cout << "End pa model" << std::endl;
 }

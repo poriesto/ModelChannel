@@ -19,13 +19,14 @@ public:
         dsk::code.codeLegth = codeleght;
         dsk::code.errorsCorrection = correction;
     }
-    void setProtocol(UINT protocol) {
+    void setProtocol(UINT protocol, UINT PacketSize) {
         dsk::ProtocolType = protocol;
+        dsk::PacketSize = PacketSize;
     }
 
     void work();
 private:
-    UINT BlockSize, SessionSize, Blocks, ProtocolType;
+    UINT BlockSize, SessionSize, Blocks, ProtocolType, PacketSize;
     double p;
     Code code;
     protocol* pr;

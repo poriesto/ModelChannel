@@ -473,3 +473,44 @@ void latencyProtocol(std::vector<Block>bl, Code code, UINT latency){
 			"Result speed: " << speed << std::endl;
     std::cout << "!******Latency protocol end******!" << std::endl;
 }
+/*void protocol::latency(UINT latency) {
+    std::vector<Packet>pl = makePackets(5, (blocks/5), bl);
+
+    for(auto packet : pl){
+        checkPacket(packet) ? isCorectable(packet) ? suc:unsuc +=1 : suc+=1;
+    }
+
+    OverallBits = ((suc+unsuc+(unsuc/ATTEMS))*5)*blSize;
+    PolBits = ((suc+(unsuc/ATTEMS))*5)/blSize;
+    double laten = OverallBits / (OverallBits/PolBits);
+    std::cout << "Latency = " << laten << std::endl;
+    std::cout << "Suc = " << suc << "\nUnsuc = " << unsuc << std::endl;
+}*/
+    for(auto i = 0; i < bl.size(); i++){
+        auto errors = checkBlockErrors(bl.at(i));
+        if( errors > 0 ){
+            if( errors > code.errorsCorrection ){
+                unsuc+=1;
+                OverallBits += (unsuc)*blSize*(code.errorsCorrection*code.codeLegth);
+            }
+            else{
+                suc+=1;
+                PolBits += suc*blSize;
+            }
+        }
+        else{
+            suc+=1;
+            PolBits += suc*blSize;
+        }
+	}
+    //OverallBits = unsuc*ATTEMS*blSize*code.codeLegth;
+    //OverallBits = (unsuc+suc+ATTEMS)*blSize;
+    //PolBits = (suc+ATTEMS)*blSize;
+    speed = 1200;
+    std::cout << "Blocks transmited = " << blocks << std::endl <<
+                 "Blocks succeful = " << suc << std::endl <<
+                 "Blocks unsucceful = " << unsuc << std::endl <<
+                 "Percent succeful = " << percent << "%" << std::endl <<
+                 "Speed = " << speed << " bt/s" << std::endl <<
+                 "Attems = " << attems << std::endl;
+    std::cout << "Single time = " << OverallBits/speed << std::endl;

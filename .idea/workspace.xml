@@ -15,6 +15,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="386cb040-bf9c-4f96-9a32-023bbefe5cab" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api.cpp" afterPath="$PROJECT_DIR$/src/api.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dsk.cpp" afterPath="$PROJECT_DIR$/src/dsk.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dsk.hpp" afterPath="$PROJECT_DIR$/src/dsk.hpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/opp.cpp" afterPath="$PROJECT_DIR$/src/opp.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/opp.h" afterPath="$PROJECT_DIR$/src/opp.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pa.cpp" afterPath="$PROJECT_DIR$/src/pa.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pa.h" afterPath="$PROJECT_DIR$/src/pa.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/protocol.cpp" afterPath="$PROJECT_DIR$/src/protocol.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/protocol.h" afterPath="$PROJECT_DIR$/src/protocol.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trash.txt" afterPath="$PROJECT_DIR$/trash.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diplom.iws" />
@@ -35,80 +47,15 @@
     <favorites_list name="Diplom" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.47052154">
       <split-first>
         <leaf>
-          <file leaf-file-name="dsk.hpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/dsk.hpp">
+          <file leaf-file-name="protocol.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/protocol.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                    <element signature="e#117#320#0" expanded="true" />
-                    <element signature="e#348#395#0" expanded="true" />
-                    <element signature="e#400#542#0" expanded="true" />
-                    <element signature="e#547#624#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="api.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/api.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#65#282#0" expanded="true" />
-                    <element signature="e#283#648#0" expanded="true" />
-                    <element signature="e#1084#1245#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="opp.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/opp.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-                  <folding>
-                    <element signature="e#200#735#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="api.hpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/api.hpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6424051">
-                  <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-                  <folding>
-                    <element signature="e#457#469#0" expanded="true" />
-                    <element signature="e#449#680#0" expanded="true" />
-                    <element signature="e#960#972#0" expanded="true" />
-                    <element signature="e#951#1112#0" expanded="true" />
-                    <element signature="e#1122#1134#0" expanded="true" />
-                    <element signature="e#1113#1238#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pa.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pa.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#164#345#0" expanded="true" />
-                    <element signature="e#364#428#0" expanded="true" />
-                    <element signature="e#430#557#0" expanded="true" />
-                    <element signature="e#559#605#0" expanded="true" />
-                    <element signature="e#607#674#0" expanded="true" />
-                  </folding>
+                  <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -117,34 +64,47 @@
             <entry file="file://$PROJECT_DIR$/src/opp.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#154#349#0" expanded="true" />
-                    <element signature="e#377#518#0" expanded="true" />
-                    <element signature="e#523#579#0" expanded="true" />
-                    <element signature="e#671#760#0" expanded="true" />
-                  </folding>
+                  <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="protocol.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/protocol.h">
+          <file leaf-file-name="opp.cpp" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/opp.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#147#367#0" expanded="true" />
-                  </folding>
+                <state vertical-scroll-proportion="0.8833063">
+                  <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main.h">
+          <file leaf-file-name="api.hpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api.hpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pa.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/pa.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pa.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/pa.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
@@ -154,41 +114,16 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="protocol.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="protocol.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/protocol.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+                <state vertical-scroll-proportion="0.96272284">
+                  <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
                   <folding>
-                    <element signature="e#117#512#0" expanded="true" />
-                    <element signature="e#513#1462#0" expanded="true" />
-                    <element signature="e#1463#2554#0" expanded="true" />
-                    <element signature="e#3255#3538#0" expanded="true" />
-                    <element signature="e#3540#3801#0" expanded="true" />
-                    <element signature="e#3802#3939#0" expanded="true" />
-                    <element signature="e#3940#4070#0" expanded="true" />
-                    <element signature="e#4071#4221#0" expanded="true" />
+                    <element signature="e#2378#3066#0" expanded="false" />
+                    <element signature="e#3068#3437#0" expanded="false" />
+                    <element signature="e#3438#3699#0" expanded="false" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dsk — копия.hpp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Theory/dsk — копия.hpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7563291">
-                  <caret line="218" column="6" selection-start-line="218" selection-start-column="6" selection-end-line="218" selection-end-column="6" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -212,18 +147,18 @@
         <option value="$PROJECT_DIR$/dsk.cpp" />
         <option value="$PROJECT_DIR$/dsk.hpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/trash.txt" />
-        <option value="$PROJECT_DIR$/src/pa.cpp" />
-        <option value="$PROJECT_DIR$/src/opp.h" />
-        <option value="$PROJECT_DIR$/src/pa.h" />
-        <option value="$PROJECT_DIR$/src/dsk.cpp" />
         <option value="$PROJECT_DIR$/src/main.h" />
+        <option value="$PROJECT_DIR$/src/api.hpp" />
+        <option value="$PROJECT_DIR$/src/api.cpp" />
+        <option value="$PROJECT_DIR$/src/opp.h" />
+        <option value="$PROJECT_DIR$/trash.txt" />
+        <option value="$PROJECT_DIR$/src/pa.h" />
+        <option value="$PROJECT_DIR$/src/pa.cpp" />
+        <option value="$PROJECT_DIR$/src/dsk.hpp" />
+        <option value="$PROJECT_DIR$/src/dsk.cpp" />
+        <option value="$PROJECT_DIR$/src/opp.cpp" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/protocol.h" />
-        <option value="$PROJECT_DIR$/src/api.cpp" />
-        <option value="$PROJECT_DIR$/src/opp.cpp" />
-        <option value="$PROJECT_DIR$/src/dsk.hpp" />
-        <option value="$PROJECT_DIR$/src/api.hpp" />
         <option value="$PROJECT_DIR$/src/protocol.cpp" />
       </list>
     </option>
@@ -239,7 +174,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1064" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -377,26 +312,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1064" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.081751056" sideWeight="0.6928675" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08125" sideWeight="0.44976816" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32790446" sideWeight="0.49583334" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2844734" sideWeight="0.50430787" order="7" side_tool="true" content_ui="tabs" x="185" y="384" width="1550" height="271" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3182297" sideWeight="0.490625" order="7" side_tool="true" content_ui="tabs" x="185" y="384" width="1550" height="271" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27291885" sideWeight="0.46666667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2942454" sideWeight="0.5748387" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2844734" sideWeight="0.49569213" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31921825" sideWeight="0.5157955" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12289029" sideWeight="0.8128931" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28345627" sideWeight="0.49569213" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3182297" sideWeight="0.509375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08125" sideWeight="0.5502318" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10759494" sideWeight="0.30713245" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39936775" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -437,14 +372,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pa.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/opp.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -465,11 +392,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#117#320#0" expanded="true" />
-            <element signature="e#348#395#0" expanded="true" />
-            <element signature="e#400#542#0" expanded="true" />
-            <element signature="e#547#624#0" expanded="true" />
+            <element signature="e#348#395#0" expanded="false" />
+            <element signature="e#400#542#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -478,14 +402,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="e#457#469#0" expanded="true" />
-            <element signature="e#449#680#0" expanded="true" />
-            <element signature="e#960#972#0" expanded="true" />
-            <element signature="e#951#1112#0" expanded="true" />
-            <element signature="e#1122#1134#0" expanded="true" />
-            <element signature="e#1113#1238#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -508,11 +425,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#117#320#0" expanded="true" />
-            <element signature="e#348#395#0" expanded="true" />
-            <element signature="e#400#542#0" expanded="true" />
-            <element signature="e#547#624#0" expanded="true" />
+            <element signature="e#348#395#0" expanded="false" />
+            <element signature="e#400#542#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -521,14 +435,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="e#457#469#0" expanded="true" />
-            <element signature="e#449#680#0" expanded="true" />
-            <element signature="e#960#972#0" expanded="true" />
-            <element signature="e#951#1112#0" expanded="true" />
-            <element signature="e#1122#1134#0" expanded="true" />
-            <element signature="e#1113#1238#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -558,11 +465,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#117#320#0" expanded="true" />
-            <element signature="e#348#395#0" expanded="true" />
-            <element signature="e#400#542#0" expanded="true" />
-            <element signature="e#547#624#0" expanded="true" />
+            <element signature="e#348#395#0" expanded="false" />
+            <element signature="e#400#542#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -571,14 +475,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="e#457#469#0" expanded="true" />
-            <element signature="e#449#680#0" expanded="true" />
-            <element signature="e#960#972#0" expanded="true" />
-            <element signature="e#951#1112#0" expanded="true" />
-            <element signature="e#1122#1134#0" expanded="true" />
-            <element signature="e#1113#1238#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -594,11 +491,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#117#320#0" expanded="true" />
-            <element signature="e#348#395#0" expanded="true" />
-            <element signature="e#400#542#0" expanded="true" />
-            <element signature="e#547#624#0" expanded="true" />
+            <element signature="e#348#395#0" expanded="false" />
+            <element signature="e#400#542#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -607,14 +501,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="e#457#469#0" expanded="true" />
-            <element signature="e#449#680#0" expanded="true" />
-            <element signature="e#960#972#0" expanded="true" />
-            <element signature="e#951#1112#0" expanded="true" />
-            <element signature="e#1122#1134#0" expanded="true" />
-            <element signature="e#1113#1238#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -751,21 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trash.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="374" column="0" selection-start-line="374" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pa.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27575758">
@@ -781,10 +653,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dsk.cpp">
+    <entry file="file://$PROJECT_DIR$/Theory/dsk — копия.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12087912">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="218" column="6" selection-start-line="218" selection-start-column="6" selection-end-line="218" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/4.9.2/include/c++/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="823" column="0" selection-start-line="823" selection-start-column="0" selection-end-line="823" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -792,58 +672,61 @@
     <entry file="file://$PROJECT_DIR$/src/opp.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding>
-            <element signature="e#154#349#0" expanded="true" />
-            <element signature="e#377#518#0" expanded="true" />
-            <element signature="e#523#579#0" expanded="true" />
-            <element signature="e#671#760#0" expanded="true" />
-          </folding>
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api.cpp">
+    <entry file="file://$PROJECT_DIR$/trash.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-          <folding>
-            <element signature="e#65#282#0" expanded="true" />
-            <element signature="e#283#648#0" expanded="true" />
-            <element signature="e#1084#1245#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/opp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="e#200#735#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/protocol.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-          <folding>
-            <element signature="e#147#367#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.90437603">
+          <caret line="515" column="67" selection-start-line="515" selection-start-column="67" selection-end-line="515" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dsk.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <caret line="9" column="90" selection-start-line="9" selection-start-column="90" selection-end-line="9" selection-end-column="90" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#117#320#0" expanded="true" />
-            <element signature="e#348#395#0" expanded="true" />
-            <element signature="e#400#542#0" expanded="true" />
-            <element signature="e#547#624#0" expanded="true" />
+            <element signature="e#348#395#0" expanded="false" />
+            <element signature="e#400#542#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pa.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dsk.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81361425">
+          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35008103">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+          <folding>
+            <element signature="e#65#282#0" expanded="false" />
+            <element signature="e#1084#1245#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -851,62 +734,44 @@
     <entry file="file://$PROJECT_DIR$/src/pa.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
-          <folding>
-            <element signature="e#164#345#0" expanded="true" />
-            <element signature="e#364#428#0" expanded="true" />
-            <element signature="e#430#557#0" expanded="true" />
-            <element signature="e#559#605#0" expanded="true" />
-            <element signature="e#607#674#0" expanded="true" />
-          </folding>
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/protocol.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6424051">
+        <state vertical-scroll-proportion="0.0">
           <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-          <folding>
-            <element signature="e#457#469#0" expanded="true" />
-            <element signature="e#449#680#0" expanded="true" />
-            <element signature="e#960#972#0" expanded="true" />
-            <element signature="e#951#1112#0" expanded="true" />
-            <element signature="e#1122#1134#0" expanded="true" />
-            <element signature="e#1113#1238#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+    <entry file="file://$PROJECT_DIR$/src/opp.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8833063">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/protocol.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.96272284">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding>
-            <element signature="e#117#512#0" expanded="true" />
-            <element signature="e#513#1462#0" expanded="true" />
-            <element signature="e#1463#2554#0" expanded="true" />
-            <element signature="e#3255#3538#0" expanded="true" />
-            <element signature="e#3540#3801#0" expanded="true" />
-            <element signature="e#3802#3939#0" expanded="true" />
-            <element signature="e#3940#4070#0" expanded="true" />
-            <element signature="e#4071#4221#0" expanded="true" />
+            <element signature="e#2378#3066#0" expanded="false" />
+            <element signature="e#3068#3437#0" expanded="false" />
+            <element signature="e#3438#3699#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Theory/dsk — копия.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7563291">
-          <caret line="218" column="6" selection-start-line="218" selection-start-column="6" selection-end-line="218" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>

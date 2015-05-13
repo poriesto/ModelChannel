@@ -30,7 +30,7 @@ void opp::work()
 
     bl = makeBlocks(Blocks, BlockSize, bytes);
     pr = new protocol(bl,code);
-    pr->work(ProtocolType);
+    pr->work(ProtocolType, PacketSize);
 
     std::cout << "======End OPP model======" << std::endl;
 }

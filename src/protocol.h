@@ -15,7 +15,7 @@ public:
     }
     virtual ~protocol() { }
 
-    void work(UINT type);
+    void work(UINT type, UINT pkSize);
 private:
     std::vector<Block>bl;
     Code code;
@@ -23,16 +23,13 @@ private:
     UINT blSize, blocks, pkSize, suc, unsuc, attems;
 
     void datagramm();
-    void latency(UINT latency);
-    void Nstep(UINT step);
+    void latency();
+    void Nstep();
 
     bool isCorectable(Packet packet);
     bool checkPacket(Packet packet);
     UINT checkBlockErrors(Block bl);
-
-    Packet mkSinglePacket();
-    Block mlSingleBlock();
-
+    bool isCorrectiableBlock(Block block);
 };
 
 

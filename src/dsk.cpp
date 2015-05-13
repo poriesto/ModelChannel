@@ -29,6 +29,6 @@ void dsk::work() {
 */
 	bl = makeBlocks(Blocks, BlockSize, bytes);
 	pr = new protocol(bl,code);
-	pr->work(dsk::ProtocolType);
+	pr->work(dsk::ProtocolType, dsk::PacketSize);
 	std::cout << "======End dsk model======" << std::endl;
 }

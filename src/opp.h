@@ -25,13 +25,14 @@ public:
         opp::A = A;
         opp::V = V;
     }
-    void setProtocolType(UINT ProtocolType) {
+    void setProtocolType(UINT ProtocolType, UINT PacketSize) {
         opp::ProtocolType = ProtocolType;
+        opp::PacketSize = PacketSize;
     }
     void work();
 
 private:
-    UINT BlockSize, SessionSize, Blocks, ProtocolType;
+    UINT BlockSize, SessionSize, Blocks, ProtocolType, PacketSize;
     double A,V;
     Code code;
     std::vector<UINT> bytes, errorsPos;
