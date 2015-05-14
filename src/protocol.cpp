@@ -23,7 +23,7 @@ void protocol::work(UINT type, UINT pkSize) {
 }
 void protocol::datagramm() {
     std::cout << "!******Datagramm protocol begin******!" << std::endl;
-    auto expr1 = [this](){ unsuc+=1; attems+=ATTEMS; };
+    auto expr1 = [this](){ unsuc+=1; attems+=1; };
     auto expr2 = [this](){ suc+=1; };
 
     for(auto value : bl){
@@ -61,23 +61,9 @@ void protocol::latency() {
                  "Percent succeful = " << percent << "%" << std::endl <<
                  "Speed = " << speed << " bt/s" << std::endl <<
                  "Attems = " << attems << std::endl;
-    std::cout << "Single time = " << OverallBits/speed << std::endl;
+    std::cout << "Single time = " << (OverallBits/speed)/suc << std::endl;
 }
 void protocol::Nstep() {
-	/*auto expr1 = [this](){ unsuc+=1; attems+=ATTEMS; };
-    auto expr2 = [this](){ suc+=1; };
-    for(auto i = 0; i < bl.size(); i++){
-    }
-    PolBits = suc*blSize;
-    OverallBits = (suc+unsuc+attems)*blSize;
-    percent = (suc*100)/blocks;
-    speed = PolBits / OverallBits;
-    std::cout << "Blocks transmited = " << blocks << std::endl <<
-                 "Blocks succeful = " << suc << std::endl <<
-                 "Blocks unsucceful = " << unsuc << std::endl <<
-                 "Percent succeful = " << percent << "%" << std::endl <<
-                 "Speed = " << speed << " bt/s" << std::endl <<
-                 "Attems = " << attems << std::endl;*/
 }
 
 bool protocol::isCorectable(Packet packet) {

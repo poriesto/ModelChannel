@@ -10,12 +10,7 @@ void dsk::work() {
         bytes.at(index) = 1;
         errors.emplace_back(index);
     };
-/*
-    for(auto& value : bytes){
-        generator(a,b, r);
-        //r < dsk::p ? value = 0 : value = 1;
-        r > p ? value = 0 : value = 1;
-    }*/
+
     for(auto i = 0; i < bytes.size(); i++){
         generator(a,b,r);
         r > p ? expr1(i) : expr2(i);
@@ -23,11 +18,8 @@ void dsk::work() {
 
     std::cout << "Errors:" << std::endl;
     print(errors);
-/*    for(auto i = 0; i < bytes.size(); i++){
-        bytes.at(i) == 1 ? dsk::errors.emplace_back(i) : dsk::corElems.emplace_back(i);
-    }
-*/
-	bl = makeBlocks(Blocks, BlockSize, bytes);
+
+    bl = makeBlocks(Blocks, BlockSize, bytes);
 	pr = new protocol(bl,code);
 	pr->work(dsk::ProtocolType, dsk::PacketSize);
 	std::cout << "======End dsk model======" << std::endl;
