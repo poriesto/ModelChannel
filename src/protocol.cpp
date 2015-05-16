@@ -5,8 +5,8 @@
 #include "protocol.h"
 
 void protocol::work(UINT type, UINT pkSize) {
-    UINT param = 0;
     protocol::pkSize = pkSize;
+    pl = makePackets(protocol::pkSize,blocks/protocol::pkSize, bl);
     switch (type){
         case 1:
             datagramm();
@@ -42,46 +42,59 @@ void protocol::datagramm() {
                  "Attems = " << attems << std::endl;
     std::cout << "!******Datagramm protocol end******!" << std::endl;
 }
-void protocol::latency() {
 //TODO need hard fix
-    std::vector<Packet> pl= makePackets(pkSize, blocks/pkSize, bl);
-    auto expr = [this](){unsuc+=1; attems+=1; suc+=1;};
-    auto expr1 = [this](){suc+=1;};
+void protocol::latency() {
+    auto succsExpr = [this](){
+        PolBits += blSize * pkSize;
+        suc+=1;
+        OverallBits += PolBits;
+    };
+    auto unsuccsExpr = [this](){
+        OverallBits += blSize * pkSize;
+        unsuc+=1;
+        attems += 1;
+        PolBits += blSize*(pkSize+attems);
+    };
+    bool Correct, Correctable;
     for(auto packet : pl){
-        bool isCorupt = checkPacket(packet);
-        isCorupt ? isCorectable(packet) ? expr1() : expr() : expr1();
+        Correct = checkPacket(packet);
+        if (Correct){
+            Correctable = isCorectable(packet);
+            if(Correctable){
+                succsExpr();
+            }
+            else{
+                unsuccsExpr();
+            }
+        }
+        else{
+            succsExpr();
+        }
+        attems = 0;
     }
-    PolBits = suc * pkSize * blSize;
-    OverallBits = (((unsuc+attems)*pkSize)*blSize) + PolBits;
-    percent = PolBits*100/OverallBits;
     speed = PolBits/OverallBits;
-    std::cout << "Blocks transmited = " << blocks << std::endl <<
-                 "Overall Bits = " << OverallBits << std::endl <<
-                 "PolBits = " << PolBits << std::endl <<
-                 "Percent succeful = " << percent << "%" << std::endl <<
-                 "Speed = " << speed << " bt/s" << std::endl <<
-                 "Attems = " << attems << std::endl;
-    std::cout << "Single time = " << (OverallBits/speed)/suc << std::endl;
+    percent = (PolBits*100)/OverallBits;
+    double singleTime = (OverallBits/speed)/(suc+unsuc+attems);
+    std::cout << "Bits transmitted: " << OverallBits << std::endl <<
+                 "Correct bits transmitted: " << PolBits << std::endl <<
+                 "Percent corrects bits in session: " << percent << std::endl <<
+                 "Speed: " << speed << std::endl <<
+                 "Time for work on single packet: " << singleTime << std::endl;
 }
 void protocol::Nstep() {
 }
 
 bool protocol::isCorectable(Packet packet) {
-    bool result = false;
     UINT correct = 0, corupted = 0;
 
-    //for(auto block : packet) checkBlockErrors(block) > code.errorsCorrection ? corupted+=1 : correct+=1;
     for(auto block : packet) isCorrectiableBlock(block) ? correct+=1 : corupted+=1;
-    corupted == 0 ? result = true: result = false;
-    return result;
+    return corupted == 0;
 }
 bool protocol::checkPacket(Packet packet) {
-    bool result = false;
     UINT correct = 0, corupted = 0;
 
     for(auto block : packet) checkBlockErrors(block) > 0 ? corupted+=1 : correct+=1;
-    corupted > 0 ? result = false: result = true;
-    return result;
+    return corupted <= 0;
 }
 UINT protocol::checkBlockErrors(Block bl) {
     UINT errors = 0;
@@ -90,8 +103,7 @@ UINT protocol::checkBlockErrors(Block bl) {
     return errors;
 }
 bool protocol::isCorrectiableBlock(Block block) {
-    bool result = false;
     auto errors = checkBlockErrors(block);
-    errors <= code.errorsCorrection ? result = true : result = false;
-    return result;
+    blErrors += errors;
+    return errors <= code.errorsCorrection;
 }

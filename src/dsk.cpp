@@ -13,11 +13,11 @@ void dsk::work() {
 
     for(auto i = 0; i < bytes.size(); i++){
         generator(a,b,r);
-        r > p ? expr1(i) : expr2(i);
+        r >= p ? expr1((UINT) i) : expr2((UINT) i);
     }
 
-    std::cout << "Errors:" << std::endl;
-    print(errors);
+//    std::cout << "Errors:" << std::endl;
+//    print(errors);
 
     bl = makeBlocks(Blocks, BlockSize, bytes);
 	pr = new protocol(bl,code);

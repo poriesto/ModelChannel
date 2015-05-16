@@ -10,17 +10,19 @@ class protocol {
 public:
     protocol(const std::vector<Block> &bl, const Code &code) : bl(bl), code(code) {
         protocol::attems = 0;
-        protocol::blSize = protocol::bl.begin()->size();
-        protocol::blocks = protocol::bl.size();
+        protocol::blSize = (UINT) protocol::bl.begin()->size();
+        protocol::blocks = (UINT) protocol::bl.size();
     }
     virtual ~protocol() { }
 
     void work(UINT type, UINT pkSize);
 private:
     std::vector<Block>bl;
+    std::vector<Packet>pl;
     Code code;
-    double speed, PolBits, OverallBits, percent;
+    double speed = 0.0, PolBits = 0.0, OverallBits = 0.0, percent = 0.0;
     UINT blSize, blocks, pkSize, suc, unsuc, attems;
+    UINT blErrors;
 
     void datagramm();
     void latency();

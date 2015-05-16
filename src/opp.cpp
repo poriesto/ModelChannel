@@ -25,8 +25,8 @@ void opp::work()
 		}
 	}
 
-	std::cout << std::endl << "Errors" << std::endl;
-    print(errorsPos);
+//	std::cout << std::endl << "Errors" << std::endl;
+//    print(errorsPos);
 
     bl = makeBlocks(Blocks, BlockSize, bytes);
     pr = new protocol(bl,code);

@@ -15,8 +15,9 @@ public:
     void setP(double p) {
         dsk::p = p;
     }
-    void setCode(UINT codeleght, UINT correction){
-        dsk::code.codeLegth = codeleght;
+    void setCode(UINT codeleght, UINT correction, UINT data){
+        dsk::code.codeLength = codeleght;
+        dsk::code.DataLength = data;
         dsk::code.errorsCorrection = correction;
     }
     void setProtocol(UINT protocol, UINT PacketSize) {

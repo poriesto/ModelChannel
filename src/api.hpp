@@ -11,12 +11,12 @@
 //TODO may be remove some functions like printDb or checkPacket;
 typedef unsigned int UINT;
 const UINT STRING_LENGHT = 40;
-const UINT ATTEMS = 3;
 typedef std::vector<UINT> Block;
 typedef std::vector<Block> Packet;
 struct Code{
+	UINT codeLength;
+	UINT DataLength;
 	UINT errorsCorrection;
-	UINT codeLegth;
 };
 template<typename T>
 void print(T cont){
