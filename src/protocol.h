@@ -14,6 +14,9 @@ public:
         protocol::blocks = (UINT) protocol::bl.size();
     }
     virtual ~protocol() { }
+    void setSpeed(double speed) {
+        protocol::speed = speed;
+    }
 
     void work(UINT type, UINT pkSize);
 private:

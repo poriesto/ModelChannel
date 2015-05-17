@@ -18,6 +18,7 @@ void protocol::work(UINT type, UINT pkSize) {
             Nstep();
             break;
         default:
+            std::cout << "Set correct params" << std::endl;
             break;
     }
 }
@@ -25,7 +26,6 @@ void protocol::datagramm() {
     std::cout << "!******Datagramm protocol begin******!" << std::endl;
     auto expr1 = [this](){ unsuc+=1; attems+=1; };
     auto expr2 = [this](){ suc+=1; };
-
     for(auto value : bl){
         auto errors = checkBlockErrors(value);
         errors > 0 ? errors > code.errorsCorrection ? expr1() : expr2() : expr2();
@@ -74,7 +74,7 @@ void protocol::latency() {
     }
     speed = PolBits/OverallBits;
     percent = (PolBits*100)/OverallBits;
-    double singleTime = (OverallBits/speed)/(suc+unsuc+attems);
+    double singleTime = OverallBits / (PolBits/OverallBits);
     std::cout << "Bits transmitted: " << OverallBits << std::endl <<
                  "Correct bits transmitted: " << PolBits << std::endl <<
                  "Percent corrects bits in session: " << percent << std::endl <<
@@ -85,20 +85,17 @@ void protocol::Nstep() {
 }
 
 bool protocol::isCorectable(Packet packet) {
-    UINT correct = 0, corupted = 0;
-
-    for(auto block : packet) isCorrectiableBlock(block) ? correct+=1 : corupted+=1;
+    UINT corupted = 0;
+    for(auto block : packet) if(!isCorrectiableBlock(block)) corupted += 1;
     return corupted == 0;
 }
 bool protocol::checkPacket(Packet packet) {
-    UINT correct = 0, corupted = 0;
-
-    for(auto block : packet) checkBlockErrors(block) > 0 ? corupted+=1 : correct+=1;
+    UINT corupted = 0;
+    for(auto block : packet) if (checkBlockErrors(block) > 0) corupted+=1;
     return corupted <= 0;
 }
 UINT protocol::checkBlockErrors(Block bl) {
     UINT errors = 0;
-
     for(auto value : bl) if(value == 1) errors+=1;
     return errors;
 }
