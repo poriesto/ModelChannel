@@ -24,7 +24,8 @@ private:
     std::vector<Packet>pl;
     Code code;
     double speed = 0.0, PolBits = 0.0, OverallBits = 0.0, percent = 0.0;
-    UINT blSize, blocks, pkSize, suc, unsuc, attems;
+    double delProbability = 0.0;
+    UINT blSize, blocks, pkSize, RecivedPackets = 0, SentPackets = 0, attems = 0;
     UINT blErrors;
 
     void datagramm();

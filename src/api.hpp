@@ -17,6 +17,7 @@ struct Code{
 	UINT codeLength;
 	UINT DataLength;
 	UINT errorsCorrection;
+        UINT bitsWord;
 };
 template<typename T>
 void print(T cont){

@@ -15,10 +15,11 @@ public:
     void setP(double p) {
         dsk::p = p;
     }
-    void setCode(UINT codeleght, UINT correction, UINT data){
+    void setCode(UINT codeleght, UINT correction, UINT data, UINT bitsWord){
         dsk::code.codeLength = codeleght;
         dsk::code.DataLength = data;
         dsk::code.errorsCorrection = correction;
+        dsk::code.bitsWord = bitsWord;
     }
     void setProtocol(UINT protocol, UINT PacketSize) {
         dsk::ProtocolType = protocol;

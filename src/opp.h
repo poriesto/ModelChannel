@@ -14,10 +14,11 @@ public:
 		opp::bytes = makeSession(opp::SessionSize);
     }
     virtual ~opp() { }
-    void setCode(UINT codeLength, UINT errosCor, UINT dataLength) {
+    void setCode(UINT codeLength, UINT errosCor, UINT dataLength, UINT bitsWord) {
         opp::code.errorsCorrection = errosCor;
         opp::code.codeLength = codeLength;
         opp::code.DataLength = dataLength;
+        opp::code.bitsWord = bitsWord;
     }
     void setParams(double A, double V) {
         opp::A = A;

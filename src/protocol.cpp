@@ -24,60 +24,30 @@ void protocol::work(UINT type, UINT pkSize) {
 }
 void protocol::datagramm() {
     std::cout << "!******Datagramm protocol begin******!" << std::endl;
-    auto expr1 = [this](){ unsuc+=1; attems+=1; };
-    auto expr2 = [this](){ suc+=1; };
-    for(auto value : bl){
-        auto errors = checkBlockErrors(value);
-        errors > 0 ? errors > code.errorsCorrection ? expr1() : expr2() : expr2();
-    }
-    PolBits = suc*blSize;
-    OverallBits = (suc+unsuc+attems)*blSize;
-    percent = (suc*100)/blocks;
-    speed = PolBits / OverallBits;
-    std::cout << "Blocks transmited = " << blocks << std::endl <<
-                 "Blocks succeful = " << suc << std::endl <<
-                 "Blocks unsucceful = " << unsuc << std::endl <<
-                 "Percent succeful = " << percent << "%" << std::endl <<
-                 "Speed = " << speed << " bt/s" << std::endl <<
-                 "Attems = " << attems << std::endl;
     std::cout << "!******Datagramm protocol end******!" << std::endl;
 }
 //TODO need hard fix
 void protocol::latency() {
-    auto succsExpr = [this](){
-        PolBits += blSize * pkSize;
-        suc+=1;
-        OverallBits += PolBits;
-    };
-    auto unsuccsExpr = [this](){
-        OverallBits += blSize * pkSize;
-        unsuc+=1;
-        attems += 1;
-        PolBits += blSize*(pkSize+attems);
-    };
-    bool Correct, Correctable;
+    bool CoruptedPacket, CorrectablePacket;
+    
     for(auto packet : pl){
-        Correct = checkPacket(packet);
-        if (Correct){
-            Correctable = isCorectable(packet);
-            if(Correctable){
-                succsExpr();
-            }
-            else{
-                unsuccsExpr();
+        CoruptedPacket = checkPacket(packet);
+        if(CoruptedPacket){
+            CorrectablePacket = isCorectable(packet);
+            if(CorrectablePacket){
+                RecivedPackets += 1;
             }
         }
         else{
-            succsExpr();
+            RecivedPackets += 1;
         }
-        attems = 0;
+        SentPackets += 1;
     }
-    speed = PolBits/OverallBits;
-    percent = (PolBits*100)/OverallBits;
-    double singleTime = OverallBits / (PolBits/OverallBits);
-    std::cout << "Bits transmitted: " << OverallBits << std::endl <<
-                 "Correct bits transmitted: " << PolBits << std::endl <<
-                 "Percent corrects bits in session: " << percent << std::endl <<
+    std::cout << "Sent Packets = " << SentPackets << " RecivedPackets = " << RecivedPackets << std::endl;
+    delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
+    speed = (delProbability * (RecivedPackets*pkSize*blSize))/SentPackets*blSize*pkSize;
+    double singleTime = RecivedPackets*pkSize*blSize / speed;
+    std::cout << "Deleviring probability: " << delProbability << std::endl <<
                  "Speed: " << speed << std::endl <<
                  "Time for work on single packet: " << singleTime << std::endl;
 }
@@ -92,7 +62,7 @@ bool protocol::isCorectable(Packet packet) {
 bool protocol::checkPacket(Packet packet) {
     UINT corupted = 0;
     for(auto block : packet) if (checkBlockErrors(block) > 0) corupted+=1;
-    return corupted <= 0;
+    return corupted > 0;
 }
 UINT protocol::checkBlockErrors(Block bl) {
     UINT errors = 0;

@@ -18,10 +18,11 @@ public:
 		pa::a = a;
 		pa::p = p;
 	}
-	void setCode(UINT codelenght, UINT correction, UINT data){
+	void setCode(UINT codelenght, UINT correction, UINT data, UINT bitsWord){
 		pa::code.codeLength = codelenght;
 		pa::code.DataLength = data;
 		pa::code.errorsCorrection = correction;
+		pa::code.bitsWord = bitsWord;
 	}
 	void setProtocol(UINT protocol, UINT PacketSize)	{
 		pa::ProtocolType = protocol;
