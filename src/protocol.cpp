@@ -7,6 +7,7 @@
 void protocol::work(UINT type, UINT pkSize) {
     protocol::pkSize = pkSize;
     pl = makePackets(protocol::pkSize,blocks/protocol::pkSize, bl);
+    packetSize = blSize*pkSize;
     switch (type){
         case 1:
             datagramm();
@@ -23,8 +24,26 @@ void protocol::work(UINT type, UINT pkSize) {
     }
 }
 void protocol::datagramm() {
-    std::cout << "!******Datagramm protocol begin******!" << std::endl;
-    std::cout << "!******Datagramm protocol end******!" << std::endl;
+    bool CoruptedPacket, CorrectablePacket;
+    for(auto packet : pl){
+        CoruptedPacket = checkPacket(packet);
+        if (CoruptedPacket){
+            CorrectablePacket = isCorectable(packet);
+            if(CorrectablePacket){
+                RecivedPackets+=1;
+            }
+        }
+        else{
+            RecivedPackets+=1;
+        }
+        SentPackets+=1;
+    }
+    std::cout << "Sent Packets = " << SentPackets << " RecivedPackets = " << RecivedPackets << std::endl;
+    delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
+    speed = delProbability*RecivedPackets/SentPackets;
+    speed = speed*packetSize;
+    std::cout << "Deleviring probability: " << delProbability << std::endl <<
+                 "Speed: " << speed << std::endl;
 }
 //TODO need hard fix
 void protocol::latency() {
@@ -45,11 +64,16 @@ void protocol::latency() {
     }
     std::cout << "Sent Packets = " << SentPackets << " RecivedPackets = " << RecivedPackets << std::endl;
     delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
-    speed = (delProbability * (RecivedPackets*pkSize*blSize))/SentPackets*blSize*pkSize;
-    double singleTime = RecivedPackets*pkSize*blSize / speed;
+    speed = (RecivedPackets/SentPackets)*(blSize*pkSize);
+    singleTime = SentPackets*(pkSize*blSize);
+    singleTime = singleTime/speed;
+    double  specialTime;
+    specialTime = (SentPackets*SentPackets)/(RecivedPackets*packetSize);
+
     std::cout << "Deleviring probability: " << delProbability << std::endl <<
                  "Speed: " << speed << std::endl <<
-                 "Time for work on single packet: " << singleTime << std::endl;
+                 "Time for work on single packet: " << singleTime << std::endl <<
+                 "Special time for work on frame stream: " << specialTime << std::endl;
 }
 void protocol::Nstep() {
 }
