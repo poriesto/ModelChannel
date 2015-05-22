@@ -21,7 +21,7 @@ private:
     Code code;
     double speed = 0.0, delProbability = 0.0, singleTime = 0.0;
     UINT blSize, blocks, pkSize, RecivedPackets = 0, SentPackets = 0;
-    UINT blErrors, packetSize;
+    UINT blErrors = 0, packetSize;
 
     void datagramm();
     void latency();

@@ -66,15 +66,11 @@ void protocol::latency() {
     std::cout << "Sent Packets = " << SentPackets << " RecivedPackets = " << RecivedPackets << std::endl;
     delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
     speed = (static_cast<double>(RecivedPackets)/ static_cast<double>(SentPackets))*(static_cast<double>(blSize*pkSize));
-    singleTime = SentPackets*(pkSize*blSize);
-    singleTime = singleTime/speed;
-    double  specialTime;
-    specialTime = static_cast<double>(SentPackets*SentPackets)/ static_cast<double>(RecivedPackets*packetSize);
+    singleTime = static_cast<double>(SentPackets*SentPackets)/ static_cast<double>(RecivedPackets*packetSize);
 
     std::cout << "Deleviring probability: " << delProbability << std::endl <<
                  "Speed: " << speed << std::endl <<
-                 "Time for work on single packet: " << singleTime << std::endl <<
-                 "Special time for work on frame stream: " << specialTime << std::endl;
+                 "Time for work on single packet: " << singleTime << std::endl;
 }
 void protocol::Nstep() {
 }
@@ -93,31 +89,58 @@ UINT protocol::checkBlockErrors(Block bl) {
     UINT errors = 0;
     for(auto value : bl) if(value == 1) errors+=1;
     return errors;
-}/*
+}
+/*
 bool protocol::isCorrectiableBlock(Block block) {
     auto errors = checkBlockErrors(block);
     blErrors += errors;
     return errors <= code.errorsCorrection;
-}*/
+}
+ */
 bool protocol::isCorrectiableBlock(Block block) {
     UINT ipos = 0, epos = code.bitsWord;
-    UINT errorsInWord, errorsInBlock;
-
-    std::list< std::list<UINT> >words;
-    for(auto i = 0; i < block.size()/code.bitsWord; i++){
-        std::list<UINT> word;
-        for(auto j = ipos; j < epos; j++){
+    blErrors = 0;
+    if(code.bitsWord > 1) {
+        std::list<std::list<UINT> > words;
+        for (auto i = 0; i < block.size() / code.bitsWord; i++) {
+            std::list<UINT> word;
+            for (auto j = ipos; j < epos; j++) {
+                word.emplace_back(block.at(j));
+            }
+            words.emplace_back(word);
+            ipos += code.bitsWord;
+            epos += code.bitsWord;
+        }
+        for (auto word : words) {
+            for (auto value : word) {
+                if (value == 1) blErrors+=1;
+            }
+        }
+    }
+    else{
+        blErrors = checkBlockErrors(block);
+    }
+    return blErrors <= code.errorsCorrection;
+}
+/*
+bool protocol::isCorrectiableBlock(Block block) {
+    UINT ipos = 0, epos = code.bitsWord;
+    blErrors = 0;
+    std::list<std::list<UINT>>words;
+    for(UINT i = 0; i < block.size()/code.bitsWord; i++){
+        std::list<UINT>word;
+        for(UINT j = ipos; j < epos; j++){
             word.emplace_back(block.at(j));
         }
         words.emplace_back(word);
-        ipos += code.bitsWord;
-        epos += code.bitsWord;
+        ipos+=code.bitsWord;
+        epos+=code.bitsWord;
     }
     for(auto word : words){
         for(auto value : word){
-            if (value == 1) errorsInWord+=1;
+            if (value == 1) blErrors += 1;
         }
-        if (errorsInWord > code.errorsCorrection) errorsInBlock+=1;
     }
-    return errorsInBlock > 0;
-}
+    std::cout << blErrors << std::endl;
+    return blErrors <= code.errorsCorrection;
+}*/

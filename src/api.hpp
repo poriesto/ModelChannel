@@ -47,4 +47,5 @@ void setparam(T& param, std::string message){
 	std::cout << message << std::endl;
 	std::cin >> param;
 }
+
 #endif //DIPLOM_API_HPP
