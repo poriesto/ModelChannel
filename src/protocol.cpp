@@ -3,6 +3,7 @@
 //
 //TODO need implement Nstep and latency protocol
 #include "protocol.h"
+#include <list>
 
 void protocol::work(UINT type, UINT pkSize) {
     protocol::pkSize = pkSize;
@@ -64,11 +65,11 @@ void protocol::latency() {
     }
     std::cout << "Sent Packets = " << SentPackets << " RecivedPackets = " << RecivedPackets << std::endl;
     delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
-    speed = (RecivedPackets/SentPackets)*(blSize*pkSize);
+    speed = (static_cast<double>(RecivedPackets)/ static_cast<double>(SentPackets))*(static_cast<double>(blSize*pkSize));
     singleTime = SentPackets*(pkSize*blSize);
     singleTime = singleTime/speed;
     double  specialTime;
-    specialTime = (SentPackets*SentPackets)/(RecivedPackets*packetSize);
+    specialTime = static_cast<double>(SentPackets*SentPackets)/ static_cast<double>(RecivedPackets*packetSize);
 
     std::cout << "Deleviring probability: " << delProbability << std::endl <<
                  "Speed: " << speed << std::endl <<
@@ -80,7 +81,7 @@ void protocol::Nstep() {
 
 bool protocol::isCorectable(Packet packet) {
     UINT corupted = 0;
-    for(auto block : packet) if(!isCorrectiableBlock(block)) corupted += 1;
+    for(auto block : packet) if(isCorrectiableBlock(block)) corupted += 1;
     return corupted == 0;
 }
 bool protocol::checkPacket(Packet packet) {
@@ -92,9 +93,31 @@ UINT protocol::checkBlockErrors(Block bl) {
     UINT errors = 0;
     for(auto value : bl) if(value == 1) errors+=1;
     return errors;
-}
+}/*
 bool protocol::isCorrectiableBlock(Block block) {
     auto errors = checkBlockErrors(block);
     blErrors += errors;
     return errors <= code.errorsCorrection;
+}*/
+bool protocol::isCorrectiableBlock(Block block) {
+    UINT ipos = 0, epos = code.bitsWord;
+    UINT errorsInWord, errorsInBlock;
+
+    std::list< std::list<UINT> >words;
+    for(auto i = 0; i < block.size()/code.bitsWord; i++){
+        std::list<UINT> word;
+        for(auto j = ipos; j < epos; j++){
+            word.emplace_back(block.at(j));
+        }
+        words.emplace_back(word);
+        ipos += code.bitsWord;
+        epos += code.bitsWord;
+    }
+    for(auto word : words){
+        for(auto value : word){
+            if (value == 1) errorsInWord+=1;
+        }
+        if (errorsInWord > code.errorsCorrection) errorsInBlock+=1;
+    }
+    return errorsInBlock > 0;
 }
