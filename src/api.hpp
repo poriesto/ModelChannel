@@ -8,7 +8,6 @@
 #include <ctime>
 #include <string>
 #include <random>
-//TODO may be remove some functions like printDb or checkPacket;
 typedef unsigned int UINT;
 const UINT STRING_LENGHT = 40;
 typedef std::vector<UINT> Block;
@@ -17,7 +16,7 @@ struct Code{
 	UINT codeLength;
 	UINT DataLength;
 	UINT errorsCorrection;
-        UINT bitsWord;
+    UINT bitsWord;
 };
 template<typename T>
 void print(T cont){

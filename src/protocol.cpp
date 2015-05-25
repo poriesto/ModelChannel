@@ -90,13 +90,6 @@ UINT protocol::checkBlockErrors(Block bl) {
     for(auto value : bl) if(value == 1) errors+=1;
     return errors;
 }
-/*
-bool protocol::isCorrectiableBlock(Block block) {
-    auto errors = checkBlockErrors(block);
-    blErrors += errors;
-    return errors <= code.errorsCorrection;
-}
- */
 bool protocol::isCorrectiableBlock(Block block) {
     UINT ipos = 0, epos = code.bitsWord;
     blErrors = 0;
@@ -122,25 +115,3 @@ bool protocol::isCorrectiableBlock(Block block) {
     }
     return blErrors <= code.errorsCorrection;
 }
-/*
-bool protocol::isCorrectiableBlock(Block block) {
-    UINT ipos = 0, epos = code.bitsWord;
-    blErrors = 0;
-    std::list<std::list<UINT>>words;
-    for(UINT i = 0; i < block.size()/code.bitsWord; i++){
-        std::list<UINT>word;
-        for(UINT j = ipos; j < epos; j++){
-            word.emplace_back(block.at(j));
-        }
-        words.emplace_back(word);
-        ipos+=code.bitsWord;
-        epos+=code.bitsWord;
-    }
-    for(auto word : words){
-        for(auto value : word){
-            if (value == 1) blErrors += 1;
-        }
-    }
-    std::cout << blErrors << std::endl;
-    return blErrors <= code.errorsCorrection;
-}*/
