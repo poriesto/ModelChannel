@@ -34,6 +34,7 @@ private:
     protocol* pr;
     std::vector<UINT>bytes, errors;
     std::vector<Block>bl;
+    void saveToFile(std::string str);
 };
 
 #endif //DIPLOM_DSK_H

@@ -3,8 +3,8 @@ set(PROJECT Diplom)
 project(${PROJECT})
 set(SOURCE_DIR src/)
 set(BINARY_DIR "bin/")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic -Wno-deprecated")
-
+set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -pedantic -Wno-deprecated")
+set(DCMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -pedantic -Wno-deprecated")
 set(HEADERS_FILES
     ${SOURCE_DIR}api.hpp
     ${SOURCE_DIR}dsk.hpp

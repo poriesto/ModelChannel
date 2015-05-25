@@ -8,6 +8,8 @@
 #include <ctime>
 #include <string>
 #include <random>
+#include <sstream>
+#include <fstream>
 typedef unsigned int UINT;
 const UINT STRING_LENGHT = 40;
 typedef std::vector<UINT> Block;
@@ -46,5 +48,10 @@ void setparam(T& param, std::string message){
 	std::cout << message << std::endl;
 	std::cin >> param;
 }
-
+template <typename T>
+std::string to_str(T value){
+	std::stringstream s;
+	s << value;
+	return s.str();
+}
 #endif //DIPLOM_API_HPP

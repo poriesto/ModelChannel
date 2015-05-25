@@ -30,7 +30,26 @@ void opp::work()
 
     bl = makeBlocks(Blocks, BlockSize, bytes);
     pr = new protocol(bl,code);
-    pr->work(ProtocolType, PacketSize);
+	std::stringstream res;
+    //pr->work(ProtocolType, PacketSize);
+	for(UINT i = 1; i <= PacketSize; i+=5){
+		pr->work(ProtocolType, i);
+		res << pr->getResults() << "\n";
+	}
+	saveToFile(res.str());
 
     std::cout << "======End OPP model======" << std::endl;
+}
+void opp::saveToFile(std::string str) {
+	std::stringstream ostr;
+	ostr << "Модель канала ОПП с параметрами A = " << A << ", V = " << V <<"\n"
+		<< str << "\n";
+	std::cout << ostr.str() << std::endl;
+	std::ofstream fout;
+	std::stringstream fname;
+	fname << "OPP_model A = " << A << ", V = " << V  << " code(" << code.codeLength << ", " << code.DataLength <<
+	", " << code.errorsCorrection << ", " << code.bitsWord << ")" <<".txt";
+	fout.open(fname.str());
+	fout.write(ostr.str().c_str(), sizeof(char)*ostr.str().size());
+	fout.close();
 }

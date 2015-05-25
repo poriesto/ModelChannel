@@ -8,29 +8,34 @@
 class protocol {
 
 public:
-    protocol(const std::vector<Block> &bl, const Code &code) : bl(bl), code(code) {
-        protocol::blSize = (UINT) protocol::bl.begin()->size();
-        protocol::blocks = (UINT) protocol::bl.size();
-    }
-    virtual ~protocol() { }
+	protocol(const std::vector<Block> &bl, const Code &code) : bl(bl), code(code) {
+		protocol::blSize = (UINT) protocol::bl.begin()->size();
+		protocol::blocks = (UINT) protocol::bl.size();
+	}
+	virtual ~protocol() { }
 
-    void work(UINT type, UINT pkSize);
+	const std::string &getResults() const {
+		return results;
+	}
+
+	void work(UINT type, UINT pkSize);
 private:
-    std::vector<Block>bl;
-    std::vector<Packet>pl;
-    Code code;
-    double speed = 0.0, delProbability = 0.0, singleTime = 0.0;
-    UINT blSize, blocks, pkSize, RecivedPackets = 0, SentPackets = 0;
-    UINT blErrors = 0, packetSize;
+	std::vector<Block>bl;
+	std::vector<Packet>pl;
+	std::string results;
+	Code code;
+	double speed = 0.0, delProbability = 0.0, singleTime = 0.0;
+	UINT blSize, blocks, pkSize, RecivedPackets = 0, SentPackets = 0;
+	UINT blErrors = 0, packetSize;
 
-    void datagramm();
-    void latency();
-    void Nstep();
+	void datagramm();
+	void latency();
+	void Nstep();
 
-    bool isCorectable(Packet packet);
-    bool checkPacket(Packet packet);
-    UINT checkBlockErrors(Block bl);
-    bool isCorrectiableBlock(Block block);
+	bool isCorectable(Packet packet);
+	bool checkPacket(Packet packet);
+	UINT checkBlockErrors(Block bl);
+	bool isCorrectiableBlock(Block block);
 };
 
 

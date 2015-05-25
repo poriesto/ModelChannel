@@ -39,6 +39,7 @@ private:
     protocol* pr;
 
     UINT GenOppPos();
+    void saveToFile(std::string str);
 };
 
 
