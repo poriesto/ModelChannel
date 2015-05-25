@@ -10,20 +10,19 @@ int main(){
 
 	setparam(protocol, "Chose protocol type\n"
 			"Enter 1 - datagramm, 2 - with latency, 3 - backNstep");
-	setparam(model, "Chose channel model\n"
-			"Enter 1 - dsk, 2 - PA, 3 - OPP");
-	set2params(SessionLenght, BlockSize, "Set SessionLenght and BlockSize");
-	set2params(CRC,PacketSize, "Set CRC length and Blocks in packet");
+	setparam(model, "Выберите поток ошибок\n"
+			"Enter 1 - ДСК,, 2 - PA, 3 - ОПП");
+	set2params(SessionLenght, BlockSize, "Установите длину сеанса связи и размер криптоблока");
+	set2params(CRC,PacketSize, "Установите длину CRC последовательности и количество криптоблоков в кадре");
 	BlockSize += CRC;
 
-	set2params(codeLenght, errorsCorrection, "Set code parametrs:\nEnter length and"
-					" errors correction");
-	set2params(dataLength, bitsWord, "Set data length and bits for word");
+	set2params(codeLenght, errorsCorrection, "Параметры кода:\nУстановите длину кода n(бит) и"
+					" Количество исправляемых ошибок");
+	set2params(dataLength, bitsWord, "Установите длину информационной последовательности k(бит) и длину слова(бит)");
 
 	dsk* dk = new dsk(BlockSize, SessionLenght);
 	pa* pk = new pa(SessionLenght, BlockSize);
 	opp* op = new opp(BlockSize, SessionLenght);
-
 	switch(model)
 	{
 		case 1:
@@ -34,21 +33,21 @@ int main(){
 			dk->work();
 			break;
 		case 2:
-			set2params(p, a, "Set p and a:");
+			set2params(p, a, "Установите p и a:");
 			pk->setCode(codeLenght, errorsCorrection, dataLength, bitsWord);
 			pk->setProtocol(protocol, PacketSize);
 			pk->setParams(a,p);
 			pk->work();
 			break;
 		case 3:
-			set2params(A, V, "Set A and V:");
+			set2params(A, V, "Установите A и V:");
 			op->setProtocolType(protocol, PacketSize);
 			op->setCode(codeLenght, errorsCorrection, dataLength, bitsWord);
 			op->setParams(A, V);
 			op->work();
 			break;
 		default:
-			std::cout << "Enter correct params" << std::endl;
+			std::cout << "Введены некоректные параметры" << std::endl;
 			break;
 	}
     return EXIT_SUCCESS;

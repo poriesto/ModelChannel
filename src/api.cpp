@@ -7,7 +7,6 @@ std::vector<UINT> makeSession(UINT SessionLenght){
 	std::vector<UINT> ve;
 	ve.resize(SessionLenght);
 	std::fill(ve.begin(), ve.end(), 0);
-	std::cout << "Bytes in session: " << ve.capacity() << std::endl;
 	return ve;
 }
 std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>bytes){
@@ -38,7 +37,6 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 		IPOS += PacketSize;
 		EPOS += PacketSize;
 	}
-	std::cout << "Packets created: " << ve.capacity() << std::endl;
 	return ve;
 }
 void generator(double a, double b, double& num){

@@ -13,7 +13,8 @@ void dsk::work() {
 
     for(auto i = 0; i < bytes.size(); i++){
         generator(a,b,r);
-        r >= p ? expr1((UINT) i) : expr2((UINT) i);
+        //r >= p ? expr1((UINT) i) : expr2((UINT) i);
+        r < p ? expr2((UINT)i) : expr1((UINT)i);
     }
 
 //    std::cout << "Errors:" << std::endl;
