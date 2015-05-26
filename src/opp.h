@@ -30,6 +30,10 @@ public:
     }
     void work();
 
+    void setCode(const Code &code) {
+        opp::code = code;
+    }
+
 private:
     UINT BlockSize, SessionSize, Blocks, ProtocolType, PacketSize;
     double A,V;

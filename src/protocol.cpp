@@ -66,9 +66,13 @@ void protocol::latency() {
 		}
 		SentPackets += 1;
 	}
+	UINT CodeBlockCount = packetSize/code.DataLength;
 	double frameSize = blSize*pkSize + (code.DataLength*code.codeLength);
 	delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
-	speed = (static_cast<double>(RecivedPackets)/ static_cast<double>(SentPackets))*frameSize;
+	//speed = (static_cast<double>(RecivedPackets)/ static_cast<double>(SentPackets))*frameSize;
+	speed = static_cast<double>(RecivedPackets*packetSize)/
+			static_cast<double>(SentPackets*(blSize*pkSize+
+					CodeBlockCount*(code.codeLength-code.DataLength)*code.bitsWord));
 	singleTime = static_cast<double>(SentPackets*SentPackets)/ static_cast<double>(RecivedPackets*frameSize);
 	std::stringstream ss;
 	ss <<"Код (" << to_str(code.codeLength) << ", " << to_str(code.DataLength) << ", " << to_str(code.errorsCorrection) << ", " << to_str(code.bitsWord) << ")\n"

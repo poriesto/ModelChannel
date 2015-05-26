@@ -2,7 +2,7 @@
 // Created by Alexander on 28.04.2015.
 //
 #include "main.h"
-
+#include <list>
 int main(){
     unsigned int SessionLenght = 0, BlockSize = 0, model = 0, protocol = 0, CRC;
 	unsigned int codeLenght = 0, dataLength = 0, errorsCorrection = 0, PacketSize = 0, bitsWord = 0;
@@ -50,5 +50,5 @@ int main(){
 			std::cout << "¬ведены некоректные параметры" << std::endl;
 			break;
 	}
-    return EXIT_SUCCESS;
+	return EXIT_SUCCESS;
 }

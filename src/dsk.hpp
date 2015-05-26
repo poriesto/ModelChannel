@@ -26,6 +26,10 @@ public:
         dsk::PacketSize = PacketSize;
     }
 
+    void setCode(const Code &code) {
+        dsk::code = code;
+    }
+
     void work();
 private:
     UINT BlockSize, SessionSize, Blocks, ProtocolType, PacketSize;
