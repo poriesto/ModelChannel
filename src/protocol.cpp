@@ -79,7 +79,6 @@ void protocol::latency() {
 		<< "\nВероятность доставки кадра = " << to_str(delProbability)
 		<< " \nСреднее время задержки = " << to_str(singleTime);
 	results = ss.str();
-	/*std::cout << results << std::endl;*/
 }
 void protocol::Nstep() {
 }
@@ -99,33 +98,6 @@ UINT protocol::checkBlockErrors(Block bl) {
 	for(auto value : bl) if(value == 1) errors+=1;
 	return errors;
 }
-/*
-bool protocol::isCorrectiableBlock(Block block) {
-	UINT ipos = 0, epos = code.bitsWord;
-	blErrors = 0;
-	if(code.bitsWord > 1) {
-		std::list<std::list<UINT> > words;
-		for (auto i = 0; i < block.size() / code.bitsWord; i++) {
-			std::list<UINT> word;
-			for (auto j = ipos; j < epos; j++) {
-				word.emplace_back(block.at(j));
-			}
-			words.emplace_back(word);
-			ipos += code.bitsWord;
-			epos += code.bitsWord;
-		}
-		for (auto word : words) {
-			for (auto value : word) {
-				if (value == 1) blErrors+=1;
-			}
-		}
-	}
-	else{
-		blErrors = checkBlockErrors(block);
-	}
-	return blErrors <= code.errorsCorrection;
-}
-*/
 bool protocol::isCorrectiableBlock(Block block) {
 	UINT ipos = 0, epos = code.bitsWord;
 	blErrors = 0;
