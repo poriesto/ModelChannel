@@ -66,9 +66,10 @@ void protocol::latency() {
 		}
 		SentPackets += 1;
 	}
+	double frameSize = blSize*pkSize + (code.DataLength*code.codeLength);
 	delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
-	speed = (static_cast<double>(RecivedPackets)/ static_cast<double>(SentPackets))*(static_cast<double>(blSize*pkSize));
-	singleTime = static_cast<double>(SentPackets*SentPackets)/ static_cast<double>(RecivedPackets*packetSize);
+	speed = (static_cast<double>(RecivedPackets)/ static_cast<double>(SentPackets))*frameSize;
+	singleTime = static_cast<double>(SentPackets*SentPackets)/ static_cast<double>(RecivedPackets*frameSize);
 	std::stringstream ss;
 	ss <<"Код (" << to_str(code.codeLength) << ", " << to_str(code.DataLength) << ", " << to_str(code.errorsCorrection) << ", " << to_str(code.bitsWord) << ")\n"
 		<< "Размер блока, бит = " << blSize << "\nКоличество блоков в кадре = " << pkSize
