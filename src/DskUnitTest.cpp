@@ -28,7 +28,7 @@ int main(){
 
     code.codeLength = 31; code.DataLength = 21; code.errorsCorrection = 2; code.bitsWord = 1;
     codeList.emplace_back(code);
-    std::list<UINT>Plist{0.05, 0.01, 0.005};
+    std::list<double>Plist{0.05, 0.01, 0.005};
     for(auto codeTest : codeList){
         for(auto P : Plist){
             dk->setP(P);
