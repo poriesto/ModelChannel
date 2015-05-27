@@ -75,13 +75,13 @@ void protocol::latency() {
 					CodeBlockCount*(code.codeLength-code.DataLength)*code.bitsWord));
 	singleTime = static_cast<double>(SentPackets*SentPackets)/ static_cast<double>(RecivedPackets*frameSize);
 	std::stringstream ss;
-	ss <<"Êîä (" << to_str(code.codeLength) << ", " << to_str(code.DataLength) << ", " << to_str(code.errorsCorrection) << ", " << to_str(code.bitsWord) << ")\n"
-		<< "Ðàçìåð áëîêà, áèò = " << blSize << "\nÊîëè÷åñòâî áëîêîâ â êàäðå = " << pkSize
-		<< "\nÎòïðàâëåíî êàäðîâ = " << to_str(SentPackets)
-		<< "\nÏðèíÿòî êàäðîâ = " << to_str(RecivedPackets)
-		<< "\nÑêîðîñòü ïåðåäà÷è = " << to_str(speed)
-		<< "\nÂåðîÿòíîñòü äîñòàâêè êàäðà = " << to_str(delProbability)
-		<< " \nÑðåäíåå âðåìÿ çàäåðæêè = " << to_str(singleTime);
+	ss <<"ÐšÐ¾Ð´ (" << to_str(code.codeLength) << ", " << to_str(code.DataLength) << ", " << to_str(code.errorsCorrection) << ", " << to_str(code.bitsWord) << ")\n"
+		<< "Ð Ð°Ð·Ð¼ÐµÑ€ Ð±Ð»Ð¾ÐºÐ°, Ð±Ð¸Ñ‚ = " << blSize << "\nÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð±Ð»Ð¾ÐºÐ¾Ð² Ð² ÐºÐ°Ð´Ñ€Ðµ = " << pkSize
+		<< "\nÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¾ ÐºÐ°Ð´Ñ€Ð¾Ð² = " << to_str(SentPackets)
+		<< "\nÐŸÑ€Ð¸Ð½ÑÑ‚Ð¾ ÐºÐ°Ð´Ñ€Ð¾Ð² = " << to_str(RecivedPackets)
+		<< "\nÐ¡ÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ Ð¿ÐµÑ€ÐµÐ´Ð°Ñ‡Ð¸ = " << to_str(speed)
+		<< "\nÐ’ÐµÑ€Ð¾ÑÑ‚Ð½Ð¾ÑÑ‚ÑŒ Ð´Ð¾ÑÑ‚Ð°Ð²ÐºÐ¸ ÐºÐ°Ð´Ñ€Ð° = " << to_str(delProbability)
+		<< " \nÐ¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð²Ñ€ÐµÐ¼Ñ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ¸ = " << to_str(singleTime);
 	results = ss.str();
 }
 void protocol::Nstep() {

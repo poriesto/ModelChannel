@@ -24,6 +24,9 @@ public:
 		pa::code.errorsCorrection = correction;
 		pa::code.bitsWord = bitsWord;
 	}
+	void setCode(const Code &code){
+		pa::code = code;
+	}
 	void setProtocol(UINT protocol, UINT PacketSize)	{
 		pa::ProtocolType = protocol;
 		pa::PacketSize = PacketSize;

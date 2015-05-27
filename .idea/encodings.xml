@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" native2AsciiForPropertiesFiles="true">
-    <file url="file://$PROJECT_DIR$" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/protocol.cpp" charset="windows-1251" />
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CMakeLists.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/DskUnitTest.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/OppUnitTest.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/PaUnitTest.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/api.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/api.hpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dsk.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dsk.hpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/opp.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/opp.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pa.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pa.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/protocol.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/protocol.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/trash.txt" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

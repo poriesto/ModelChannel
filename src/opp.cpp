@@ -42,7 +42,7 @@ void opp::work()
 }
 void opp::saveToFile(std::string str) {
 	std::stringstream ostr;
-	ostr << "Ìîäåëü êàíàëà ÎÏÏ ñ ïàðàìåòðàìè A = " << A << ", V = " << V <<"\n"
+	ostr << "ÐœÐ¾Ð´ÐµÐ»ÑŒ ÐºÐ°Ð½Ð°Ð»Ð° ÐžÐŸÐŸ Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸ A = " << A << ", V = " << V <<"\n"
 		<< str << "\n";
 	std::cout << ostr.str() << std::endl;
 	std::ofstream fout;

@@ -10,15 +10,15 @@ int main(){
 
 	setparam(protocol, "Chose protocol type\n"
 			"Enter 1 - datagramm, 2 - with latency, 3 - backNstep");
-	setparam(model, "Âûáåğèòå ïîòîê îøèáîê\n"
-			"Enter 1 - ÄÑÊ,, 2 - PA, 3 - ÎÏÏ");
-	set2params(SessionLenght, BlockSize, "Óñòàíîâèòå äëèíó ñåàíñà ñâÿçè è ğàçìåğ êğèïòîáëîêà");
-	set2params(CRC,PacketSize, "Óñòàíîâèòå äëèíó CRC ïîñëåäîâàòåëüíîñòè è êîëè÷åñòâî êğèïòîáëîêîâ â êàäğå");
+	setparam(model, "Ğ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ğ¿Ğ¾Ñ‚Ğ¾Ğº Ğ¾ÑˆĞ¸Ğ±Ğ¾Ğº\n"
+			"Enter 1 - Ğ”Ğ¡Ğš,, 2 - PA, 3 - ĞĞŸĞŸ");
+	set2params(SessionLenght, BlockSize, "Ğ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚Ğµ Ğ´Ğ»Ğ¸Ğ½Ñƒ ÑĞµĞ°Ğ½ÑĞ° ÑĞ²ÑĞ·Ğ¸ Ğ¸ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ ĞºÑ€Ğ¸Ğ¿Ñ‚Ğ¾Ğ±Ğ»Ğ¾ĞºĞ°");
+	set2params(CRC,PacketSize, "Ğ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚Ğµ Ğ´Ğ»Ğ¸Ğ½Ñƒ CRC Ğ¿Ğ¾ÑĞ»ĞµĞ´Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒĞ½Ğ¾ÑÑ‚Ğ¸ Ğ¸ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ ĞºÑ€Ğ¸Ğ¿Ñ‚Ğ¾Ğ±Ğ»Ğ¾ĞºĞ¾Ğ² Ğ² ĞºĞ°Ğ´Ñ€Ğµ");
 	BlockSize += CRC;
 
-	set2params(codeLenght, errorsCorrection, "Ïàğàìåòğû êîäà:\nÓñòàíîâèòå äëèíó êîäà n(áèò) è"
-					" Êîëè÷åñòâî èñïğàâëÿåìûõ îøèáîê");
-	set2params(dataLength, bitsWord, "Óñòàíîâèòå äëèíó èíôîğìàöèîííîé ïîñëåäîâàòåëüíîñòè k(áèò) è äëèíó ñëîâà(áèò)");
+	set2params(codeLenght, errorsCorrection, "ĞŸĞ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ñ‹ ĞºĞ¾Ğ´Ğ°:\nĞ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚Ğµ Ğ´Ğ»Ğ¸Ğ½Ñƒ ĞºĞ¾Ğ´Ğ° n(Ğ±Ğ¸Ñ‚) Ğ¸"
+					" ĞšĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ Ğ¸ÑĞ¿Ñ€Ğ°Ğ²Ğ»ÑĞµĞ¼Ñ‹Ñ… Ğ¾ÑˆĞ¸Ğ±Ğ¾Ğº");
+	set2params(dataLength, bitsWord, "Ğ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚Ğµ Ğ´Ğ»Ğ¸Ğ½Ñƒ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ğ¸Ğ¾Ğ½Ğ½Ğ¾Ğ¹ Ğ¿Ğ¾ÑĞ»ĞµĞ´Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒĞ½Ğ¾ÑÑ‚Ğ¸ k(Ğ±Ğ¸Ñ‚) Ğ¸ Ğ´Ğ»Ğ¸Ğ½Ñƒ ÑĞ»Ğ¾Ğ²Ğ°(Ğ±Ğ¸Ñ‚)");
 
 	dsk* dk = new dsk(BlockSize, SessionLenght);
 	pa* pk = new pa(SessionLenght, BlockSize);
@@ -33,21 +33,21 @@ int main(){
 			dk->work();
 			break;
 		case 2:
-			set2params(p, a, "Óñòàíîâèòå p è a:");
+			set2params(p, a, "Ğ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚Ğµ p Ğ¸ a:");
 			pk->setCode(codeLenght, errorsCorrection, dataLength, bitsWord);
 			pk->setProtocol(protocol, PacketSize);
 			pk->setParams(a,p);
 			pk->work();
 			break;
 		case 3:
-			set2params(A, V, "Óñòàíîâèòå A è V:");
+			set2params(A, V, "Ğ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚Ğµ A Ğ¸ V:");
 			op->setProtocolType(protocol, PacketSize);
 			op->setCode(codeLenght, errorsCorrection, dataLength, bitsWord);
 			op->setParams(A, V);
 			op->work();
 			break;
 		default:
-			std::cout << "Ââåäåíû íåêîğåêòíûå ïàğàìåòğû" << std::endl;
+			std::cout << "Ğ’Ğ²ĞµĞ´ĞµĞ½Ñ‹ Ğ½ĞµĞºĞ¾Ñ€ĞµĞºÑ‚Ğ½Ñ‹Ğµ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ñ‹" << std::endl;
 			break;
 	}
 	return EXIT_SUCCESS;

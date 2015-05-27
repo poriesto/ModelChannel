@@ -29,7 +29,7 @@ void dsk::work() {
 }
 void dsk::saveToFile(std::string str) {
 std::stringstream ostr;
-	ostr << "Ìîäåëü êàíàëà ÄÑÊ p =  " << p <<"\n"
+	ostr << "ÐœÐ¾Ð´ÐµÐ»ÑŒ ÐºÐ°Ð½Ð°Ð»Ð° Ð”Ð¡Ðš p =  " << p <<"\n"
 		<< str << "\n";
 	std::cout << ostr.str() << std::endl;
 	std::ofstream fout;
