@@ -51,7 +51,7 @@ class GLWindow
 		void setwidthheight(Rect rect);
 		
 		//geters
-		std::string getName(void);
+		std::string getName(void){return name;}
 		Rect getRect(void);
 		
 		//show the window

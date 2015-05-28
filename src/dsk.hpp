@@ -29,12 +29,15 @@ public:
     void setCode(const Code &code) {
         dsk::code = code;
     }
-
+    const Plot &getPlot() const{
+        return plot;
+    }
     void work();
 private:
     UINT BlockSize, SessionSize, Blocks, ProtocolType, PacketSize;
     double p;
     Code code;
+    Plot plot;
     protocol* pr;
     std::vector<UINT>bytes, errors;
     std::vector<Block>bl;

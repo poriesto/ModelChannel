@@ -15,7 +15,7 @@ void Graph::initGL(void) {
             0, plot.speed.back()+30, -1.0,1.0);
 }
 
-void Graph::render() {
+void Graph::render(void) {
     std::string t;
     glClear(GL_COLOR_BUFFER_BIT);
     glPushMatrix();

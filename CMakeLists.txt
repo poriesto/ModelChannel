@@ -12,8 +12,8 @@ set(HEADERS_FILES
     ${SOURCE_DIR}pa.h
     ${SOURCE_DIR}protocol.h
     ${SOURCE_DIR}GLWindow.hpp
-    ${SOURCE_DIR}UnitTestsApi.h
     ${SOURCE_DIR}Graph.h
+    ${SOURCE_DIR}UnitTestsApi.h
     ${SOURCE_DIR}main.h)
 set(SOURCE_FILES
     ${SOURCE_DIR}api.cpp
@@ -23,11 +23,20 @@ set(SOURCE_FILES
     ${SOURCE_DIR}protocol.cpp
     ${SOURCE_DIR}GLWindow.cpp
     ${SOURCE_DIR}UnitTestsApi.cpp
-    ${SOURCE_DIR}Graph.cpp
-    ${SOURCE_DIR}OppUnitTest.cpp)
+    ${SOURCE_DIR}Graph.cpp)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIR})
-add_executable(${PROJECT} ${HEADERS_FILES} ${SOURCE_FILES})
+add_executable(${PROJECT} ${HEADERS_FILES} src/main.h ${SOURCE_FILES} src/main.cpp)
+add_executable(oppTest ${HEADERS_FILES} ${SOURCE_FILES} src/OppUnitTest.cpp)
+add_executable(dskTest ${HEADERS_FILES} ${SOURCE_FILES} src/DskUnitTest.cpp)
 target_link_libraries(${PROJECT}
+                                  GL
+                                  GLU
+                                  glut)
+target_link_libraries(oppTest
+                                  GL
+                                  GLU
+                                  glut)
+target_link_libraries(dskTest
                                   GL
                                   GLU
                                   glut)

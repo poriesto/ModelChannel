@@ -5,8 +5,8 @@
 #ifndef DIPLOM_GRAPH_H
 #define DIPLOM_GRAPH_H
 #include "GLWindow.hpp"
-#include <GL\glu.h>
-#include <GL\gl.h>
+#include <GL/glu.h>
+#include <GL/gl.h>
 #include <iostream>
 #include "api.hpp"
 #include <list>

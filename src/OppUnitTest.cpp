@@ -32,4 +32,5 @@ int main() {
     gr->setinitPosition(0,0);
     gr->setwidthheight(1024,768);
     gr->show();
+    return EXIT_SUCCESS;
 }
