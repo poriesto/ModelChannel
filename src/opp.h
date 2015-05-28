@@ -34,10 +34,15 @@ public:
         opp::code = code;
     }
 
+    const Plot &getPlot() const {
+        return plot;
+    }
+
 private:
     UINT BlockSize, SessionSize, Blocks, ProtocolType, PacketSize;
     double A,V;
     Code code;
+    Plot plot;
     std::vector<UINT> bytes, errorsPos;
     std::vector<Block> bl;
     protocol* pr;

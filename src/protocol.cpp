@@ -46,6 +46,9 @@ void protocol::datagramm() {
 	delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
 	speed = delProbability*RecivedPackets/SentPackets;
 	speed = speed*packetSize;
+	plot.speed.emplace_back(speed);
+	plot.FrameSize.emplace_back(packetSize);
+	plot.code = protocol::code;
 	std::cout << "Deleviring probability: " << delProbability << std::endl <<
 				 "Speed: " << speed << std::endl;
 }
@@ -56,9 +59,11 @@ void protocol::latency() {
 	for(auto packet : pl){
 		CoruptedPacket = checkPacket(packet);
 		if(CoruptedPacket){
-			CorrectablePacket = isCorectable(packet);
-			if(CorrectablePacket){
-				RecivedPackets += 1;
+			if(code.errorsCorrection > 0) {
+				CorrectablePacket = isCorectable(packet);
+				if (CorrectablePacket) {
+					RecivedPackets += 1;
+				}
 			}
 		}
 		else{
@@ -83,6 +88,9 @@ void protocol::latency() {
 		<< "\nВероятность доставки кадра = " << to_str(delProbability)
 		<< " \nСреднее время задержки = " << to_str(singleTime);
 	results = ss.str();
+	plot.speed.emplace_back(speed);
+	plot.FrameSize.emplace_back(packetSize);
+	plot.code = protocol::code;
 }
 void protocol::Nstep() {
 }
@@ -119,6 +127,9 @@ bool protocol::isCorrectiableBlock(Block block) {
 		for (auto value : word) {
 			 if (value == 1) blErrors+=1;
 		 }
+	}
+	if (code.errorsCorrection == 0){
+		return blErrors <= 0;
 	}
 	return blErrors <= code.errorsCorrection;
 }

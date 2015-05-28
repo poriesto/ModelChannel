@@ -37,7 +37,7 @@ void opp::work()
 		res << pr->getResults() << "\n";
 	}
 	saveToFile(res.str());
-
+	opp::plot = pr->getPlot();
     std::cout << "======End OPP model======" << std::endl;
 }
 void opp::saveToFile(std::string str) {

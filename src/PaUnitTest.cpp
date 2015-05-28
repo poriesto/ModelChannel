@@ -30,19 +30,19 @@ int main(){
 
     code.codeLength = 31; code.DataLength = 21; code.errorsCorrection = 2; code.bitsWord = 1;
     codeList.emplace_back(code);
-	
+
 	params P;
 	std::list<params>pList;
-	
+
 	P.a = 1.1; P.p = 0.9;
 	pList.emplace_back(P);
-	
+
 	P.a = 1.1; P.p = 0.9;
 	pList.emplace_back(P);
-	
+
 	P.a = 1.1; P.p = 0.9;
 	pList.emplace_back(P);
-	
+
 	for(auto codeTst : codeList){
 		for(auto param : pList){
 			pk->setCode(codeTst);

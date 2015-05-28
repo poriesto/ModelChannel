@@ -20,6 +20,11 @@ struct Code{
 	UINT errorsCorrection;
     UINT bitsWord;
 };
+struct Plot{
+	std::vector<double>speed;
+	std::vector<double>FrameSize;
+	Code code;
+};
 template<typename T>
 void print(T cont){
 	UINT conter = 0;
