@@ -21,14 +21,16 @@ public:
 	const Plot &getPlot() const {
 		return plot;
 	}
-
+	const Plot &getDelProbPlot() const{
+		return delProbPlot;
+	}
 	void work(UINT type, UINT pkSize);
 private:
 	std::vector<Block>bl;
 	std::vector<Packet>pl;
 	std::string results;
 	Code code;
-	Plot plot;
+	Plot plot, delProbPlot;
 	double speed = 0.0, delProbability = 0.0, singleTime = 0.0;
 	UINT blSize, blocks, pkSize, RecivedPackets = 0, SentPackets = 0;
 	UINT blErrors = 0, packetSize;

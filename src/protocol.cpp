@@ -91,6 +91,9 @@ void protocol::latency() {
 	plot.speed.emplace_back(speed);
 	plot.FrameSize.emplace_back(packetSize);
 	plot.code = protocol::code;
+	delProbPlot.speed.emplace_back(delProbability);
+	delProbPlot.FrameSize.emplace_back(packetSize);
+	delProbPlot.code = protocol::code;
 }
 void protocol::Nstep() {
 }

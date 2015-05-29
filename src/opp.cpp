@@ -38,6 +38,7 @@ void opp::work()
 	}
 	saveToFile(res.str());
 	opp::plot = pr->getPlot();
+	opp::delProbPlot = pr->getDelProbPlot();
     std::cout << "======End OPP model======" << std::endl;
 }
 void opp::saveToFile(std::string str) {
