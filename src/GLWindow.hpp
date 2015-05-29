@@ -1,6 +1,6 @@
 #include <GL/glut.h>
 #include <string>
-
+#include <stdlib.h>
 struct Rect
 {
 	int w, h;
