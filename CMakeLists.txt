@@ -49,32 +49,11 @@ set(SOURCE_FILES
     ${SOURCE_DIR}UnitTestsApi.cpp
     ${SOURCE_DIR}Graph.cpp)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIR})
+add_library(protocol STATIC ${HEADERS_FILES} ${SOURCE_FILES})
+add_executable(${PROJECT} src/main.h src/main.cpp)
+add_executable(oppTest src/OppUnitTest.cpp)
+add_executable(dskTest src/DskUnitTest.cpp)
 
-add_executable(${PROJECT} ${HEADERS_FILES} src/main.h ${SOURCE_FILES} src/main.cpp)
-add_executable(oppTest ${HEADERS_FILES} ${SOURCE_FILES} src/OppUnitTest.cpp)
-add_executable(dskTest ${HEADERS_FILES} ${SOURCE_FILES} src/DskUnitTest.cpp)
-
-target_link_libraries(${PROJECT} ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
-target_link_libraries(oppTest ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
-target_link_libraries(dskTest ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
-
-#target_link_libraries(oppTest
-#                                  opengl32
-#                                  glu32
-#                                  freeglut)
-#target_link_libraries(dskTest
-#                                  GL
-#                                  GLU
-#                                  glut)
-#target_link_libraries(${PROJECT}
-#                                  GL
-#                                 GLU
-#                                  glut)
-#target_link_libraries(oppTest
-#                                  GL
-#                                  GLU
-#                                  glut)
-#target_link_libraries(dskTest
-#                                  GL
-#                                  GLU
-#                                  glut)
+target_link_libraries(${PROJECT} protocol ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
+target_link_libraries(oppTest protocol ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
+target_link_libraries(dskTest protocol ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
