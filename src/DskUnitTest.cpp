@@ -26,9 +26,10 @@ int main(){
             plots.emplace_back(curPlot);
         }
     }
-    std::string name = "Graph";
+    std::stringstream name;
+    name << "DSK model with params:" << "P = " << to_str(*(Plist.begin()));
     Graph* gr = new Graph();
-    gr->setname(name);
+    gr->setname(name.str());
     gr->setPls(plots);
     gr->setinitPosition(0,0);
     gr->setwidthheight(1024, 768);

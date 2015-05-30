@@ -7,7 +7,7 @@
 #include "UnitTestsApi.h"
 
 int main() {
-    UINT BlockSize = 150, SessionLenght = 100000;
+    UINT BlockSize = 150, SessionLenght = 10000000;
     opp* op = new opp(BlockSize, SessionLenght);
     std::list<Code>codeList;
     std::list<TwoParamModels> OPPmdl;
@@ -28,18 +28,13 @@ int main() {
             delProbList.emplace_back(plotDelProb);
         }
     }
-    std::string name = "Graph";
+    std::stringstream sname;
+    sname << "OPP model with params:" << " A = " << to_str(OPPmdl.begin()->param1) << ", V = " << to_str(OPPmdl.begin()->param2);
     Graph* gr = new Graph();
-    gr->setname(name);
+    gr->setname(sname.str());
     gr->setPls(spdlist);
     gr->setinitPosition(0,0);
     gr->setwidthheight(1024,768);
     gr->show();
-    Graph* gr1 = new Graph();
-    gr1->setname(name);
-    gr1->setPls(delProbList);
-    gr1->setinitPosition(0,0);
-    gr1->setwidthheight(1024,768);
-    gr1->show();
     return EXIT_SUCCESS;
 }
