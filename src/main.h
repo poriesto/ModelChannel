@@ -8,5 +8,5 @@
 #include "opp.h"
 #include "dsk.hpp"
 #include "pa.h"
-
+#include "Graph.h"
 #endif //DIPLOM_MAIN_H

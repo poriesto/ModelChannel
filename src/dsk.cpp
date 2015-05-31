@@ -26,6 +26,7 @@ void dsk::work() {
 	}
 	saveToFile(res.str());
 	dsk::plot = pr->getPlot();
+	dsk::delProbPlot = pr->getDelProbPlot();
 	std::cout << "======End dsk model======" << std::endl;
 }
 void dsk::saveToFile(std::string str) {

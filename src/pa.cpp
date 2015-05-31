@@ -10,5 +10,8 @@ void pa::work(){
 
 	pr = new protocol(bl,code);
 	pr->work(pa::ProtocolType, PacketSize);
+
+	pa::speedPlot = pr->getPlot();
+	pa::timePlot = pr->getDelProbPlot();
 	std::cout << "End pa model" << std::endl;
 }

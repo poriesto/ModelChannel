@@ -1,57 +1,42 @@
 //Created by Alexander
 
 #include "pa.h"
-#include <list>
-struct params{
-	double a;
-	double p;
-};
+#include "Graph.h"
+#include "UnitTestsApi.h"
 
 int main(){
 	UINT SesionSize = 10000000, BlockSize = 150;
 	pa* pk = new pa(SesionSize, BlockSize);
+	Graph* gr = new Graph();
+	Plot cur;
 
     std::list<Code>codeList;
-    Code code;
-    code.codeLength = 31; code.DataLength = 11; code.errorsCorrection = 5; code.bitsWord = 1;
-    codeList.emplace_back(code);
-
-    code.codeLength = 31; code.DataLength = 16; code.errorsCorrection = 3; code.bitsWord = 1;
-    codeList.emplace_back(code);
-
-    code.codeLength = 23; code.DataLength = 17; code.errorsCorrection = 3; code.bitsWord = 8;
-    codeList.emplace_back(code);
-
-    code.codeLength = 63; code.DataLength = 57; code.errorsCorrection = 1; code.bitsWord = 1;
-    codeList.emplace_back(code);
-
-    code.codeLength = 31; code.DataLength = 26; code.errorsCorrection = 1; code.bitsWord = 1;
-    codeList.emplace_back(code);
-
-    code.codeLength = 31; code.DataLength = 21; code.errorsCorrection = 2; code.bitsWord = 1;
-    codeList.emplace_back(code);
-
-	params P;
-	std::list<params>pList;
-
-	P.a = 1.1; P.p = 0.9;
-	pList.emplace_back(P);
-
-	P.a = 1.1; P.p = 0.9;
-	pList.emplace_back(P);
-
-	P.a = 1.1; P.p = 0.9;
-	pList.emplace_back(P);
+	std::list<Plot>plots;
+	std::list<Plot>delPlots;
+	std::list<TwoParamModels> paParams;
+	init(codeList,paParams);
 
 	for(auto codeTst : codeList){
-		for(auto param : pList){
+		for(auto param : paParams){
 			pk->setCode(codeTst);
 			pk->setProtocol(2, 16);
-			pk->setParams(param.a, param.p);
+			pk->setParams(param.param1, param.param2);
 			pk->work();
+			cur = pk->getSpeedPlot();
+			plots.emplace_back( cur );
+			cur = pk->getTimePlot();
+			delPlots.emplace_back( cur );
 		}
 	}
+	std::stringstream sname;
+	 sname << "PA model with params:" << " P = " << to_str(paParams.begin()->param1)
+	 << ", A = " << to_str(paParams.begin()->param2);
+	gr->setname(sname.str());
+	gr->setPls(plots);
+	gr->setinitPosition(0,0);
+	gr->setwidthheight(1024,768);
+	gr->show();
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 

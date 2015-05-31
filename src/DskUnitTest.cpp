@@ -12,7 +12,7 @@ int main(){
 
     std::list<Code>codeList;
     std::list<double>Plist;
-    std::list<Plot>plots;
+    std::list<Plot>plots, delProb;
     Plot curPlot;
     init(codeList, Plist);
 
@@ -24,6 +24,8 @@ int main(){
             dk->work();
             curPlot = dk->getPlot();
             plots.emplace_back(curPlot);
+            curPlot = dk->getProbPlot();
+            delProb.emplace_back(curPlot);
         }
     }
     std::stringstream name;

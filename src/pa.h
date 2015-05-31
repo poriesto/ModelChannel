@@ -32,9 +32,19 @@ public:
 		pa::PacketSize = PacketSize;
 	}
 	void work();
+
+	const Plot &getSpeedPlot() const {
+		return speedPlot;
+	}
+
+	const Plot &getTimePlot() const {
+		return timePlot;
+	}
+
 private:
 	UINT SessionSize, BlockSize, Blocks, ProtocolType, PacketSize;
 	Code code;
+	Plot speedPlot, timePlot;
 	protocol* pr;
     std::vector<UINT> bytes;
 	std::vector<Block> bl;

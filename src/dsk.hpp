@@ -32,12 +32,15 @@ public:
     const Plot &getPlot() const{
         return plot;
     }
+    const Plot &getProbPlot() const{
+        return delProbPlot;
+    }
     void work();
 private:
     UINT BlockSize, SessionSize, Blocks, ProtocolType, PacketSize;
     double p;
     Code code;
-    Plot plot;
+    Plot plot, delProbPlot;
     protocol* pr;
     std::vector<UINT>bytes, errors;
     std::vector<Block>bl;
