@@ -15,23 +15,31 @@ TwoParamModels setModel2(double param1, double param2){
     return tw;
 }
 void init(std::list<Code>& codeList, std::list<TwoParamModels>& OPPmodel){
-    codeList.emplace_back(setCode(31,11,5,1));
-    codeList.emplace_back(setCode(31,16,3,1));
+    codeList.emplace_back(setCode(31,20,2,1));
+    codeList.emplace_back(setCode(31,26,3,1));
+    codeList.emplace_back(setCode(63,51,2,1));
+
     codeList.emplace_back(setCode(23,17,3,8));
-    codeList.emplace_back(setCode(63,57,1,1));
-    codeList.emplace_back(setCode(31,26,1,1));
-    codeList.emplace_back(setCode(31,21,2,1));
+    codeList.emplace_back(setCode(31,21,2,8));
+    codeList.emplace_back(setCode(30,20,4,8));
+
     codeList.emplace_back(setCode(1,1,0,0));
-    OPPmodel.emplace_back(setModel2(1.0,0.98));
-   // OPPmodel.emplace_back(setModel2(0.9,0.9));
-   // OPPmodel.emplace_back(setModel2(0.9,0.8));
+
+    OPPmodel.emplace_back(setModel2(2.9,1.094));
+    OPPmodel.emplace_back(setModel2(4.5,1.1));
+    OPPmodel.emplace_back(setModel2(8,1.125));
 }
 void init(std::list<Code>& codeList, std::list<double>& DSKmodel){
-    codeList.emplace_back(setCode(31,11,5,1));
-    codeList.emplace_back(setCode(31,16,3,1));
+    codeList.emplace_back(setCode(31,20,2,1));
+    codeList.emplace_back(setCode(31,26,3,1));
+    codeList.emplace_back(setCode(63,51,2,1));
+
     codeList.emplace_back(setCode(23,17,3,8));
-    codeList.emplace_back(setCode(63,57,1,1));
-    codeList.emplace_back(setCode(31,26,1,1));
-    codeList.emplace_back(setCode(31,21,2,1));
+    codeList.emplace_back(setCode(31,21,2,8));
+    codeList.emplace_back(setCode(30,20,4,8));
+
+    codeList.emplace_back(setCode(1,1,0,0));
+
+
     DSKmodel.emplace_back(0.005); DSKmodel.emplace_back(0.01); DSKmodel.emplace_back(0.001);
 }

@@ -48,6 +48,7 @@ private:
     std::vector<UINT> bytes, errorsPos;
     std::vector<Block> bl;
     protocol* pr;
+    int Pos;
 
     UINT GenOppPos();
     void saveToFile(std::string str);

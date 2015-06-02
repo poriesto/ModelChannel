@@ -68,6 +68,14 @@ int main(){
 			std::cout << "Введены некоректные параметры" << std::endl;
 			break;
 	}
+	switch (protocol){
+		case 1:
+			gr->setPls(spdpls);
+			break;
+		case 2:
+			gr->setPls(delprobpls);
+			break;
+	}
 	gr->show();
 	return EXIT_SUCCESS;
 }

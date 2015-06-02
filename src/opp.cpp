@@ -2,7 +2,6 @@
 // Created by Alexander on 28.04.2015.
 //
 #include "opp.h"
-
 UINT opp::GenOppPos(){
 		double R, a = 0, b = 1;
 		generator(a,b,R);
@@ -12,8 +11,7 @@ UINT opp::GenOppPos(){
 void opp::work()
 {
 	std::cout << "======Begin OPP model======" << std::endl;
-	int Pos = GenOppPos();
-
+	Pos = GenOppPos();
 	for(auto i = 0; i < bytes.capacity(); i++)	{
 		if(Pos == i){
 			bytes[i] = 1;
@@ -24,9 +22,6 @@ void opp::work()
 			bytes[i] = 0;
 		}
 	}
-
-//	std::cout << std::endl << "Errors" << std::endl;
-//    print(errorsPos);
 
     bl = makeBlocks(Blocks, BlockSize, bytes);
     pr = new protocol(bl,code);
