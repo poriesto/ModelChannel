@@ -26,8 +26,7 @@ void opp::work()
     bl = makeBlocks(Blocks, BlockSize, bytes);
     pr = new protocol(bl,code);
 	std::stringstream res;
-    //pr->work(ProtocolType, PacketSize);
-	for(UINT i = 1; i <= PacketSize; i+=5){
+	for(UINT i = 1; i <= PacketSize; i+=2){
 		pr->work(ProtocolType, i);
 		res << pr->getResults() << "\n";
 	}
@@ -35,6 +34,15 @@ void opp::work()
 	opp::plot = pr->getPlot();
 	opp::delProbPlot = pr->getDelProbPlot();
     std::cout << "======End OPP model======" << std::endl;
+    std::stringstream bits;
+    for(auto value : bytes){
+    	bits << value << " ";
+    }
+    std::string bitsName = "ErrorsStreamOPP.txt";
+    std::ofstream f;
+    f.open(bitsName);
+    f.write(bits.str().c_str(), sizeof(char)*bits.str().size()); 
+    f.close();
 }
 void opp::saveToFile(std::string str) {
 	std::stringstream ostr;
