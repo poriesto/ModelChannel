@@ -16,9 +16,10 @@ int main(){
     Plot curPlot;
     init(codeList, Plist);
 
-    for(auto codeTest : codeList){
-        for(auto P : Plist){
-            dk->setP(P);
+    for(auto P : Plist){
+        dk->setP(P);
+        dk->genBitsArray();
+        for(auto codeTest : codeList){
             dk->setCode(codeTest);
             dk->setProtocol(2,16);
             dk->work();
@@ -28,12 +29,33 @@ int main(){
             delProb.emplace_back(curPlot);
         }
     }
-    std::stringstream name;
-    name << "DSK model with params:" << "P = " << to_str(*(Plist.begin()));
+    std::thread t1([plots, Plist](){
+        std::stringstream name;
+        name << "DSK model with params:" << "P = " << to_str(*(Plist.begin()));
+        Graph* gr = new Graph();
+        gr->setname(name.str());
+        gr->setPls(plots);
+        gr->setinitPosition(0,0);
+        gr->setwidthheight(1024,768);
+        gr->show();
+    });
+    std::thread t2([delProb, Plist](){
+        std::stringstream name;
+        name << "DSK model with params:" << "P = " << to_str(*(Plist.begin()));
+        Graph* gr = new Graph();
+        gr->setname(name.str());
+        gr->setPls(delProb);
+        gr->setinitPosition(0,0);
+        gr->setwidthheight(1024,768);
+        gr->show();
+    });
+    t1.join();
+    t2.join();
+    /*
     Graph* gr = new Graph();
     gr->setname(name.str());
     gr->setPls(plots);
     gr->setinitPosition(0,0);
     gr->setwidthheight(1024, 768);
-    gr->show();
+    gr->show();*/
 }

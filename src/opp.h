@@ -40,6 +40,7 @@ public:
     const Plot &getDelProbPlot() const{
         return delProbPlot;
     }
+    void genBitArray();
 private:
     UINT BlockSize, SessionSize, Blocks, ProtocolType, PacketSize;
     double A,V;
@@ -51,6 +52,7 @@ private:
     int Pos;
 
     UINT GenOppPos();
+    void toTHR(btsiter beg, btsiter end);
     void saveToFile(std::string str);
 };
 

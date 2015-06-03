@@ -15,6 +15,7 @@ public:
     void setP(double p) {
         dsk::p = p;
     }
+    void genBitsArray();
     void setCode(UINT codeleght, UINT correction, UINT data, UINT bitsWord){
         dsk::code.codeLength = codeleght;
         dsk::code.DataLength = data;
@@ -45,6 +46,7 @@ private:
     std::vector<UINT>bytes, errors;
     std::vector<Block>bl;
     void saveToFile(std::string str);
+    void toTHR(btsiter beg, btsiter end);
 };
 
 #endif //DIPLOM_DSK_H

@@ -2,6 +2,32 @@
 // Created by Alexander on 28.04.2015.
 //
 #include "opp.h"
+#include <thread>
+void opp::toTHR(btsiter beg, btsiter end){
+	Pos = GenOppPos();
+	auto Eend = end - beg;
+	for(int i = 0; i < Eend; i++){
+		if(Pos == i){
+			bytes.at(i) = 1;
+			errorsPos.emplace_back(Pos);
+			Pos = i + 1 + GenOppPos();
+		}
+		else{
+			bytes.at(i) = 0;
+		}
+	}
+}
+void opp::genBitArray(){
+	btsiter beg = bytes.begin(), end = beg + bytes.size()/4;
+	std::vector<std::thread>vth;
+	for(auto i = 0; i < 4; i++){
+		vth.emplace_back(
+				std::thread(&opp::toTHR, this, beg,end));
+	}
+	for(auto &thr : vth){
+		thr.join();
+	}
+}
 UINT opp::GenOppPos(){
 		double R, a = 0, b = 1;
 		generator(a,b,R);
@@ -11,7 +37,8 @@ UINT opp::GenOppPos(){
 void opp::work()
 {
 	std::cout << "======Begin OPP model======" << std::endl;
-	Pos = GenOppPos();
+	/*
+	 * Pos = GenOppPos();
 	for(auto i = 0; i < bytes.capacity(); i++)	{
 		if(Pos == i){
 			bytes[i] = 1;
@@ -21,7 +48,7 @@ void opp::work()
 		else if( Pos != i){
 			bytes[i] = 0;
 		}
-	}
+	}*/
 
     bl = makeBlocks(Blocks, BlockSize, bytes);
     pr = new protocol(bl,code);

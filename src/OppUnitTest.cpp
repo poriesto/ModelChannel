@@ -16,11 +16,12 @@ int main() {
     std::list<Plot>delProbList;
     for(auto P : OPPmdl){
         std::cout << P.param1 << " " << P.param2 << std::endl;
+        op->setParams(P.param1, P.param2);
+        op->genBitArray();
         for(auto codeTest : codeList){
             Plot plot, plotDelProb;
             op->setProtocolType(2,16);
             op->setCode(codeTest);
-            op->setParams(P.param1, P.param2);
             op->work();
             plot = op->getPlot();
             plotDelProb = op->getDelProbPlot();
@@ -28,13 +29,27 @@ int main() {
             delProbList.emplace_back(plotDelProb);
         }
     }
-    std::stringstream sname;
-    sname << "OPP model with params:" << " A = " << to_str(OPPmdl.begin()->param1) << ", V = " << to_str(OPPmdl.begin()->param2);
-    Graph* gr = new Graph();
-    gr->setname(sname.str());
-    gr->setPls(spdlist);
-    gr->setinitPosition(0,0);
-    gr->setwidthheight(1024,768);
-    gr->show();
+    std::thread t1([spdlist, OPPmdl](){
+        std::stringstream sname;
+        sname << "OPP model with params:" << " A = " << to_str(OPPmdl.begin()->param1) << ", V = " << to_str(OPPmdl.begin()->param2);
+        Graph* gr = new Graph();
+        gr->setname(sname.str());
+        gr->setPls(spdlist);
+        gr->setinitPosition(0,0);
+        gr->setwidthheight(1024,768);
+        gr->show();
+    });
+    std::thread t2([delProbList, OPPmdl](){
+        std::stringstream sname;
+        sname << "OPP model with params:" << " A = " << to_str(OPPmdl.begin()->param1) << ", V = " << to_str(OPPmdl.begin()->param2);
+        Graph* gr = new Graph();
+        gr->setname(sname.str());
+        gr->setPls(delProbList);
+        gr->setinitPosition(0,0);
+        gr->setwidthheight(1024,768);
+        gr->show();
+    });
+    t1.join();
+    t2.join();
     return EXIT_SUCCESS;
 }

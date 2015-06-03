@@ -1,13 +1,37 @@
 #include "dsk.hpp"
+#include <thread>
+
+void dsk::toTHR(btsiter beg, btsiter end){
+	for(auto current = beg; current < end; current++){
+		double a=0,b=1,r;
+		generator(a,b,r);
+		r >= p ? *current = 0:1;
+	}
+}
+
+void dsk::genBitsArray(){
+	std::vector<std::thread> vth;
+	btsiter beg,end;
+	beg = bytes.begin();
+	end = bytes.begin() + bytes.size()/4;
+	for(int i = 0; i < 4; i++){
+		vth.emplace_back(
+				std::thread(&dsk::toTHR, this, beg, end));
+		beg += bytes.size()/4;
+		end += bytes.size()/4;
+	}
+
+	 for(auto &thr : vth){
+		thr.join();
+	}
+}
 
 void dsk::work() {
 	std::cout << "======Begin dsk model======" << std::endl;
-	double a = 0, b = 1, r;
-
-    for(auto i = 0; i < bytes.size(); i++){
+    /*for(auto i = 0; i < bytes.size(); i++){
         generator(a,b,r);
 		r >= p ? bytes.at(i) = 0:1;
-    }
+    }*/
 
     bl = makeBlocks(Blocks, BlockSize, bytes);
 	pr = new protocol(bl,code);

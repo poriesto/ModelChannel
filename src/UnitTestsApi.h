@@ -7,6 +7,7 @@
 
 #include "api.hpp"
 #include <list>
+#include <thread>
 struct TwoParamModels{
     double param1;
     double param2;

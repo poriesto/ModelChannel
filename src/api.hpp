@@ -14,6 +14,9 @@ typedef unsigned int UINT;
 const UINT STRING_LENGHT = 40;
 typedef std::vector<UINT> Block;
 typedef std::vector<Block> Packet;
+typedef std::vector<Packet>::iterator piter;
+typedef std::vector<Block>::iterator biter;
+typedef std::vector<UINT>::iterator btsiter;
 struct Code{
 	UINT codeLength;
 	UINT DataLength;
