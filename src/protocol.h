@@ -4,7 +4,6 @@
 #include "api.hpp"
 #ifndef DIPLOM_PROTOCOL_H
 #define DIPLOM_PROTOCOL_H
-
 class protocol {
 
 public:
@@ -25,9 +24,11 @@ public:
 		return delProbPlot;
 	}
 	void work(UINT type, UINT pkSize);
+    void printcube ();
 private:
 	std::vector<Block>bl;
 	std::vector<Packet>pl;
+    std::vector<std::vector<std::vector<Packet>>> cub1;
 	std::string results;
 	Code code;
 	Plot plot, delProbPlot;
@@ -42,7 +43,27 @@ private:
 	bool isCorectable(Packet packet);
 	bool checkPacket(Packet packet);
 	UINT checkBlockErrors(Block bl);
+    void makeCub(int size);
 	bool isCorrectiableBlock(Block block);
+    std::vector<Packet> genVecPac(int size)
+    {
+        std::vector<Packet> V;
+        for (int i =0; i < size; i++)
+        {
+            V.push_back(pl[i]);
+        }
+        return V;
+    };
+    std::vector<std::vector<Packet>> genVecVecPac (int size)
+    {
+        std::vector<std::vector<Packet>> V;
+        for (int i =0; i < size; i++)
+        {
+            V.push_back(
+                    genVecPac(size));
+        }
+        return V;
+    }
 };
 
 

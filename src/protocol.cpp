@@ -4,12 +4,14 @@
 //TODO need implement Nstep and latency protocol
 #include "protocol.h"
 #include <list>
-
+#include <array>
 void protocol::work(UINT type, UINT pkSize) {
 	protocol::pkSize = pkSize;
 	UINT frames = blocks/pkSize;
 	pl = makePackets(pkSize,frames, bl);
 	packetSize = blSize*pkSize;
+    makeCub(5);
+    printcube();
 	switch (type){
 		case 1:
 			datagramm();
@@ -135,4 +137,34 @@ bool protocol::isCorrectiableBlock(Block block) {
 		return blErrors <= 0;
 	}
 	return blErrors <= code.errorsCorrection;
+}
+void protocol::makeCub(int size) {
+   /* for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            for (int e = 0; e < size; ++e) {
+                cub1[i][j][e] = pl[e+i];
+            }
+        }
+    }*/
+    for(int i = 0; i < size; i++){
+        cub1.push_back(
+                genVecVecPac(size));
+    }
+};
+void protocol::printcube() {
+    for(auto vale : cub1){
+        for(auto ve : vale){
+            for(auto v : vale){
+                for(auto g : v){
+                    for(auto h : g){
+                        for(auto j : h){
+                            std::cout << j;
+                        }
+                    }
+                    std::cout << std::endl;
+                }
+            }
+            std::cout << std::endl;
+        }
+    }
 }

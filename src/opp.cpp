@@ -25,7 +25,10 @@ void opp::genBitArray(){
 				std::thread(&opp::toTHR, this, beg,end));
 	}
 	for(auto &thr : vth){
-		thr.join();
+		//thr.join();
+        if(thr.joinable()){
+            thr.join();
+        }
 	}
 }
 UINT opp::GenOppPos(){

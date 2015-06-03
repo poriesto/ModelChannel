@@ -1,0 +1,174 @@
+The system is: Windows - 6.2 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: C:/WinBin64/bin/gcc.exe 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "E:/ModelChannel/CMakeFiles/3.2.2/CompilerIdC/a.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/WinBin64/bin/g++.exe 
+Build flags: 
+Id flags: -c
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+
+The CXX compiler identification is GNU, found in "E:/ModelChannel/CMakeFiles/3.2.2/CompilerIdCXX/CMakeCXXCompilerId.o"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: E:/ModelChannel/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/msys/1.0/bin/make.exe" "cmTryCompileExec267954785/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec267954785.dir/build.make CMakeFiles/cmTryCompileExec267954785.dir/build
+make[1]: Entering directory `/drive/e/ModelChannel/CMakeFiles/CMakeTmp'
+"/C/Program Files (x86)/JetBrains/CLion 1.0.3/bin/cmake/bin/cmake.exe" -E cmake_progress_report /E/ModelChannel/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec267954785.dir/testCCompiler.c.obj
+/C/WinBin64/bin/gcc.exe    -o CMakeFiles/cmTryCompileExec267954785.dir/testCCompiler.c.obj   -c /E/ModelChannel/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec267954785.exe
+"/C/Program Files (x86)/JetBrains/CLion 1.0.3/bin/cmake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec267954785.dir/objects.a
+/C/WinBin64/bin/ar.exe cr CMakeFiles/cmTryCompileExec267954785.dir/objects.a @CMakeFiles/cmTryCompileExec267954785.dir/objects1.rsp
+/C/WinBin64/bin/gcc.exe       -Wl,--whole-archive CMakeFiles/cmTryCompileExec267954785.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec267954785.exe -Wl,--out-implib,libcmTryCompileExec267954785.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTryCompileExec267954785.dir/linklibs.rsp
+make[1]: Leaving directory `/drive/e/ModelChannel/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: E:/ModelChannel/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/msys/1.0/bin/make.exe" "cmTryCompileExec2599145088/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2599145088.dir/build.make CMakeFiles/cmTryCompileExec2599145088.dir/build
+make[1]: Entering directory `/drive/e/ModelChannel/CMakeFiles/CMakeTmp'
+"/C/Program Files (x86)/JetBrains/CLion 1.0.3/bin/cmake/bin/cmake.exe" -E cmake_progress_report /E/ModelChannel/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2599145088.dir/CMakeCCompilerABI.c.obj
+/C/WinBin64/bin/gcc.exe    -o CMakeFiles/cmTryCompileExec2599145088.dir/CMakeCCompilerABI.c.obj   -c "/C/Program Files (x86)/JetBrains/CLion 1.0.3/bin/cmake/share/cmake-3.2/Modules/CMakeCCompilerABI.c"
+Linking C executable cmTryCompileExec2599145088.exe
+"/C/Program Files (x86)/JetBrains/CLion 1.0.3/bin/cmake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec2599145088.dir/objects.a
+/C/WinBin64/bin/ar.exe cr CMakeFiles/cmTryCompileExec2599145088.dir/objects.a @CMakeFiles/cmTryCompileExec2599145088.dir/objects1.rsp
+/C/WinBin64/bin/gcc.exe      -v -Wl,--whole-archive CMakeFiles/cmTryCompileExec2599145088.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec2599145088.exe -Wl,--out-implib,libcmTryCompileExec2599145088.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+Reading specs from c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/specs
+COLLECT_GCC=c:\WinBin64\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/winbin64/bin/../libexec/gcc/x86_64-w64-mingw32/4.8.3/lto-wrapper.exe
+Target: x86_64-w64-mingw32
+Configured with: ../gcc-4.8.3/configure --prefix=/opt/windows_64 --with-sysroot=/opt/windows_64 --libdir=/opt/windows_64/lib64 --mandir=/opt/windows_64/man --infodir=/opt/windows_64/info --enable-shared --disable-bootstrap --disable-multilib --enable-threads=posix --enable-languages=c,c++ --enable-checking=release --enable-libgomp --with-system-zlib --with-python-dir=/lib64/python2.7/site-packages --disable-libunwind-exceptions --enable-__cxa_atexit --enable-libssp --with-gnu-ld --verbose --enable-java-home --with-java-home=/opt/windows_64/lib64/jvm/jre --with-jvm-root-dir=/opt/windows_64/lib64/jvm --with-jvm-jar-dir=/opt/windows_64/lib64/jvm/jvm-exports --with-arch-directory=amd64 --with-antlr-jar='/home/adrien/projects/win-builds-1.5/slackware64-current/d/gcc/antlr-*.jar' --disable-java-awt --disable-gtktest --build=x86_64-slackware-linux --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32
+Thread model: posix
+gcc version 4.8.3 (GCC) 
+COMPILER_PATH=c:/winbin64/bin/../libexec/gcc/x86_64-w64-mingw32/4.8.3/;c:/winbin64/bin/../libexec/gcc/;c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/bin/
+LIBRARY_PATH=c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/;c:/winbin64/bin/../lib64/gcc/;C:/WinBin64/lib/../lib/;c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/;C:/WinBin64/lib/;c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2599145088.exe' '-mtune=generic' '-march=x86-64'
+ c:/winbin64/bin/../libexec/gcc/x86_64-w64-mingw32/4.8.3/collect2.exe --sysroot=/opt/windows_64 -m i386pep -Bdynamic -o cmTryCompileExec2599145088.exe c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3 -Lc:/winbin64/bin/../lib64/gcc -LC:/WinBin64/lib/../lib -Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib -LC:/WinBin64/lib -Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib --whole-archive CMakeFiles/cmTryCompileExec2599145088.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec2599145088.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -LC:/MinGW-64/lib64 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o
+make[1]: Leaving directory `/drive/e/ModelChannel/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: E:/ModelChannel/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/MinGW/msys/1.0/bin/make.exe" "cmTryCompileExec2599145088/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec2599145088.dir/build.make CMakeFiles/cmTryCompileExec2599145088.dir/build]
+  ignore line: [make[1]: Entering directory `/drive/e/ModelChannel/CMakeFiles/CMakeTmp']
+  ignore line: ["/C/Program Files (x86)/JetBrains/CLion 1.0.3/bin/cmake/bin/cmake.exe" -E cmake_progress_report /E/ModelChannel/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec2599145088.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/C/WinBin64/bin/gcc.exe    -o CMakeFiles/cmTryCompileExec2599145088.dir/CMakeCCompilerABI.c.obj   -c "/C/Program Files (x86)/JetBrains/CLion 1.0.3/bin/cmake/share/cmake-3.2/Modules/CMakeCCompilerABI.c"]
+  ignore line: [Linking C executable cmTryCompileExec2599145088.exe]
+  ignore line: ["/C/Program Files (x86)/JetBrains/CLion 1.0.3/bin/cmake/bin/cmake.exe" -E remove -f CMakeFiles/cmTryCompileExec2599145088.dir/objects.a]
+  ignore line: [/C/WinBin64/bin/ar.exe cr CMakeFiles/cmTryCompileExec2599145088.dir/objects.a @CMakeFiles/cmTryCompileExec2599145088.dir/objects1.rsp]
+  ignore line: [/C/WinBin64/bin/gcc.exe      -v -Wl,--whole-archive CMakeFiles/cmTryCompileExec2599145088.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec2599145088.exe -Wl,--out-implib,libcmTryCompileExec2599145088.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [Reading specs from c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/specs]
+  ignore line: [COLLECT_GCC=c:\WinBin64\bin\gcc.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/winbin64/bin/../libexec/gcc/x86_64-w64-mingw32/4.8.3/lto-wrapper.exe]
+  ignore line: [Target: x86_64-w64-mingw32]
+  ignore line: [Configured with: ../gcc-4.8.3/configure --prefix=/opt/windows_64 --with-sysroot=/opt/windows_64 --libdir=/opt/windows_64/lib64 --mandir=/opt/windows_64/man --infodir=/opt/windows_64/info --enable-shared --disable-bootstrap --disable-multilib --enable-threads=posix --enable-languages=c,c++ --enable-checking=release --enable-libgomp --with-system-zlib --with-python-dir=/lib64/python2.7/site-packages --disable-libunwind-exceptions --enable-__cxa_atexit --enable-libssp --with-gnu-ld --verbose --enable-java-home --with-java-home=/opt/windows_64/lib64/jvm/jre --with-jvm-root-dir=/opt/windows_64/lib64/jvm --with-jvm-jar-dir=/opt/windows_64/lib64/jvm/jvm-exports --with-arch-directory=amd64 --with-antlr-jar='/home/adrien/projects/win-builds-1.5/slackware64-current/d/gcc/antlr-*.jar' --disable-java-awt --disable-gtktest --build=x86_64-slackware-linux --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.3 (GCC) ]
+  ignore line: [COMPILER_PATH=c:/winbin64/bin/../libexec/gcc/x86_64-w64-mingw32/4.8.3/]
+  ignore line: [c:/winbin64/bin/../libexec/gcc/]
+  ignore line: [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/bin/]
+  ignore line: [LIBRARY_PATH=c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/]
+  ignore line: [c:/winbin64/bin/../lib64/gcc/]
+  ignore line: [C:/WinBin64/lib/../lib/]
+  ignore line: [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/]
+  ignore line: [C:/WinBin64/lib/]
+  ignore line: [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2599145088.exe' '-mtune=generic' '-march=x86-64']
+  link line: [ c:/winbin64/bin/../libexec/gcc/x86_64-w64-mingw32/4.8.3/collect2.exe --sysroot=/opt/windows_64 -m i386pep -Bdynamic -o cmTryCompileExec2599145088.exe c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3 -Lc:/winbin64/bin/../lib64/gcc -LC:/WinBin64/lib/../lib -Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib -LC:/WinBin64/lib -Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib --whole-archive CMakeFiles/cmTryCompileExec2599145088.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec2599145088.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -LC:/MinGW-64/lib64 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o]
+    arg [c:/winbin64/bin/../libexec/gcc/x86_64-w64-mingw32/4.8.3/collect2.exe] ==> ignore
+    arg [--sysroot=/opt/windows_64] ==> ignore
+    arg [-m] ==> ignore
+    arg [i386pep] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2599145088.exe] ==> ignore
+    arg [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> ignore
+    arg [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o] ==> ignore
+    arg [-Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3] ==> dir [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3]
+    arg [-Lc:/winbin64/bin/../lib64/gcc] ==> dir [c:/winbin64/bin/../lib64/gcc]
+    arg [-LC:/WinBin64/lib/../lib] ==> dir [C:/WinBin64/lib/../lib]
+    arg [-Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib]
+    arg [-LC:/WinBin64/lib] ==> dir [C:/WinBin64/lib]
+    arg [-Lc:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib] ==> dir [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec2599145088.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTryCompileExec2599145088.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lgcc_eh] ==> lib [gcc_eh]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-LC:/MinGW-64/lib64] ==> dir [C:/MinGW-64/lib64]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lgcc_eh] ==> lib [gcc_eh]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_eh]
+  remove lib [gcc]
+  remove lib [gcc_eh]
+  collapse library dir [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3] ==> [c:/WinBin64/lib64/gcc/x86_64-w64-mingw32/4.8.3]
+  collapse library dir [c:/winbin64/bin/../lib64/gcc] ==> [c:/WinBin64/lib64/gcc]
+  collapse library dir [C:/WinBin64/lib/../lib] ==> [C:/WinBin64/lib]
+  collapse library dir [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib/../lib] ==> [c:/WinBin64/x86_64-w64-mingw32/lib]
+  collapse library dir [C:/WinBin64/lib] ==> [C:/WinBin64/lib]
+  collapse library dir [c:/winbin64/bin/../lib64/gcc/x86_64-w64-mingw32/4.8.3/../../../../x86_64-w64-mingw32/lib] ==> [c:/WinBin64/x86_64-w64-mingw32/lib]
+  collapse library dir [C:/MinGW-64/lib64] ==> [C:/MinGW-64/lib64]
+  implicit libs: [mingw32;moldname;mingwex;msvcrt;pthread;advapi32;shell32;user32;kernel32;mingw32;moldname;mingwex;msvcrt]
+  implicit dirs: [c:/WinBin64/lib64/gcc/x86_64-w64-mingw32/4.8.3;c:/WinBin64/lib64/gcc;C:/WinBin64/lib;c:/WinBin64/x86_64-w64-mingw32/lib;C:/MinGW-64/lib64]
+  implicit fwks: []
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/WinBin64/bin/g++.exe 
+Build flags: 
+Id flags: -c
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+
+The CXX compiler identification is GNU, found in "E:/ModelChannel/CMakeFiles/3.2.2/CompilerIdCXX/CMakeCXXCompilerId.o"
+

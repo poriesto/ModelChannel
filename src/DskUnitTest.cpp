@@ -7,7 +7,7 @@
 #include "Graph.h"
 
 int main(){
-    UINT BlockSize = 150, SessionLenght = 10000000;
+    UINT BlockSize = 15, SessionLenght = 100000;
 	dsk* dk = new dsk(BlockSize, SessionLenght);
 
     std::list<Code>codeList;
