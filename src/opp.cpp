@@ -18,7 +18,7 @@ void opp::toTHR(btsiter beg, btsiter end){
 	}
 }
 void opp::genBitArray(){
-	btsiter beg = bytes.begin(), end = beg + bytes.size()/4;
+	/*btsiter beg = bytes.begin(), end = beg + bytes.size()/4;
 	std::vector<std::thread>vth;
 	for(auto i = 0; i < 4; i++){
 		vth.emplace_back(
@@ -29,7 +29,8 @@ void opp::genBitArray(){
         if(thr.joinable()){
             thr.join();
         }
-	}
+	}*/
+    toTHR(bytes.begin(), bytes.end());
 }
 UINT opp::GenOppPos(){
 		double R, a = 0, b = 1;
@@ -56,10 +57,12 @@ void opp::work()
     bl = makeBlocks(Blocks, BlockSize, bytes);
     pr = new protocol(bl,code);
 	std::stringstream res;
-	for(UINT i = 1; i <= PacketSize; i+=2){
+	/*for(UINT i = 1; i <= PacketSize; i+=2){
 		pr->work(ProtocolType, i);
 		res << pr->getResults() << "\n";
-	}
+	}*/
+    pr->work(ProtocolType, 2);
+    res << pr->getResults() << "\n";
 	saveToFile(res.str());
 	opp::plot = pr->getPlot();
 	opp::delProbPlot = pr->getDelProbPlot();

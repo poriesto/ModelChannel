@@ -48,7 +48,7 @@ set(GRAPH_SOURCES
     ${SOURCE_DIR}Graph.cpp)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIR})
 
-add_library(protocol STATIC ${HEADERS_FILES} ${SOURCE_FILES})
+add_library(protocol STATIC ${HEADERS_FILES} ${SOURCE_FILES} src/Cuboid.cpp src/Cuboid.h)
 add_library(unitTests STATIC ${SOURCE_DIR}UnitTestsApi.h ${SOURCE_DIR}UnitTestsApi.cpp)
 add_library(graph STATIC ${GRAPH_HEADERS} ${GRAPH_SOURCES})
 

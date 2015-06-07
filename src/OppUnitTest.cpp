@@ -7,7 +7,7 @@
 #include "UnitTestsApi.h"
 
 int main() {
-    UINT BlockSize = 150, SessionLenght = 10000000;
+    UINT BlockSize = 150, SessionLenght = 100000;
     opp* op = new opp(BlockSize, SessionLenght);
     std::list<Code>codeList;
     std::list<TwoParamModels> OPPmdl;

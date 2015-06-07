@@ -2,6 +2,8 @@
 // Created by Alexander on 12.05.2015.
 //
 #include "api.hpp"
+#include "Cuboid.h"
+
 #ifndef DIPLOM_PROTOCOL_H
 #define DIPLOM_PROTOCOL_H
 class protocol {
@@ -24,7 +26,7 @@ public:
 		return delProbPlot;
 	}
 	void work(UINT type, UINT pkSize);
-    void printcube ();
+    void printcube (Cuboid cub);
 private:
 	std::vector<Block>bl;
 	std::vector<Packet>pl;

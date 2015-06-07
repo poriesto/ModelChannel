@@ -4,15 +4,18 @@
 //TODO need implement Nstep and latency protocol
 #include "protocol.h"
 #include <list>
+#include "Cuboid.h"
 #include <array>
 void protocol::work(UINT type, UINT pkSize) {
 	protocol::pkSize = pkSize;
 	UINT frames = blocks/pkSize;
 	pl = makePackets(pkSize,frames, bl);
 	packetSize = blSize*pkSize;
-    makeCub(5);
-    printcube();
-	switch (type){
+    std::cout << "pl size = " << pl.size()<< std::endl;
+    Cuboid *cub = new Cuboid(5, pl);
+    cub->MakeCube();
+    cub->print1();
+	/*switch (type){
 		case 1:
 			datagramm();
 			break;
@@ -25,8 +28,9 @@ void protocol::work(UINT type, UINT pkSize) {
 		default:
 			std::cout << "Set correct params" << std::endl;
 			break;
-	}
+	}*/
 	pl.erase(pl.begin(), pl.end());
+    //delete[] cub;
 	RecivedPackets = 0; SentPackets = 0; delProbability = 0.0; speed = 0; singleTime = 0.0;
 }
 void protocol::datagramm() {
@@ -150,9 +154,9 @@ void protocol::makeCub(int size) {
         cub1.push_back(
                 genVecVecPac(size));
     }
-};
-void protocol::printcube() {
-    for(auto vale : cub1){
+}
+void protocol::printcube(Cuboid cub) {
+    for(auto vale : cub.getData()){
         for(auto ve : vale){
             for(auto v : vale){
                 for(auto g : v){

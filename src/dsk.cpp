@@ -37,10 +37,13 @@ void dsk::work() {
 	pr = new protocol(bl,code);
 	pr->work(dsk::ProtocolType, dsk::PacketSize);
 	std::stringstream res;
-	for(UINT i = 1; i <= dsk::PacketSize; i+=5){
+	/*for(UINT i = 1; i <= dsk::PacketSize; i+=5){
 		pr->work(dsk::ProtocolType, i);
 		res << pr->getResults() << "\n";
 	}
+	 */
+    pr->work(dsk::ProtocolType, 1);
+    res << pr->getResults() << "\n";
 	saveToFile(res.str());
 	dsk::plot = pr->getPlot();
 	dsk::delProbPlot = pr->getDelProbPlot();
