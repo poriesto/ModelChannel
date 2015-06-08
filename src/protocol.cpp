@@ -1,7 +1,6 @@
 //
 // Created by Alexander on 12.05.2015.
 //
-//TODO need implement Nstep and latency protocol
 #include "protocol.h"
 #include <thread>
 #include <list>
@@ -53,25 +52,6 @@ void protocol::datagramm() {
 	std::cout << "Deleviring probability: " << delProbability << std::endl <<
 				 "Speed: " << speed << std::endl;
 }
-//for thread
-void protocol::toTHR(piter begin, piter end){
-	bool CoruptedPacket, CorrectablePacket;
-	for(auto current = begin; current < end; current++){
-		CoruptedPacket = checkPacket(*current);
-		if(CoruptedPacket){
-			if(code.errorsCorrection > 0){
-				CorrectablePacket = isCorectable(*current);
-				if(CorrectablePacket){
-					RecivedPackets +=1;
-				}
-			}
-		}
-		else{
-			RecivedPackets += 1;
-		}
-		SentPackets += 1;
-	}
-}
 std::pair<UINT, UINT> protocol::toAsync(piter beg, piter end){
 	std::pair<UINT, UINT>stat_;
 	std::cout << "Start Async thread" << std::endl;
@@ -92,39 +72,12 @@ std::pair<UINT, UINT> protocol::toAsync(piter beg, piter end){
 		stat_.second += 1;
 	}
 	std::cout << "End async thread" << std::endl;
-	/*std::cout << "Recursive call start" << std::endl;
-	piter mid = beg + pl.size()/2;
-	auto hnd = std::async(std::launch::async, &protocol::toAsync, this, mid, end);
-	std::pair<UINT, UINT> stat__ = toAsync(beg, mid);
-	stat__.first += hnd.get().first;
-	stat__.second += hnd.get().second;
-	std::cout << "Recursive call end" << std::endl;
-	*/
 	return stat_;
 
 }
 //TODO need hard fix
 void protocol::latency() {
-	/*piter beg, end;
-	int offset = pl.size()/4;
-	beg = pl.begin(); end = beg + offset;
-
-	std::vector<std::thread>vth;
-	for(int i = 0; i < 4; i++){
-		vth.emplace_back(
-				std::thread(&protocol::toTHR, this, beg, end));
-		beg = end;
-		end += offset;
-	}
-	for(auto &thr : vth){
-		//thr.join();
-		if(thr.joinable()){
-			thr.join();
-		}
-	}*/
-	//toTHR(pl.begin(), pl.end());
 	std::cout << "Start protocol work" << std::endl;
-	//toAsync(pl.begin(), pls.end());
 	piter beg, end;
 	beg = pl.begin();
 	end = beg + pl.size()/4;
@@ -155,7 +108,6 @@ void protocol::latency() {
 		<< "\nСкорость передачи = " << to_str(speed)
 		<< "\nВероятность доставки кадра = " << to_str(delProbability)
 		<< " \nСреднее время задержки = " << to_str(singleTime);
-	//vth.erase(vth.begin(), vth.end());
 	results = ss.str();
 	plot.speed.emplace_back(speed);
 	plot.FrameSize.emplace_back(packetSize);

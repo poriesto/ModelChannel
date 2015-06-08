@@ -29,7 +29,6 @@ private:
 	std::vector<Block>bl;
 	std::vector<Packet>pl;
 	std::string results;
-	std::pair<UINT, UINT> test;
 	Code code;
 	Plot plot, delProbPlot;
 	double speed = 0.0, delProbability = 0.0, singleTime = 0.0;
@@ -40,7 +39,6 @@ private:
 	void latency();
 	void Nstep();
 	
-	void toTHR(piter begin, piter end);
 	std::pair<UINT, UINT>toAsync(piter beg, piter end);
 
 	bool isCorectable(Packet packet);
