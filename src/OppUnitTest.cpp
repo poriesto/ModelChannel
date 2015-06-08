@@ -14,12 +14,12 @@ int main() {
     init(codeList, OPPmdl);
     std::list<Plot>spdlist;
     std::list<Plot>delProbList;
+    Plot plot, plotDelProb;
     for(auto P : OPPmdl){
         std::cout << P.param1 << " " << P.param2 << std::endl;
         op->setParams(P.param1, P.param2);
         op->genBitArray();
         for(auto codeTest : codeList){
-            Plot plot, plotDelProb;
             op->setProtocolType(2,16);
             op->setCode(codeTest);
             op->work();
@@ -29,27 +29,25 @@ int main() {
             delProbList.emplace_back(plotDelProb);
         }
     }
-    std::thread t1([spdlist, OPPmdl](){
-        std::stringstream sname;
-        sname << "OPP model with params:" << " A = " << to_str(OPPmdl.begin()->param1) << ", V = " << to_str(OPPmdl.begin()->param2);
-        Graph* gr = new Graph();
-        gr->setname(sname.str());
-        gr->setPls(spdlist);
-        gr->setinitPosition(0,0);
-        gr->setwidthheight(1024,768);
-        gr->show();
-    });
-    std::thread t2([delProbList, OPPmdl](){
-        std::stringstream sname;
-        sname << "OPP model with params:" << " A = " << to_str(OPPmdl.begin()->param1) << ", V = " << to_str(OPPmdl.begin()->param2);
-        Graph* gr = new Graph();
-        gr->setname(sname.str());
-        gr->setPls(delProbList);
-        gr->setinitPosition(0,0);
-        gr->setwidthheight(1024,768);
-        gr->show();
-    });
-    t1.join();
-    t2.join();
-    return EXIT_SUCCESS;
+    sf::RenderWindow window(sf::VideoMode(600*2, 400*2), "SFML plot", sf::Style::Default);
+    Graph google_com("Transfer Rate", sf::Vector2i(0,0), spdlist);
+    Graph google_ru("Deleviry Probality", sf::Vector2i(1,0), delProbList);
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if(event.type == sf::Event::Closed)
+                window.close();
+        }
+        // Each 200 ms, a new random value is add to the random curve
+        google_com.update();
+        google_ru.update();
+        window.clear();
+       window.draw(google_com);
+        window.draw(google_ru);
+
+        window.display();
+    }
+   return EXIT_SUCCESS;
 }

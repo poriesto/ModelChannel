@@ -1,42 +1,25 @@
 //
 // Created by Alexander on 27.05.2015.
 //
-
 #ifndef DIPLOM_GRAPH_H
 #define DIPLOM_GRAPH_H
-#include "GLWindow.hpp"
-#include <iostream>
+#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
 #include "api.hpp"
+#include "plot.h"
+#include <string>
 #include <list>
-
-class Graph : public GLWindow {
+class Graph : public sf::Drawable, public sf::Transformable
+{
 public:
+    Graph(std::string name, sf::Vector2i location, std::list<Plot> plot);
+    void update();
 
-    Graph() {
-        Graph::mode = GLUT_RGBA | GLUT_SINGLE;
-        Graph::subwindows = 0;
-    }
-    virtual ~Graph() { }
-
-    void setPls(const std::list<Plot> &pls) {
-        Graph::pls = pls;
-        Graph::plot = Graph::pls.front();
-    }
-
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 private:
-    std::list<Plot>pls;
-    Plot plot;
-    void text(char* str);
-protected:
-    void resize(int w, int h);
-    void initGL(void);
-    void createsubwindows(void){};
-    void render(void);
-    void keyboard(unsigned char key, int x, int y){};
-    void mouse(unsigned int button, int state, int x, int y){};
-    void motion(int x, int y){};
-    void passmotion(int x, int y){};
-    void idlefunc(void){};
+    sf::plot::Plot plot_;
+    std::list<Plot> pPlot_;
+    std::string name_, curveName_;
 };
 
 

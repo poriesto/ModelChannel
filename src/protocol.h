@@ -4,7 +4,7 @@
 #include "api.hpp"
 #ifndef DIPLOM_PROTOCOL_H
 #define DIPLOM_PROTOCOL_H
-
+#include <utility>
 class protocol {
 
 public:
@@ -29,15 +29,19 @@ private:
 	std::vector<Block>bl;
 	std::vector<Packet>pl;
 	std::string results;
+	std::pair<UINT, UINT> test;
 	Code code;
 	Plot plot, delProbPlot;
 	double speed = 0.0, delProbability = 0.0, singleTime = 0.0;
 	UINT blSize, blocks, pkSize, RecivedPackets = 0, SentPackets = 0;
-	UINT blErrors = 0, packetSize;
+	UINT packetSize;
 
 	void datagramm();
 	void latency();
 	void Nstep();
+	
+	void toTHR(piter begin, piter end);
+	std::pair<UINT, UINT>toAsync(piter beg, piter end);
 
 	bool isCorectable(Packet packet);
 	bool checkPacket(Packet packet);

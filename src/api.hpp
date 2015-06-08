@@ -62,4 +62,5 @@ std::string to_str(T value){
 	s << value;
 	return s.str();
 }
+std::string Code_toStr(Code code);
 #endif //DIPLOM_API_HPP

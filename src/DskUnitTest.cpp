@@ -29,33 +29,25 @@ int main(){
             delProb.emplace_back(curPlot);
         }
     }
-    std::thread t1([plots, Plist](){
-        std::stringstream name;
-        name << "DSK model with params:" << "P = " << to_str(*(Plist.begin()));
-        Graph* gr = new Graph();
-        gr->setname(name.str());
-        gr->setPls(plots);
-        gr->setinitPosition(0,0);
-        gr->setwidthheight(1024,768);
-        gr->show();
-    });
-    std::thread t2([delProb, Plist](){
-        std::stringstream name;
-        name << "DSK model with params:" << "P = " << to_str(*(Plist.begin()));
-        Graph* gr = new Graph();
-        gr->setname(name.str());
-        gr->setPls(delProb);
-        gr->setinitPosition(0,0);
-        gr->setwidthheight(1024,768);
-        gr->show();
-    });
-    t1.join();
-    t2.join();
-    /*
-    Graph* gr = new Graph();
-    gr->setname(name.str());
-    gr->setPls(plots);
-    gr->setinitPosition(0,0);
-    gr->setwidthheight(1024, 768);
-    gr->show();*/
+    sf::RenderWindow window(sf::VideoMode(600*2, 400*2), "SFML plot", sf::Style::Default);
+    Graph google_com("Transfer Rate", sf::Vector2i(0,0), plots);
+    Graph google_ru("Deleviry Probality", sf::Vector2i(1,0), delProb);
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if(event.type == sf::Event::Closed)
+                window.close();
+        }
+        google_com.update();
+        google_ru.update();
+        window.clear();
+       window.draw(google_com);
+        window.draw(google_ru);
+
+        window.display();
+    }
+
+	return EXIT_SUCCESS;
 }

@@ -45,3 +45,9 @@ void generator(double a, double b, double& num){
 	std::uniform_real_distribution<> dis(a, b);
 	num = dis(gen);
 }
+std::string Code_toStr(Code code){
+	std::stringstream str;
+	str << "(" << code.DataLength << ", " << code.DataLength << ", "
+	<< code.errorsCorrection << ", " << code.bitsWord << ")";
+	return str.str();
+}

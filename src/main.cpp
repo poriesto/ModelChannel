@@ -2,6 +2,7 @@
 // Created by Alexander on 28.04.2015.
 //
 #include "main.h"
+#include "Graph.h"
 #include <list>
 int main(){
     unsigned int SessionLenght = 0, BlockSize = 0, model = 0, protocol = 0, CRC;
@@ -25,10 +26,6 @@ int main(){
 	dsk* dk = new dsk(BlockSize, SessionLenght);
 	pa* pk = new pa(SessionLenght, BlockSize);
 	opp* op = new opp(BlockSize, SessionLenght);
-	Graph* gr = new Graph();
-	gr->setinitPosition(0,0);
-	gr->setwidthheight(1024,768);
-
 	switch(model)
 	{
 		case 1:
@@ -68,14 +65,25 @@ int main(){
 			std::cout << "Введены некоректные параметры" << std::endl;
 			break;
 	}
-	switch (protocol){
-		case 1:
-			gr->setPls(spdpls);
-			break;
-		case 2:
-			gr->setPls(delprobpls);
-			break;
-	}
-	gr->show();
+	sf::RenderWindow window(sf::VideoMode(600*2, 400*2), "SFML plot", sf::Style::Default);
+    Graph google_com("Transfer Rate", sf::Vector2i(0,0), spdpls);
+    Graph google_ru("Deleviry Probality", sf::Vector2i(1,0), delprobpls);
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if(event.type == sf::Event::Closed)
+                window.close();
+        }
+        // Each 200 ms, a new random value is add to the random curve
+        google_com.update();
+        google_ru.update();
+        window.clear();
+       window.draw(google_com);
+        window.draw(google_ru);
+
+        window.display();
+    }
 	return EXIT_SUCCESS;
 }

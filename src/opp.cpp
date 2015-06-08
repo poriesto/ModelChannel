@@ -23,10 +23,13 @@ void opp::genBitArray(){
 	for(auto i = 0; i < 4; i++){
 		vth.emplace_back(
 				std::thread(&opp::toTHR, this, beg,end));
+		beg = end;
+		end += bytes.size()/4;
 	}
 	for(auto &thr : vth){
 		thr.join();
 	}
+	vth.erase(vth.begin(), vth.end());
 }
 UINT opp::GenOppPos(){
 		double R, a = 0, b = 1;
@@ -37,19 +40,6 @@ UINT opp::GenOppPos(){
 void opp::work()
 {
 	std::cout << "======Begin OPP model======" << std::endl;
-	/*
-	 * Pos = GenOppPos();
-	for(auto i = 0; i < bytes.capacity(); i++)	{
-		if(Pos == i){
-			bytes[i] = 1;
-			errorsPos.emplace_back(Pos);
-			Pos = i + 1 + GenOppPos();
-		}
-		else if( Pos != i){
-			bytes[i] = 0;
-		}
-	}*/
-
     bl = makeBlocks(Blocks, BlockSize, bytes);
     pr = new protocol(bl,code);
 	std::stringstream res;
@@ -62,9 +52,7 @@ void opp::work()
 	opp::delProbPlot = pr->getDelProbPlot();
     std::cout << "======End OPP model======" << std::endl;
     std::stringstream bits;
-    for(auto value : bytes){
-    	bits << value << " ";
-    }
+    for(auto value : bytes) bits << value << " ";
     std::string bitsName = "ErrorsStreamOPP.txt";
     std::ofstream f;
     f.open(bitsName);

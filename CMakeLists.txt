@@ -3,28 +3,10 @@ set(PROJECT Diplom)
 project(${PROJECT})
 set(SOURCE_DIR src/)
 set(BINARY_DIR "bin/")
-set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -pedantic -Wno-deprecated")
-set(DCMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -pedantic -Wno-deprecated")
+set(CMAKE_CXX_FLAGS "-std=c++11 -pedantic -Wno-deprecated")
+set(DCMAKE_CXX_FLAGS "-std=c++11 -pedantic -Wno-deprecated")
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "C:/WinBin64/lib")
 set(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:/WinBin64/include/GL;C:/WinBin64/include")
-##########################################################
-find_package(OpenGL REQUIRED)
-if(NOT OPENGL_FOUND)
-    message(SEND_ERROR "Failed to find OpenGL")
-    return()
-else()
-    include_directories(${OPENGL_INCLUDE_DIR})
-endif()
-##########################################################
-find_package(GLUT REQUIRED)
-if(NOT GLUT_FOUND)
-    message(SEND_ERROR "Failed to find GLUT")
-    return()
-else()
-    include_directories(${GLUT_INCLUDE_DIR})
-endif()
-##########################################################
-
 #####################################################################
 #SOURCE_FILES
 ######################################################################
@@ -41,10 +23,20 @@ set(SOURCE_FILES
     ${SOURCE_DIR}pa.cpp
     ${SOURCE_DIR}protocol.cpp)
 set(GRAPH_HEADERS
-    ${SOURCE_DIR}GLWindow.hpp
+    ${SOURCE_DIR}area.h
+    ${SOURCE_DIR}axis.h
+    ${SOURCE_DIR}curve.h
+    ${SOURCE_DIR}grid.h
+    ${SOURCE_DIR}line.h
+    ${SOURCE_DIR}plot.h
     ${SOURCE_DIR}Graph.h)
 set(GRAPH_SOURCES
-    ${SOURCE_DIR}GLWindow.cpp
+    ${SOURCE_DIR}area.cpp
+    ${SOURCE_DIR}axis.cpp
+    ${SOURCE_DIR}curve.cpp
+    ${SOURCE_DIR}grid.cpp
+    ${SOURCE_DIR}line.cpp
+    ${SOURCE_DIR}plot.cpp
     ${SOURCE_DIR}Graph.cpp)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BINARY_DIR})
 
@@ -57,7 +49,7 @@ add_executable(oppTest src/OppUnitTest.cpp)
 add_executable(dskTest src/DskUnitTest.cpp)
 add_executable(paTest src/PaUnitTest.cpp)
 
-target_link_libraries(${PROJECT} protocol graph ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
-target_link_libraries(oppTest unitTests protocol graph pthread ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
-target_link_libraries(dskTest unitTests protocol graph pthread ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
-target_link_libraries(paTest unitTests protocol graph pthread ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
+target_link_libraries(${PROJECT} protocol graph pthread sfml-window sfml-system sfml-graphics)
+target_link_libraries(oppTest unitTests protocol graph pthread sfml-window sfml-system sfml-graphics)
+target_link_libraries(dskTest unitTests protocol graph pthread sfml-window sfml-system sfml-graphics)
+target_link_libraries(paTest unitTests protocol graph pthread sfml-window sfml-system sfml-graphics)

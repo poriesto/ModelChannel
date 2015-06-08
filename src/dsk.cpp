@@ -13,7 +13,7 @@ void dsk::genBitsArray(){
 	std::vector<std::thread> vth;
 	btsiter beg,end;
 	beg = bytes.begin();
-	end = bytes.begin() + bytes.size()/4;
+	end = beg + bytes.size()/4;
 	for(int i = 0; i < 4; i++){
 		vth.emplace_back(
 				std::thread(&dsk::toTHR, this, beg, end));
@@ -24,15 +24,11 @@ void dsk::genBitsArray(){
 	 for(auto &thr : vth){
 		thr.join();
 	}
+	vth.erase(vth.begin(), vth.end()); 
 }
 
 void dsk::work() {
 	std::cout << "======Begin dsk model======" << std::endl;
-    /*for(auto i = 0; i < bytes.size(); i++){
-        generator(a,b,r);
-		r >= p ? bytes.at(i) = 0:1;
-    }*/
-
     bl = makeBlocks(Blocks, BlockSize, bytes);
 	pr = new protocol(bl,code);
 	pr->work(dsk::ProtocolType, dsk::PacketSize);
@@ -46,9 +42,7 @@ void dsk::work() {
 	dsk::delProbPlot = pr->getDelProbPlot();
 	std::cout << "======End dsk model======" << std::endl;
 	std::stringstream bits;
-    for(auto value : bytes){
-    	bits << value << " ";
-    }
+    for(auto value : bytes) bits << value << " ";
 	std::string bitsName = "ErrorsStreamDSK.txt";
     std::ofstream f;
     f.open(bitsName);
