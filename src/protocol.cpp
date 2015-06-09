@@ -99,7 +99,7 @@ void protocol::latency() {
 	speed = static_cast<double>(RecivedPackets*packetSize)/
 			static_cast<double>(SentPackets*(blSize*pkSize+
 					CodeBlockCount*(code.codeLength-code.DataLength)*code.bitsWord));
-	singleTime = static_cast<double>(SentPackets*SentPackets)/ static_cast<double>(RecivedPackets*frameSize);
+	singleTime = static_cast<double>((SentPackets*SentPackets)/ (RecivedPackets*frameSize));
 	std::stringstream ss;
 	ss <<"Код (" << to_str(code.codeLength) << ", " << to_str(code.DataLength) << ", " << to_str(code.errorsCorrection) << ", " << to_str(code.bitsWord) << ")\n"
 		<< "Размер блока, бит = " << blSize << "\nКоличество блоков в кадре = " << pkSize

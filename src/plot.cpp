@@ -54,7 +54,7 @@ bool Plot::haveCurve(const std::string &name) const
 
 Curve& Plot::getCurve(const std::string& name)
 {
-    if(haveCurve(name) == false)
+    if(!haveCurve(name))
         throw std::string("Curve not found");
     return curves_[name];
 }

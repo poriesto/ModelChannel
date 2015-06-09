@@ -37,7 +37,9 @@ void Graph::update() {
             }
             curve.setLabel("Code");
         }
-        plot_.prepare();
+        sf::Vector2f xrange(0, value.FrameSize.back());
+        sf::Vector2f yrange(0, value.speed.back());
+        plot_.prepare(xrange,yrange);
     }
 }
 void Graph::draw(sf::RenderTarget &target, sf::RenderStates states) const{
