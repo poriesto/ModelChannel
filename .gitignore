@@ -4,4 +4,3 @@ OPP Test/1.rb
 bin/OPP_model A = 1, V = 0.9 code(1, 1, 0, 1).txt
 *.xml
 *.iml
-*.txt
