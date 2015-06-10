@@ -15,7 +15,7 @@ class Grid
 {
 private:
     /// means that cut the grid in kPart
-    static const int kPart = 4;
+    static const int kPart = 8;
 public:
     ////////////////////////////////////////////////////////////
     /// \brief constructor

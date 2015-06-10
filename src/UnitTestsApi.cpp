@@ -23,7 +23,7 @@ void init(std::list<Code>& codeList, std::list<TwoParamModels>& OPPmodel){
     codeList.emplace_back(setCode(31,21,2,8));
     codeList.emplace_back(setCode(30,20,4,8));
 
-    codeList.emplace_back(setCode(1,1,0,0));
+    //codeList.emplace_back(setCode(1,1,0,0));
 
     OPPmodel.emplace_back(setModel2(100, 1.094));
     OPPmodel.emplace_back(setModel2(125, 1.1));

@@ -24,7 +24,9 @@ name_(name), pPlot_(plot){
             curve.setLimit(value.speed.size());
             curve.setLabel(Code_toStr(value.code));
         }
-        plot_.prepare();
+        sf::Vector2f xrange(0, plot.front().FrameSize.back());
+        sf::Vector2f yrange(0, 1);
+        plot_.prepare(xrange,yrange);
 }
 void Graph::update() {
 
@@ -38,7 +40,7 @@ void Graph::update() {
             curve.setLabel("Code");
         }
         sf::Vector2f xrange(0, value.FrameSize.back());
-        sf::Vector2f yrange(0, value.speed.back());
+        sf::Vector2f yrange(0, 1);
         plot_.prepare(xrange,yrange);
     }
 }

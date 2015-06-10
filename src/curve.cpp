@@ -36,7 +36,7 @@ void Curve::addValue(float value)
     }
 }
 
-void Curve::prepare(sf::Vector2f &rangex, sf::Vector2f &rangey)
+void Curve::prepare(sf::Vector2f rangex, sf::Vector2f rangey)
 {
     rangex.x = 0;
     rangex.y = data_.size();

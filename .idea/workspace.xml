@@ -21,7 +21,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="386cb040-bf9c-4f96-9a32-023bbefe5cab" name="Default" comment="Confert to UTF-8">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Graph.cpp" afterPath="$PROJECT_DIR$/src/Graph.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UnitTestsApi.cpp" afterPath="$PROJECT_DIR$/src/UnitTestsApi.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/axis.cpp" afterPath="$PROJECT_DIR$/src/axis.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/axis.h" afterPath="$PROJECT_DIR$/src/axis.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/curve.cpp" afterPath="$PROJECT_DIR$/src/curve.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/curve.h" afterPath="$PROJECT_DIR$/src/curve.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/grid.h" afterPath="$PROJECT_DIR$/src/grid.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diplom.iws" />
@@ -55,13 +61,13 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Graph.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Graph.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Graph.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+                <state vertical-scroll-proportion="0.46551725">
+                  <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
                   <folding>
-                    <element signature="e#1012#1493#0" expanded="true" />
+                    <element signature="e#1123#1587#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -71,17 +77,41 @@
             <entry file="file://$PROJECT_DIR$/src/OppUnitTest.cpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+                  <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UnitTestsApi.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="UnitTestsApi.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/UnitTestsApi.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.35643566">
-                  <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#72#255#0" expanded="true" />
+                    <element signature="e#256#394#0" expanded="true" />
+                    <element signature="e#951#1506#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="grid.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/grid.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="grid.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/grid.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
                   <folding />
                 </state>
               </provider>
@@ -103,9 +133,10 @@
             <entry file="file://$PROJECT_DIR$/src/curve.cpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+                  <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
                   <folding>
                     <element signature="e#232#409#0" expanded="true" />
+                    <element signature="e#547#2044#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -145,11 +176,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="axis.h" pinned="false" current-in-tab="false">
+          <file leaf-file-name="axis.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/axis.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+                <state vertical-scroll-proportion="-0.03448276">
+                  <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -159,7 +190,7 @@
             <entry file="file://$PROJECT_DIR$/src/axis.cpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+                  <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
                   <folding />
                 </state>
               </provider>
@@ -190,11 +221,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DskUnitTest.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DskUnitTest.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/DskUnitTest.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.22442244">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -216,9 +247,9 @@
             <entry file="file://$PROJECT_DIR$/src/curve.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
+                  <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
                   <folding>
-                    <element signature="e#3158#3235#0" expanded="true" />
+                    <element signature="e#3149#3226#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -282,19 +313,22 @@
         <option value="$PROJECT_DIR$/src/opp.cpp" />
         <option value="$PROJECT_DIR$/src/DskUnitTest.cpp" />
         <option value="$PROJECT_DIR$/src/PaUnitTest.cpp" />
-        <option value="$PROJECT_DIR$/src/curve.h" />
         <option value="$PROJECT_DIR$/src/api.cpp" />
         <option value="$PROJECT_DIR$/src/api.hpp" />
         <option value="$PROJECT_DIR$/src/plot.h" />
         <option value="$PROJECT_DIR$/src/specialPlot.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/Graph.h" />
-        <option value="$PROJECT_DIR$/src/OppUnitTest.cpp" />
         <option value="$PROJECT_DIR$/src/plot.cpp" />
         <option value="$PROJECT_DIR$/src/protocol.cpp" />
+        <option value="$PROJECT_DIR$/src/curve.h" />
         <option value="$PROJECT_DIR$/src/curve.cpp" />
-        <option value="$PROJECT_DIR$/src/Graph.cpp" />
+        <option value="$PROJECT_DIR$/src/axis.cpp" />
+        <option value="$PROJECT_DIR$/src/axis.h" />
+        <option value="$PROJECT_DIR$/src/grid.h" />
+        <option value="$PROJECT_DIR$/src/OppUnitTest.cpp" />
         <option value="$PROJECT_DIR$/src/UnitTestsApi.cpp" />
+        <option value="$PROJECT_DIR$/src/Graph.cpp" />
       </list>
     </option>
   </component>
@@ -530,6 +564,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13863996" sideWeight="0.44976816" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32790446" sideWeight="0.49583334" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2275641" sideWeight="0.5159119" order="7" side_tool="true" content_ui="tabs" x="185" y="384" width="1550" height="271" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2724359" sideWeight="0.48653612" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4755319" sideWeight="0.5509592" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2819149" sideWeight="0.49736995" order="7" side_tool="false" content_ui="tabs" />
@@ -537,7 +572,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10759494" sideWeight="0.30713245" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2275641" sideWeight="0.5159119" order="7" side_tool="true" content_ui="tabs" x="185" y="384" width="1550" height="271" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2275641" sideWeight="0.48408812" order="5" side_tool="false" content_ui="tabs" />
@@ -812,33 +846,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/area.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/area.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/grid.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/grid.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9832061">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -890,47 +902,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/curve.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
-          <folding>
-            <element signature="e#3158#3235#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/axis.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/axis.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/plot.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/curve.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding>
-            <element signature="e#232#409#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -967,18 +943,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DskUnitTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22442244">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Graph.cpp">
+    <entry file="file://$PROJECT_DIR$/src/area.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/curve.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
           <folding>
-            <element signature="e#1012#1493#0" expanded="true" />
+            <element signature="e#232#409#0" expanded="true" />
+            <element signature="e#547#2044#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/curve.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
+          <folding>
+            <element signature="e#3149#3226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/axis.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grid.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grid.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/axis.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.03448276">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UnitTestsApi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#72#255#0" expanded="true" />
+            <element signature="e#256#394#0" expanded="true" />
+            <element signature="e#951#1506#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -986,16 +1025,18 @@
     <entry file="file://$PROJECT_DIR$/src/OppUnitTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UnitTestsApi.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Graph.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35643566">
-          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-          <folding />
+        <state vertical-scroll-proportion="0.46551725">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding>
+            <element signature="e#1123#1587#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
