@@ -41,13 +41,6 @@ void dsk::work() {
 	dsk::plot = pr->getPlot();
 	dsk::delProbPlot = pr->getDelProbPlot();
 	std::cout << "======End dsk model======" << std::endl;
-	std::stringstream bits;
-    for(auto value : bytes) bits << value << " ";
-	std::string bitsName = "ErrorsStreamDSK.txt";
-    std::ofstream f;
-    f.open(bitsName);
-    f.write(bits.str().c_str(), sizeof(char)*bits.str().size()); 
-    f.close();
 }
 void dsk::saveToFile(std::string str) {
 std::stringstream ostr;

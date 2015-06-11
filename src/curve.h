@@ -65,6 +65,10 @@ public:
     /// \brief determine the number of point have to draw
     ////////////////////////////////////////////////////////////
     void setLimit(unsigned int limit);
+    ///////////////////////////////////////////////////////////
+    /// \set font for label
+    //////////////////////////////////////////////////////////
+    void setFont(const std::string &filename);
 private:
     ////////////////////////////////////////////////////////////
     /// \brief sfml method
@@ -73,13 +77,13 @@ private:
 
     /// curve label
     std::string label_;
-
     /// curve color
     sf::Color color_;
 
     /// cuve area color
     sf::Color fillColor_;
-
+    sf::Text* text = new sf::Text();
+    sf::Font* font = new sf::Font();
     /// curve data
     std::list<float> data_;
 

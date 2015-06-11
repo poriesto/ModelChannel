@@ -2,12 +2,10 @@
 #include <limits>
 
 #include "curve.h"
-
 namespace sf
 {
 namespace plot
 {
-
 Curve::Curve()
     : color_(sf::Color::White)
     , size_(sf::Vector2f(100, 100))
@@ -77,17 +75,23 @@ void Curve::prepare(sf::Vector2f rangex, sf::Vector2f rangey)
             xoffset++;
 
         int i = 0;
-        float x = 0;
+        float x = 0, y = 0;
         for(std::list<float>::reverse_iterator it=data_.rbegin();it!=data_.rend();++it)
         {
             x = size_.x - (i++ * xoffset);
             float realy = (*it - rangey.x) / distance;
-            float y = size_.y - size_.y * realy;
+            y = size_.y - size_.y * realy;
             x = (x < 0) ? 0 : x;
 
             line_.add(sf::Vector2f(x, y), thickness_, color_);
             area_.add(sf::Vector2f(x, y), fillColor_, size_.y);
         }
+        text->setCharacterSize(12);
+        text->setColor(sf::Color::Black);
+        text->setString(label_);
+        auto it = data_.begin();
+        std::advance(it, xoffset*4);
+        text->setPosition(*it, y-0.5);
     }
 }
 
@@ -97,7 +101,11 @@ void Curve::draw(sf::RenderTarget& target, sf::RenderStates states) const
     if(fill_)
         target.draw(area_, states);
     target.draw(line_, states);
+    target.draw(*text,states);
 }
-
+void Curve::setFont(const std::string &filename) {
+    if(!font->loadFromFile(filename)) throw;
+    text->setFont(*font);
+}
 }
 }

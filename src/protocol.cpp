@@ -28,12 +28,9 @@ void protocol::work(UINT type, UINT pkSize) {
 	RecivedPackets = 0; SentPackets = 0; delProbability = 0.0; speed = 0; singleTime = 0.0;
 }
 void protocol::datagramm() {
-	bool CoruptedPacket, CorrectablePacket;
 	for(auto packet : pl){
-		CoruptedPacket = checkPacket(packet);
-		if (CoruptedPacket){
-			CorrectablePacket = isCorectable(packet);
-			if(CorrectablePacket){
+		if (checkPacket(packet)){
+			if(isCorectable(packet)){
 				RecivedPackets+=1;
 			}
 		}
@@ -55,13 +52,10 @@ void protocol::datagramm() {
 std::pair<UINT, UINT> protocol::toAsync(piter beg, piter end){
 	std::pair<UINT, UINT>stat_;
 	std::cout << "Start Async thread" << std::endl;
-	bool CoruptedPacket, CorrectablePacket;
 	for(auto current = beg; current < end; current++){
-		CoruptedPacket = checkPacket(*current);
-		if(CoruptedPacket){
+		if(checkPacket(*current)){
 			if(code.errorsCorrection > 0){
-				CorrectablePacket = isCorectable(*current);
-				if(CorrectablePacket){
+				if(isCorectable(*current)){
 					stat_.first +=1;
 				}
 			}

@@ -43,7 +43,7 @@ private:
     Code code;
     Plot plot, delProbPlot;
     protocol* pr;
-    std::vector<UINT>bytes, errors;
+    std::vector<UINT>bytes;
     std::vector<Block>bl;
     void saveToFile(std::string str);
     void toTHR(btsiter beg, btsiter end);

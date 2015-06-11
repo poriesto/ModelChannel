@@ -15,13 +15,12 @@ name_(name), pPlot_(plot){
         plot_.setTitleColor(sf::Color::Black);
         plot_.setPosition(sf::Vector2f(600*location.x,400*location.y));
        for(auto value : pPlot_) {
-            sf::plot::Curve &curve = plot_.createCurve(
-                    Code_toStr(value.code), sf::Color::Red);
+            sf::plot::Curve &curve = plot_.createCurve(Code_toStr(value.code), sf::Color::Red);
             curve.setFill(false);
             curve.setThickness(2);
-            curve.setColor(sf::Color(rand()%255,rand()%255,rand()%255)
-            		);
+            curve.setColor(sf::Color(rand()%255,rand()%255,rand()%255));
             curve.setLimit(value.speed.size());
+            curve.setFont("font.ttf");
             curve.setLabel(Code_toStr(value.code));
         }
         sf::Vector2f xrange(0, plot.front().FrameSize.back());
@@ -37,7 +36,7 @@ void Graph::update() {
             for (auto va : value.speed) {
                 curve.addValue(va);
             }
-            curve.setLabel("Code");
+            curve.setLabel(Code_toStr(value.code));
         }
         sf::Vector2f xrange(0, value.FrameSize.back());
         sf::Vector2f yrange(0, 1);
