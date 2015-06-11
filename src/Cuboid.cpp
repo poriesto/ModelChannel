@@ -21,8 +21,7 @@ SpisokPaketov Cuboid::makespisok(void) {
 
 Matrisa Cuboid::makematrix(void) {
     Matrisa M;
-    CRC_row.resize(size);
-    for (int i = 0; i < size; i ++){
+     for (int i = 0; i < size; i ++){
         M.push_back(makespisok());
        CRC_row[i] = summRow(M.back());
     }
@@ -84,6 +83,7 @@ void Cuboid::print1() {
 
         }
     }
+    std::cout << std::endl;
     std::cout << "gshjkgfsjdfdsa"<< std::endl<< std::endl<< std::endl;
     printtcrc();
    // print(CRC_row);
@@ -94,5 +94,8 @@ void Cuboid::printtcrc() {
     for (auto crc_v : CRC_r){
         print(crc_v);
     }
-
+    std::cout<<std::endl;
+    for (auto crc_v : CRC_c){
+        print(crc_v);
+    }
 }

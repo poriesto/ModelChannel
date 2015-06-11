@@ -15,7 +15,7 @@ void protocol::work(UINT type, UINT pkSize) {
     Cuboid *cub = new Cuboid(5, pl);
     cub->MakeCube();
     cub->print1();
-	/*switch (type){
+	switch (type){
 		case 1:
 			datagramm();
 			break;
@@ -28,7 +28,7 @@ void protocol::work(UINT type, UINT pkSize) {
 		default:
 			std::cout << "Set correct params" << std::endl;
 			break;
-	}*/
+	}
 	pl.erase(pl.begin(), pl.end());
     //delete[] cub;
 	RecivedPackets = 0; SentPackets = 0; delProbability = 0.0; speed = 0; singleTime = 0.0;

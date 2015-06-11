@@ -29,7 +29,7 @@ int main() {
             delProbList.emplace_back(plotDelProb);
         }
     }
-    std::thread t1([spdlist, OPPmdl](){
+    /*std::thread t1([spdlist, OPPmdl](){
         std::stringstream sname;
         sname << "OPP model with params:" << " A = " << to_str(OPPmdl.begin()->param1) << ", V = " << to_str(OPPmdl.begin()->param2);
         Graph* gr = new Graph();
@@ -51,5 +51,6 @@ int main() {
     });
     t1.join();
     t2.join();
+    */
     return EXIT_SUCCESS;
 }
