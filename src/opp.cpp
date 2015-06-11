@@ -2,37 +2,39 @@
 // Created by Alexander on 28.04.2015.
 //
 #include "opp.h"
-#include <thread>
-void opp::toTHR(btsiter beg, btsiter end){
-	Pos = GenOppPos();
-	auto Eend = end - beg;
-	for(int i = 0; i < Eend; i++){
-		if(Pos == i){
-			bytes.at(i) = 1;
-			errorsPos.emplace_back(Pos);
-			Pos = i + 1 + GenOppPos();
-		}
-		else{
-			bytes.at(i) = 0;
-		}
-	}
+#include <future>
+
+std::vector<UINT> opp::toAsync(UINT size) {
+    std::cout << "Async generator bits start" << std::endl;
+    std::vector<UINT>v(size);// = makeSession(size);
+    int Pos = GenOppPos();
+    for(int i = 0; i < v.size(); i++){
+        if(Pos == i){
+            v.at(i) = 1;
+            Pos = i + 1 + GenOppPos();
+        }
+        else{
+            v.at(i);
+        }
+    }
+    std::cout << "Async generator end" << std::endl;
+    return v;
 }
 void opp::genBitArray(){
-	btsiter beg = bytes.begin(), end = beg + bytes.size()/4;
-	std::vector<std::thread>vth;
-	for(auto i = 0; i < 4; i++){
-		vth.emplace_back(
-				std::thread(&opp::toTHR, this, beg,end));
-		beg = end;
-		end += bytes.size()/4;
-	}
-	for(auto &thr : vth){
-		thr.join();
-	}
+   int size = SessionSize/4;
+    std::vector < std::future<std::vector<UINT>>> ran;
+    for(int i = 0; i < 4; i++){
+        ran.emplace_back( std::async(std::launch::async, &opp::toAsync, this, size));
+    }
+    for(auto it = ran.begin(); it < ran.end(); it++){
+        std::vector<UINT> cur = it->get();
+        bytes.insert(bytes.end(), cur.begin(), cur.end());
+        std::vector<UINT>().swap(cur);
+    }
+    std::cout << "Bits size = " << bytes.size();
     bl = makeBlocks(Blocks, BlockSize, bytes);
-    bytes.erase(bytes.begin(), bytes.end());
-    bytes.resize(1);
-	vth.erase(vth.begin(), vth.end());
+    std::vector<UINT>().swap(bytes);
+    std::vector<std::future<std::vector<UINT>>>().swap(ran);
 }
 UINT opp::GenOppPos(){
 		double R, a = 0, b = 1;

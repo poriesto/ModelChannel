@@ -1,35 +1,35 @@
 #include "dsk.hpp"
 #include <thread>
+#include <future>
 
-void dsk::toTHR(btsiter beg, btsiter end){
-	for(auto current = beg; current < end; current++){
-		double a=0,b=1,r;
-		generator(a,b,r);
-		r >= p ? *current = 0:1;
-	}
+std::vector<UINT> dsk::toAsync(int size) {
+    std::vector<UINT>v(size);
+    for(auto cur = v.begin(); cur < v.end(); cur++){
+        double a = 0, b = 0, r;
+        generator(a,b,r);
+        r >= p ? *cur = 0:1;
+    }
+    return v;
 }
 
 void dsk::genBitsArray(){
-	std::vector<std::thread> vth;
-	btsiter beg,end;
-	beg = bytes.begin();
-	end = beg + bytes.size()/4;
-	for(int i = 0; i < 4; i++){
-		vth.emplace_back(
-				std::thread(&dsk::toTHR, this, beg, end));
-		beg += bytes.size()/4;
-		end += bytes.size()/4;
-	}
-
-	 for(auto &thr : vth){
-		thr.join();
-	}
-	vth.erase(vth.begin(), vth.end()); 
+    int size = SessionSize/4;
+    std::vector<std::future<std::vector<UINT>>> ran;
+    for(int i = 0; i < 4; i++){
+        ran.emplace_back(std::async(std::launch::async, &dsk::toAsync, this, size));
+    }
+    for(auto it = ran.begin(); it < ran.end(); it++){
+        std::vector<UINT> cur = it->get();
+        bytes.insert(bytes.end(), cur.begin(), cur.end());
+        std::vector<UINT>().swap(cur);
+    }
+    bl = makeBlocks(Blocks, BlockSize, bytes);
+    std::vector<UINT>().swap(bytes);
+    std::vector<std::future<std::vector<UINT>>>().swap(ran);
 }
 
 void dsk::work() {
 	std::cout << "======Begin dsk model======" << std::endl;
-    bl = makeBlocks(Blocks, BlockSize, bytes);
 	pr = new protocol(bl,code);
 	pr->work(dsk::ProtocolType, dsk::PacketSize);
 	std::stringstream res;

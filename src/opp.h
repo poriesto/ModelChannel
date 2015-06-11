@@ -11,7 +11,6 @@ class opp {
 public:
     opp(UINT BlockSize, UINT SessionSize):BlockSize(BlockSize), SessionSize(SessionSize) {
         opp::Blocks = opp::SessionSize / opp::BlockSize;
-		opp::bytes = makeSession(opp::SessionSize);
     }
     virtual ~opp() { }
     void setCode(UINT codeLength, UINT errosCor, UINT dataLength, UINT bitsWord) {
@@ -46,14 +45,13 @@ private:
     double A,V;
     Code code;
     Plot plot, delProbPlot;
-    std::vector<UINT> bytes, errorsPos;
+    std::vector<UINT> bytes;
     std::vector<Block> bl;
     protocol* pr;
-    int Pos;
 
     UINT GenOppPos();
-    void toTHR(btsiter beg, btsiter end);
     void saveToFile(std::string str);
+    std::vector<UINT> toAsync(UINT size);
 };
 
 

@@ -24,7 +24,7 @@ void protocol::work(UINT type, UINT pkSize) {
 			std::cout << "Set correct params" << std::endl;
 			break;
 	}
-	pl.erase(pl.begin(), pl.end());
+    std::vector<Packet>().swap(pl);
 	RecivedPackets = 0; SentPackets = 0; delProbability = 0.0; speed = 0; singleTime = 0.0;
 }
 void protocol::datagramm() {
@@ -87,6 +87,7 @@ void protocol::latency() {
 		RecivedPackets += current.first;
 		SentPackets += current.second;
 	}
+    std::vector<std::future<std::pair<UINT,UINT>>>().swap(ran);
 	UINT CodeBlockCount = packetSize/code.DataLength;
 	double frameSize = blSize*pkSize + (code.DataLength*code.codeLength);
 	delProbability = static_cast<double >(RecivedPackets) / static_cast<double>(SentPackets);
@@ -109,7 +110,6 @@ void protocol::latency() {
 	delProbPlot.speed.emplace_back(delProbability);
 	delProbPlot.FrameSize.emplace_back(packetSize);
 	delProbPlot.code = protocol::code;
-	ran.erase(ran.begin(), ran.end());
 	std::cout << "End protocol work" << std::endl;
 }
 void protocol::Nstep() {
@@ -140,6 +140,7 @@ bool protocol::isCorrectiableBlock(Block block) {
 			word.emplace_back(block.at(j));
 		}
 		words.emplace_back(word);
+        std::list<UINT>().swap(word);
 		ipos += code.bitsWord;
 		epos += code.bitsWord;
 	}
@@ -150,5 +151,6 @@ bool protocol::isCorrectiableBlock(Block block) {
 		 }
 		if(wordERR > 0) blErrors +=1;
 	}
+    std::list<std::list<UINT>>().swap(words);
 	return blErrors <= code.errorsCorrection;
 }

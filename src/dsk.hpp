@@ -46,7 +46,7 @@ private:
     std::vector<UINT>bytes;
     std::vector<Block>bl;
     void saveToFile(std::string str);
-    void toTHR(btsiter beg, btsiter end);
+    std::vector<UINT> toAsync(int size);
 };
 
 #endif //DIPLOM_DSK_H
