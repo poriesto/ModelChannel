@@ -19,47 +19,45 @@ int main(){
 	set2params(CRC,PacketSize, "Установите длину CRC последовательности и количество криптоблоков в кадре");
 	BlockSize += CRC;
 
-	set2params(codeLenght, errorsCorrection, "Параметры кода:\nУстановите длину кода n(бит) и"
+	/*set2params(codeLenght, errorsCorrection, "Параметры кода:\nУстановите длину кода n(бит) и"
 					" Количество исправляемых ошибок");
 	set2params(dataLength, bitsWord, "Установите длину информационной последовательности k(бит) и длину слова(бит)");
-
+*/
+    std::list<Code>cdl = loadFromFile("Codes.txt");
+    for(auto va : cdl){
+        std::string tmp = Code_toStr(va);
+        std::cout << tmp << std::endl;
+    }
 	dsk* dk = new dsk(BlockSize, SessionLenght);
-	pa* pk = new pa(SessionLenght, BlockSize);
 	opp* op = new opp(BlockSize, SessionLenght);
-	switch(model)
-	{
-		case 1:
-			setparam(p, "Enter p for single bit:");
-			dk->setP(p);
-			dk->setCode(codeLenght, errorsCorrection, dataLength, bitsWord);
-			dk->setProtocol(protocol, PacketSize);
-			dk->work();
-			cur = dk->getPlot();
-			spdpls.emplace_back(cur);
-			cur = dk->getProbPlot();
-			delprobpls.emplace_back(cur);
-			break;
-		case 2:
-			set2params(p, a, "Установите p и a:");
-			pk->setCode(codeLenght, errorsCorrection, dataLength, bitsWord);
-			pk->setProtocol(protocol, PacketSize);
-			pk->setParams(a,p);
-			pk->work();
-			cur = pk->getSpeedPlot();
-			spdpls.emplace_back(cur);
-			cur = pk->getTimePlot();
-			delprobpls.emplace_back(cur);
+	switch(model) {
+        case 1:
+            setparam(p, "Enter p for single bit:");
+            dk->setP(p);
+            dk->genBitsArray();
+            dk->setProtocol(protocol,PacketSize);
+            for (auto code : cdl) {
+                dk->setCode(code);
+                dk->work();
+                cur = dk->getPlot();
+                spdpls.emplace_back(cur);
+                cur = dk->getProbPlot();
+                delprobpls.emplace_back(cur);
+            }
 			break;
 		case 3:
 			set2params(A, V, "Установите A и V:");
-			op->setProtocolType(protocol, PacketSize);
-			op->setCode(codeLenght, errorsCorrection, dataLength, bitsWord);
-			op->setParams(A, V);
-			op->work();
-			cur = op->getPlot();
-			spdpls.emplace_back(cur);
-			cur = op->getDelProbPlot();
-			delprobpls.emplace_back(cur);
+            op->setParams(A, V);
+			op->genBitArray();
+            op->setProtocolType(protocol, PacketSize);
+            for(auto code : cdl){
+                op->setCode(code);
+                op->work();
+                cur = op->getPlot();
+                spdpls.emplace_back(cur);
+                cur = op->getDelProbPlot();
+                delprobpls.emplace_back(cur);
+            }
 			break;
 		default:
 			std::cout << "Введены некоректные параметры" << std::endl;

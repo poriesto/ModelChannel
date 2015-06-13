@@ -51,7 +51,6 @@ void protocol::datagramm() {
 }
 std::pair<UINT, UINT> protocol::toAsync(piter beg, piter end){
 	std::pair<UINT, UINT>stat_;
-	std::cout << "Start Async thread" << std::endl;
 	for(auto current = beg; current < end; current++){
 		if(checkPacket(*current)){
 			if(code.errorsCorrection > 0){
@@ -65,13 +64,11 @@ std::pair<UINT, UINT> protocol::toAsync(piter beg, piter end){
 		}
 		stat_.second += 1;
 	}
-	std::cout << "End async thread" << std::endl;
 	return stat_;
 
 }
 //TODO need hard fix
 void protocol::latency() {
-	std::cout << "Start protocol work" << std::endl;
 	piter beg, end;
 	beg = pl.begin();
 	end = beg + pl.size()/4;
@@ -110,7 +107,6 @@ void protocol::latency() {
 	delProbPlot.speed.emplace_back(delProbability);
 	delProbPlot.FrameSize.emplace_back(packetSize);
 	delProbPlot.code = protocol::code;
-	std::cout << "End protocol work" << std::endl;
 }
 void protocol::Nstep() {
 }

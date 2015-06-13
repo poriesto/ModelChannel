@@ -5,7 +5,6 @@
 #include <future>
 
 std::vector<UINT> opp::toAsync(UINT size) {
-    std::cout << "Async generator bits start" << std::endl;
     std::vector<UINT>v(size);// = makeSession(size);
     int Pos = GenOppPos();
     for(int i = 0; i < v.size(); i++){
@@ -17,7 +16,6 @@ std::vector<UINT> opp::toAsync(UINT size) {
             v.at(i);
         }
     }
-    std::cout << "Async generator end" << std::endl;
     return v;
 }
 void opp::genBitArray(){
@@ -44,7 +42,6 @@ UINT opp::GenOppPos(){
 }
 void opp::work()
 {
-	std::cout << "======Begin OPP model======" << std::endl;
     pr = new protocol(bl,code);
 	std::stringstream res;
 	for(UINT i = 1; i <= PacketSize; i+=1){
@@ -54,7 +51,6 @@ void opp::work()
 	saveToFile(res.str());
 	opp::plot = pr->getPlot();
 	opp::delProbPlot = pr->getDelProbPlot();
-    std::cout << "======End OPP model======" << std::endl;
 }
 void opp::saveToFile(std::string str) {
 	std::stringstream ostr;

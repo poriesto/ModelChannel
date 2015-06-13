@@ -10,6 +10,7 @@
 #include <random>
 #include <sstream>
 #include <fstream>
+#include <list>
 typedef unsigned int UINT;
 const UINT STRING_LENGHT = 40;
 typedef std::vector<UINT> Block;
@@ -18,6 +19,7 @@ typedef std::vector<Packet>::iterator piter;
 typedef std::vector<Block>::iterator biter;
 typedef std::vector<UINT>::iterator btsiter;
 struct Code{
+    std::string name;
 	UINT codeLength;
 	UINT DataLength;
 	UINT errorsCorrection;
@@ -63,4 +65,6 @@ std::string to_str(T value){
 	return s.str();
 }
 std::string Code_toStr(Code code);
+std::list<Code> loadFromFile(std::string file);
+Code CodeFromSTR(std::string str);
 #endif //DIPLOM_API_HPP

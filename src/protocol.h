@@ -10,7 +10,7 @@ class protocol {
 public:
 	protocol(const std::vector<Block> &bl, const Code &code) : bl(bl), code(code) {
 		protocol::blSize = (UINT) protocol::bl.begin()->size();
-		protocol::blocks = (UINT) protocol::bl.size();
+        protocol::blocks = (UINT) protocol::bl.size();
 	}
 	virtual ~protocol() { }
 
