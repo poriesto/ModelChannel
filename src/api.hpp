@@ -12,12 +12,9 @@
 #include <fstream>
 #include <list>
 typedef unsigned int UINT;
-const UINT STRING_LENGHT = 40;
 typedef std::vector<UINT> Block;
 typedef std::vector<Block> Packet;
 typedef std::vector<Packet>::iterator piter;
-typedef std::vector<Block>::iterator biter;
-typedef std::vector<UINT>::iterator btsiter;
 struct Code{
     std::string name;
 	UINT codeLength;
@@ -30,19 +27,6 @@ struct Plot{
 	std::vector<double>FrameSize;
 	Code code;
 };
-template<typename T>
-void print(T cont){
-	UINT conter = 0;
-	for(auto value : cont){
-		if(conter == STRING_LENGHT){
-			std::cout << std::endl;
-			conter = 0;
-		}
-		std::cout << value << " ";
-		conter++;
-	}
-	std::cout << std::endl;
-}
 std::vector<UINT> makeSession(UINT SessionLenght);
 std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>bytes);
 std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block> v);

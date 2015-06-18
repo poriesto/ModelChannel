@@ -9,22 +9,14 @@
 class pa
 {
 public:
-	pa(UINT SessionSize, UINT BlockSize) : SessionSize(SessionSize), BlockSize(BlockSize), PacketSize(PacketSize){
-		pa::Blocks = pa::SessionSize / pa::BlockSize;
-		pa::bytes = makeSession(pa::SessionSize);
-	}
+	pa(UINT SessionSize, UINT BlockSize) : SessionSize(SessionSize), BlockSize(BlockSize), PacketSize(PacketSize){}
 	virtual ~pa(){}
 	void setParams(double a, double p){
 		pa::a = a;
 		pa::p = p;
 	}
-	void setCode(UINT codelenght, UINT correction, UINT data, UINT bitsWord){
-		pa::code.codeLength = codelenght;
-		pa::code.DataLength = data;
-		pa::code.errorsCorrection = correction;
-		pa::code.bitsWord = bitsWord;
-	}
-	void setCode(const Code &code){
+
+    void setCode(const Code &code){
 		pa::code = code;
 	}
 	void setProtocol(UINT protocol, UINT PacketSize)	{

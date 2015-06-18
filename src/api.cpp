@@ -9,6 +9,8 @@ std::vector<UINT> makeSession(UINT SessionLenght){
 	std::fill(ve.begin(), ve.end(), 0);
 	return ve;
 }
+
+//create Block from std::vector<UINT>
 std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>bytes){
 	std::vector<Block> ve;
 	UINT IPOS = 0, EPOS = BlockSize;
@@ -24,6 +26,8 @@ std::vector<Block> makeBlocks(UINT Blocks, UINT BlockSize, std::vector<UINT>byte
 	}
 	return ve;
 }
+
+//create Packets from std::vector<Block>
 std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block> v){
 	std::vector<Packet>ve;
 	UINT IPOS = 0, EPOS = PacketSize;
@@ -39,12 +43,16 @@ std::vector<Packet> makePackets(UINT PacketSize, UINT Packets, std::vector<Block
 	}
 	return ve;
 }
+
+//random generator from a to b
 void generator(double a, double b, double& num){
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_real_distribution<> dis(a, b);
 	num = dis(gen);
 }
+
+//transform code to std::string
 std::string Code_toStr(Code code){
 	std::stringstream str;
 	str << code.name << " (" << code.codeLength << ", " << code.DataLength << ", "
@@ -52,6 +60,7 @@ std::string Code_toStr(Code code){
 	return str.str();
 }
 
+//read correction codes list from file
 std::list<Code> loadFromFile(std::string file) {
     std::list<Code> codeList;
     std::ifstream ifile;
@@ -73,25 +82,26 @@ std::list<Code> loadFromFile(std::string file) {
     return codeList;
 }
 
+//Crearte correction code from std::string
 Code CodeFromSTR(std::string str) {
     Code code;
-    int pos = 0, cpos = 0;
+    unsigned int pos = 0, cpos = 0;
 
     //find name in string
-    cpos = str.find(" ", pos);
+    cpos = (unsigned int) str.find(" ", pos);
     code.name = str.substr(pos, cpos - pos);
     //find in string code lenght
-    pos = cpos+1; cpos = str.find((" "), pos);
-    code.codeLength = atoi( str.substr(pos, cpos - pos).c_str() );
+    pos = cpos+1; cpos = (unsigned int) str.find((" "), pos);
+    code.codeLength = (UINT) atoi( str.substr(pos, cpos - pos).c_str() );
     //find in string data len
-    pos = cpos+1; cpos = str.find(" ", pos);
-    code.DataLength = atoi(str.substr(pos, cpos - pos).c_str());
+    pos = cpos+1; cpos = (unsigned int) str.find(" ", pos);
+    code.DataLength = (UINT)atoi(str.substr(pos, cpos - pos).c_str());
     //find in string errors correction
-    pos = cpos+1; cpos = str.find(" ", pos);
-    code.errorsCorrection = atoi(str.substr(pos, cpos - pos).c_str());
+    pos = cpos+1; cpos = (unsigned int) str.find(" ", pos);
+    code.errorsCorrection = (UINT)atoi(str.substr(pos, cpos - pos).c_str());
     //find bits word
-    pos = cpos+1; cpos = str.find(" ", pos);
-    code.bitsWord = atoi(str.substr(pos, cpos-pos).c_str());
+    pos = cpos+1; cpos = (unsigned int) str.find(" ", pos);
+    code.bitsWord = (UINT)atoi(str.substr(pos, cpos-pos).c_str());
 
     return code;
 }

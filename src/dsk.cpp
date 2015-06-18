@@ -3,7 +3,7 @@
 #include <future>
 
 std::vector<UINT> dsk::toAsync(int size) {
-    std::vector<UINT>v(size);
+    std::vector<UINT>v((unsigned long long int) size);
     for(auto cur = v.begin(); cur < v.end(); cur++){
         double a = 0, b = 0, r;
         generator(a,b,r);

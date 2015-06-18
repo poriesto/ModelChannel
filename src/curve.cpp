@@ -58,7 +58,7 @@ void Curve::prepare(sf::Vector2f rangex, sf::Vector2f rangey)
                 rangey.x = *it;
             }
             // max
-            if(float(*it) > float(rangey.y))
+            if(float(*it) > rangey.y)
             {
                 rangey.y = *it;
             }

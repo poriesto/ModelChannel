@@ -3,7 +3,6 @@
 //
 #include "protocol.h"
 #include <thread>
-#include <list>
 #include <future>
 void protocol::work(UINT type, UINT pkSize) {
 	protocol::pkSize = pkSize;
@@ -67,7 +66,6 @@ std::pair<UINT, UINT> protocol::toAsync(piter beg, piter end){
 	return stat_;
 
 }
-//TODO need hard fix
 void protocol::latency() {
 	piter beg, end;
 	beg = pl.begin();
@@ -91,7 +89,7 @@ void protocol::latency() {
 	speed = static_cast<double>(RecivedPackets*packetSize)/
 			static_cast<double>(SentPackets*(blSize*pkSize+
 					CodeBlockCount*(code.codeLength-code.DataLength)*code.bitsWord));
-	singleTime = static_cast<double>((SentPackets*SentPackets)/ (RecivedPackets*frameSize));
+	singleTime = (SentPackets*SentPackets)/ (RecivedPackets*frameSize);
 	std::stringstream ss;
 	ss <<"Код (" << to_str(code.codeLength) << ", " << to_str(code.DataLength) << ", " << to_str(code.errorsCorrection) << ", " << to_str(code.bitsWord) << ")\n"
 		<< "Размер блока, бит = " << blSize << "\nКоличество блоков в кадре = " << pkSize

@@ -29,7 +29,6 @@ name_(name), pPlot_(plot){
 }
 void Graph::update() {
 
-    for (auto value : pPlot_) {
         for (auto value : pPlot_) {
             sf::plot::Curve &curve = plot_.getCurve(
                     Code_toStr(value.code));
@@ -38,10 +37,9 @@ void Graph::update() {
             }
             curve.setLabel(Code_toStr(value.code));
         }
-        sf::Vector2f xrange(0, value.FrameSize.back());
+        sf::Vector2f xrange(0, pPlot_.front().FrameSize.back());
         sf::Vector2f yrange(0, 1);
         plot_.prepare(xrange,yrange);
-    }
 }
 void Graph::draw(sf::RenderTarget &target, sf::RenderStates states) const{
    target.draw(plot_,states);

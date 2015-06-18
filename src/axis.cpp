@@ -29,7 +29,7 @@ void Axis::prepare(const Vector2f &range)
     if(!font_) return ;
     numbers_.clear();
 
-    float distance = fabs(range.y-range.x);
+    float distance = (float) fabs(range.y-range.x);
     if(distance == 0) distance = 1;
 
     float decx = size_ / kPart;

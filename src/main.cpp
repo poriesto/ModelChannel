@@ -2,12 +2,11 @@
 // Created by Alexander on 28.04.2015.
 //
 #include "main.h"
-#include "Graph.h"
-#include <list>
+
 int main(){
     unsigned int SessionLenght = 0, BlockSize = 0, model = 0, protocol = 0, CRC;
-	unsigned int codeLenght = 0, dataLength = 0, errorsCorrection = 0, PacketSize = 0, bitsWord = 0;
-	double A = 0, V = 0, p = 0.0, a = 0.0;
+	unsigned int PacketSize = 0 ;
+	double A = 0, V = 0, p = 0.0;
 	Plot cur;
 	std::list<Plot>spdpls, delprobpls;
 
@@ -19,10 +18,6 @@ int main(){
 	set2params(CRC,PacketSize, "Установите длину CRC последовательности и количество криптоблоков в кадре");
 	BlockSize += CRC;
 
-	/*set2params(codeLenght, errorsCorrection, "Параметры кода:\nУстановите длину кода n(бит) и"
-					" Количество исправляемых ошибок");
-	set2params(dataLength, bitsWord, "Установите длину информационной последовательности k(бит) и длину слова(бит)");
-*/
     std::list<Code>cdl = loadFromFile("Codes.txt");
     for(auto va : cdl){
         std::string tmp = Code_toStr(va);
